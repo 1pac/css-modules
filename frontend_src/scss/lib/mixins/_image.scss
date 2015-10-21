@@ -1,0 +1,30 @@
+// Image Mixins
+// - Responsive image
+// - Retina image
+
+
+@mixin img-liquid($display: null) {
+  @if $display != null {
+    display: $display;
+  }
+  max-width: 100%;
+  height: auto;
+}
+
+@mixin img-solid($display: null) {
+  @if $display != null {
+    display: $display;
+  }
+  max-width: initial;
+  //width: initial;
+  height: auto;
+}
+
+@mixin img-fluid($display: null) {
+  @if $display != null {
+    display: $display;
+  }
+  max-width: initial;
+  width: 100%;
+  height: auto;
+}

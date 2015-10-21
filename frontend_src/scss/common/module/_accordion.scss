@@ -1,0 +1,17 @@
+//
+// accordion
+// --------------------------------------------------
+
+.accordion {
+  .accordion-inner {
+    display: none;
+    overflow: hidden;
+  }
+
+
+  &.open {
+    .accordion-inner {
+      display: block;
+    }
+  }
+}

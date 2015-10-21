@@ -1,0 +1,216 @@
+// carousel
+// ---------------------------------------------------
+
+$hero-width:      2000px;
+$hero-height:      420px;
+$hero-height-thin: 260px;
+
+$hero-width-sm:    640px;
+$hero-height-sm:   460px;
+
+$hero-ratio:       $hero-height      / ($container-width-inner + ($container-padding-side-sm + $col-gutter-half-sm)*2);
+$hero-ratio-thin:  $hero-height-thin / ($container-width-inner + ($container-padding-side-sm + $col-gutter-half-sm)*2);
+
+
+/* products-hero */
+.products-hero {
+
+  .image {
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: $hero-height;
+
+    @include mediaquery-md() {
+      height: 0;
+      padding-bottom: percentage($hero-ratio);
+    }
+
+    @include mediaquery-sm() {
+      height: auto !important;
+    }
+
+    a {
+      display: block;
+    }
+
+    img{
+      position: absolute;
+      left: 50%;
+      top: 0;
+      margin-left: (-0.5 * $hero-width);
+      width: auto;
+      height: 100%;
+
+      @include mediaquery-md() {
+        left: 0;
+        margin-left: -46.75%;
+      }
+
+      @include mediaquery-sm() {
+        position: relative;
+        left: 0;
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  &.thin {
+    .image {
+      height: $hero-height-thin;
+
+      @include mediaquery-md() {
+        height: 0;
+        padding-bottom: percentage($hero-ratio-thin);
+      }
+    }
+  }
+
+}
+
+
+
+.carousel {
+
+  position: relative;
+  width: 100%;
+  visibility: hidden;
+
+  &.active {
+    visibility: visible;
+  }
+
+  .outer {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .scroller {
+    .image {
+      float: left;
+      overflow: hidden;
+
+      @include mediaquery-md() {
+        padding: 0;
+      }
+
+      a {
+        display: block;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+      }
+
+    }
+  }
+
+  .controller {
+    @include opacity(0);
+    @include transition(all .1s $easeOutCubic);
+
+    //タッチデバイスではそもそも使用しない
+    html.touch & {
+      display: none;
+    }
+    
+    //sm表示でも不要とする
+    @include mediaquery-sm() {
+      display: none;
+    }
+  }
+
+  //heroのhoverで前後ボタン出現
+  .scroller:hover + .controller,
+  .controller:hover {
+    @include opacity(1);
+    @include transition-duration(.3s);
+  }
+
+  .btn-prev,
+  .btn-next {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    background: transparent no-repeat center center;
+    background-size: 50px 50px;
+    @include text-hide();
+    @include transition(all .1s $easeOutCubic);
+
+    &:hover {
+      background-color: rgba(0,0,0,0.05);
+      @include transition-duration(.3s);
+    }
+  }
+
+  .btn-prev {
+    left: 0;
+    background-image: url(/img/common/icon_arrow_left_white_lg.png)
+  }
+  .btn-next {
+    right: 0;
+    background-image: url(/img/common/icon_arrow_right_white_lg.png)
+  }
+
+  .indicator {
+    margin: $margin-v-subchapter 0 $margin-v-chapter;
+    letter-spacing: -0.5em;
+    text-align: center;
+    @include mediaquery-sm() {
+      margin: $margin-v-paragraph 0 $margin-v-subchapter-sm;
+    }
+
+    li {
+      display: inline-block;
+      letter-spacing: 0.5em;
+      margin: 0 13px;
+
+      @include mediaquery-sm() {
+        margin: 0 7px;
+      }
+
+      a {
+        display: block;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        border-radius: 7px;
+        width: 14px;
+        height: 14px;
+        background-color: $color-border-light;
+        border: 3px solid $color-border-light;
+
+        &.current {
+          border-color: $color-black;
+          background-color: #fff;
+        }
+
+        @include mediaquery-sm() {
+          width: 8px;
+          height: 8px;
+          border-radius: 4px;
+          &.current {
+            border-width: 4px;
+          }
+        }
+
+      }
+    }
+  }
+
+  &.fonts                .indicator li a.current { border-color: $color-products-fonts; }
+  &.typesetting          .indicator li a.current { border-color: $color-products-typesetting; }
+  &.ebook                .indicator li a.current { border-color: $color-products-ebook; }
+  &.multilingual-service .indicator li a.current { border-color: $color-products-multilingual-service; }
+  &.pod                  .indicator li a.current { border-color: $color-products-pod; }
+
+}
+
+

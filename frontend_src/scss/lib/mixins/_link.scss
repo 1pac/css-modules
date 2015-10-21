@@ -1,0 +1,48 @@
+// Link Mixins
+// ---------------------------------------------------
+
+%link-external {
+  display: inline-block;
+  background: transparent url("/img/common/icon_external_blue.png") right center no-repeat;
+  background-size: 1.14em auto;
+  padding-right: 1.5em;
+
+  /*
+  &::after {
+    content: "";
+    background: transparent url("/img/common/icon_external_blue.png") center center no-repeat;
+    background-size: 1.14em auto;
+    width: 1.14em;
+    height: 1em;
+    display: inline-block;
+    margin-left: 0.25em;
+    vertical-align: middle;
+  }
+  */
+}
+
+%tap-highlight {
+  @include tap-highlight-color(rgba(0,0,0,0));
+  html.touch &:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin hover-and-touched() {
+  html.pointer &:hover,
+  html.touch   &.touched {
+    @content;
+  }
+}
+
+@mixin hover() {
+  html.pointer &:hover {
+    @content;
+  }
+}
+
+@mixin touched() {
+  html.touch &.touched {
+    @content;
+  }
+}

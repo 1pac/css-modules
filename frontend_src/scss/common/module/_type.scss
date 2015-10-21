@@ -1,0 +1,412 @@
+//
+// Typography
+// --------------------------------------------------
+
+
+// Headings
+// -------------------------
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: $line-height-narrow;
+  color: $headings-color;
+
+  small,
+  .small {
+    font-size: 60%;
+    line-height: 1;
+    color: $color-gray-light;
+  }
+  
+  .shoulder {
+    display: block;
+    margin-bottom: .5em;
+    font-size: $font-size-large;
+  }
+  
+  &.no-margin {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  &.no-margin-top {
+    margin-top: 0 !important;
+  }
+  &.no-margin-bottom {
+    margin-bottom: 0 !important;
+  }
+}
+
+h1 {
+  font-size: $font-size-h1;
+  margin-bottom: $margin-v-chapter;
+}
+
+h2 {
+  font-size: $font-size-h2;
+  margin: $margin-v-chapter 0 ($margin-v-chapter - 10);
+}
+
+h3 {
+  font-size: $font-size-h3;
+  margin: ($margin-v-subchapter + 5) 0 ($margin-v-subchapter - 5);
+}
+
+h4 {
+  font-size: $font-size-h4;
+  margin: $margin-v-paragraph+5 0;
+}
+
+h5 {
+  font-size: $font-size-h5;
+  margin: $margin-v-paragraph 0;
+}
+
+h6 {
+  font-size: $font-size-h6;
+  margin: $margin-v-paragraph 0;
+}
+
+
+.underline-blue {
+  border-bottom: $color-link-main-dark 1px solid;
+  padding-bottom: 0.5em;
+
+  /*
+  @include mediaquery-md() {
+    margin-left  : -$container-guide;
+    margin-right : -$container-guide;
+    padding-left :  $container-guide;
+    padding-right:  $container-guide;
+  }
+  */
+
+  @include mediaquery-sm() {
+    margin-left  : -$container-guide-sm;
+    margin-right : -$container-guide-sm;
+    padding-left :  $container-guide-sm;
+    padding-right:  $container-guide-sm;
+  }
+
+}
+
+
+
+@include mediaquery-sm() {
+  h1 {
+    font-size: $font-size-h1-sm;
+    margin-bottom: $margin-v-chapter-sm;
+  }
+  h2 {
+    font-size: $font-size-h2-sm;
+    margin: $margin-v-chapter-sm 0 ($margin-v-chapter-sm - 5);
+  }
+  h3 {
+    font-size: $font-size-h3-sm;
+    margin: ($margin-v-subchapter-sm + 5) 0 ($margin-v-subchapter-sm - 5);
+  }
+  time {
+    font-size: $font-size-small;
+  }
+
+}
+
+
+
+
+// Inline Styling
+// -------------------------
+
+
+//通常の段落
+p {
+  margin: .5em 0;
+  line-height: $line-height-base;
+}
+
+.col > p {
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Absolute font-size
+.text-large,
+.text-lg {
+  font-size: $font-size-large !important;
+}
+
+.text-small,
+.text-sm {
+  font-size: $font-size-small !important;
+}
+
+.text-sm-base {
+  @include mediaquery-sm() {
+    font-size: $font-size-base;
+  }
+}
+
+
+.text-gray {
+  color: $color-gray-light;
+}
+
+.text-blue {
+  color: #2974be;
+}
+
+
+// Relative font-size
+.text-larger {
+  font-size: larger;
+}
+
+.text-smaller {
+  font-size: smaller;
+  h1 &,
+  h2 & {
+    font-size: 60%;
+  }
+}
+
+
+
+
+//上付き/下付き文字
+sup,
+sub {
+  font-size: 70%;
+  line-height: 1;
+  margin-right: .25em;
+
+  h1 &,
+  h2 &,
+  .title & {
+    font-size: 50%;
+  }
+}
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+
+//リード文
+.lead {
+  @include mediaquery-not-sm() {
+    font-size: 18px;
+  }
+}
+
+//注釈
+.note,
+.notes,
+.list-notes {
+  margin: 1em 0;
+  font-size: $font-size-small;
+  color: $color-gray;
+  line-height: $line-height-narrow;
+  list-style: none;
+  li {
+    margin: .5em 0;
+  }
+}
+
+//強調色
+em {
+  font-style: normal;
+  color: $color-assort;
+}
+
+//アテンション文言
+.attention {
+  color: $color-attention;
+}
+
+//小さい文字
+small,
+.small {
+  font-size: floor((100% * $font-size-small / $font-size-base));
+}
+
+//ハイライト文字
+mark,
+.mark {
+  background-color: yellow;
+  padding: .2em;
+}
+
+.title-square {
+  position: relative;
+  padding-left: 1em;
+
+  &::before {
+    width: 5px;
+    height: 5px;
+    background-color: $color-gray-lighter;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 2px;
+    top: .7em;
+  }
+}
+
+blockquote {
+  color: $color-gray-light;
+  display: block;
+  padding-left: 0.7em;
+  border-left: $color-gray-lighter 3px solid;
+  margin: $margin-v-paragraph 0;
+}
+
+
+
+// Sectioning Style
+// ---------------------------------------------------
+
+hr {
+  width: 100%;
+  height: 1px;
+  background-color: $color-border-light;
+  margin: $margin-v-chapter 0;
+
+  .container > &,
+  .row > & {
+    width: auto;
+    margin: $margin-v-paragraph $col-gutter-half;
+    @include mediaquery-sm() {
+      margin: $margin-v-paragraph $col-gutter-half-sm;
+    }
+  }
+}
+
+address {
+  font-style: normal;
+}
+
+h1 {
+  &.title-lg {
+    margin: 80px 0 50px 0;
+    font-size: 44px;
+    line-height: 1.5;
+    @include mediaquery-sm() {
+      margin: 50px 0 20px 0;
+      font-size: 26px;
+    }
+
+    &.no-margin-bottom {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+h2 {
+  &.title-lg {
+    margin: 80px 0;
+    font-size: 36px;
+    @include mediaquery-sm() {
+      margin: 30px 0 25px 0;
+      font-size: 20px;
+    }
+  }
+
+  &.no-margin-bottom {
+    margin-bottom: 0;
+  }
+
+  &.margin-sm {
+    margin: 60px 0 30px 0;
+    @include mediaquery-sm() {
+      margin: 30px 0 25px 0;
+    }
+  }
+
+  &.light {
+    color: #0086ce;
+    font-size: 24px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+// outline
+// -------------------------
+
+
+.chapter {
+  margin-top: $margin-v-chapter;
+  margin-bottom: $margin-v-chapter;
+}
+
+.subchapter {
+  margin-top: $margin-v-subchapter;
+  margin-bottom: $margin-v-subchapter;
+}
+
+.paragraph {
+  margin-top: $margin-v-paragraph;
+  margin-bottom: $margin-v-paragraph;
+}
+
+@include mediaquery-sm(){
+  .chapter {
+    margin-top: $margin-v-chapter-sm;
+    margin-bottom: $margin-v-chapter-sm;
+  }
+
+  .subchapter {
+    margin-top: $margin-v-subchapter-sm;
+    margin-bottom: $margin-v-subchapter-sm;
+  }
+
+  .paragraph {
+    margin-top: $margin-v-paragraph-sm;
+    margin-bottom: $margin-v-paragraph-sm;
+  }
+}
+
+.chapter,
+.subchapter {
+  &.border-top {
+    border-top: 1px solid $color-border-light;
+    &::before {
+      display: block;
+      content: "";
+      height: 0;
+      margin-top: $margin-v-subchapter;
+    }
+  }
+}
+
+/*
+h2,
+.chapter {
+  &:target {
+    margin-top:  (-$margin-v-chapter - $header-height-thin);
+    padding-top: ( $margin-v-chapter + $header-height-thin);
+  }
+}
+
+h3,
+.subchapter {
+  &:target {
+    margin-top:  (-$margin-v-subchapter - $header-height-thin);
+    padding-top: ( $margin-v-subchapter + $header-height-thin);
+  }
+}
+*/

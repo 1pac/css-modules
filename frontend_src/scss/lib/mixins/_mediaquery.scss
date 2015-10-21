@@ -1,0 +1,50 @@
+// mediaquery
+
+@mixin mediaquery-sm() {
+  @media screen and (max-width: $screen-md - 1) {
+    @content;
+  }
+}
+
+@mixin mediaquery-md() {
+  @media screen and (min-width: $screen-md) and (max-width: $screen-lg - 1) {
+    @content;
+  }
+}
+
+@mixin mediaquery-lg() {
+  @media screen and (min-width: $screen-lg ) {
+    @content;
+  }
+}
+
+@mixin mediaquery-not-sm() {
+  @media screen and (min-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin mediaquery-not-lg() {
+  @media screen and (max-width: $screen-lg - 1) {
+    @content;
+  }
+}
+
+
+@mixin mediaquery-min-width($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin mediaquery-max-width($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin mediaquery-retina() {
+  @media (-webkit-min-device-pixel-ratio: 1.5)/*, (min-resolution: 1.5dppx)*/ {
+    @content;
+  }
+}

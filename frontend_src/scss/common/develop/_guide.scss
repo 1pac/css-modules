@@ -1,0 +1,85 @@
+
+/* ---------------------------------------------------
+ * ガイド線 (開発時のみ使用)
+ */
+
+html:target {
+
+  body {
+    &::before,
+    &::after {
+      pointer-events: none;
+      display: block;
+      position: fixed;
+      height: 150%;
+      top: 0;
+      left: 50%;
+      content: "";
+      z-index: $zindex-guide;
+    }
+
+    &::before {
+      width: 1px;
+      background: cyan;
+      @include mediaquery-md() { background: lime;    }
+      @include mediaquery-sm() { background: hotpink; }
+    }
+
+    &::after {
+      outline: cyan 1px solid;
+
+      width: $container-width - $col-gutter;
+      margin-left: ($container-width - $col-gutter) / -2;
+
+      @include mediaquery-md() {
+        outline-color: lime;
+        width: calc(100% - (#{$container-padding-side} * 2) - #{$col-gutter});
+        margin-left: calc(-50% + #{$container-padding-side} + #{$col-gutter-half});
+      }
+
+      @include mediaquery-sm() {
+        outline-color: hotpink;
+        width: calc(100% - (#{$container-padding-side-sm} * 2) - #{$col-gutter-sm});
+        margin-left: calc(-50% + #{$container-padding-side-sm} + #{$col-gutter-half-sm});
+      }
+
+    }
+  }
+
+
+  &::before {
+    z-index: $zindex-guide + 1;
+    color: white;
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 5px;
+    font-size: 10px;
+
+    content: attr(class);
+    background: #00C0C0;
+
+    @include mediaquery-md() {
+      background: #38B63D;
+    }
+
+    @include mediaquery-sm() {
+      background: #CE3D74;
+    }
+  }
+
+  /*
+  main, section, nav, aside {
+    outline: cyan 1px solid;
+  }
+
+  div, ul, ol, nav, dl {
+    outline: red 1px solid;
+  }
+  div div, p, a, li, span, strong, em {
+    outline: yellow 1px solid;
+  }
+  */
+
+}

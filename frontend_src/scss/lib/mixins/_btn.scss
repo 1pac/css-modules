@@ -1,0 +1,90 @@
+// btn
+// ---------------------------------------------------
+
+@mixin btn() {
+  font-size: ($font-size-base - 1);
+  display: inline-block;
+  margin: 5px .3em 5px 0;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  min-width: 7.5em;
+  border: 1px solid rgba(0,0,0,0.05);
+
+  color: #fff;
+  background-color: $color-btn-base;
+  padding: .6em .6em .5em;
+  border-radius: 4px;
+  line-height: $line-height-narrower;
+  //white-space: nowrap;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  @include user-select(none);
+  @include tap-highlight-color(transparent);
+
+
+  &:last-child,
+  &:only-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background-color: lighten($color-btn-base, 6%);
+    @include transition(background-color .1s $easeOutCubic);
+    &:focus {
+      outline: none;
+      @include transition(none);
+    }
+  }
+
+  &:active,
+  &.active {
+    background-color: $color-btn-blue;
+    border-color: rgba(0,0,0,0.1);
+    &:hover {
+      @include transition(none);
+    }
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: default;
+    pointer-events: none;
+    color: rgba(#ffffff, 0.8);
+    background-color: rgba(#666666, 0.6);
+    @include opacity(.65);
+  }
+}
+
+
+//Size
+@mixin btn-lg() {
+  font-size: $font-size-base;
+  padding: 0.9em 1.3em 1em;
+}
+
+@mixin btn-sm() {
+  padding: .4em 1em .3em;
+}
+
+@mixin btn-full() {
+  width: 100%;
+  margin-right: 0;
+}
+
+@mixin btn-block() {
+  min-width: initial;
+  min-width: auto;
+  display: block;
+  margin-right: 0;
+  width: 100%;
+}
+
+@mixin btn-wide() {
+  min-width: 10em;
+  padding-left: 1.2em;
+  padding-right: 1.2em;
+}

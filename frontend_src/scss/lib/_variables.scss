@@ -1,0 +1,239 @@
+//
+// Variables
+// --------------------------------------------------
+
+// スクリーン幅
+// 〜767         : sm
+//   768〜1023   : md
+//        1024〜 : lg
+
+$screen-md:   640px !default; //この数値以上で md 表示
+$screen-lg:  1032px !default; //この数値以上で lg 表示
+
+
+// グリッドシステム
+// ---------------------------------------------------
+
+$container-width-inner:    984px !default;
+$container-padding-side:    12px !default;
+$container-padding-side-sm: 20px !default;
+$container-width:          $container-width-inner + $container-padding-side * 2; //全カラム幅 12 + 984 + 12
+
+
+$col-num:         12   !default;
+$col-width:       84px !default;
+$col-gutter:      24px !default;
+$col-gutter-half: $col-gutter / 2 !default;
+
+$col-gutter-sm:   10px !default;
+$col-gutter-half-sm: $col-gutter-sm / 2 !default;
+
+$breakpoint-header-compact : 900px !default;
+
+$container-guide:           $container-padding-side    + $col-gutter-half;
+$container-guide-wide:      $container-padding-side    + $col-gutter;
+$container-guide-sm:        $container-padding-side-sm + $col-gutter-half-sm;
+$container-guide-sm-wide:   $container-padding-side-sm + $col-gutter-sm;
+
+
+
+// ゾーニング
+// ---------------------------------------------------
+
+$header-height:         55px !default;
+$header-height-compact: 50px !default;
+$header-height-thin:    40px !default;
+
+$content-padding-top:      $header-height !default;
+$content-padding-top-sm:   $header-height-compact !default;
+$content-main-padding-top: 30px !default;
+
+$caterogy-header-height:   $header-height !default;
+
+
+// z-index
+// ---------------------------------------------------
+
+// 9：ガイドレイヤー
+$zindex-guide:             9010 !default;
+
+// 3：ポップアップレイヤー
+$zindex-popup:             3010 !default;
+
+// 2：追従オブジェクトレイヤー
+$zindex-fixed-header:      2020 !default;
+$zindex-fixed-pagetop:     2010 !default;
+
+// 1：フローコンテンツレイヤー
+$zindex-flow-content:      1010 !default;
+
+
+// 色定義
+// ---------------------------------------------------
+
+//コーポレートブルー
+$color-brand-corporate:  #424db3 !default;
+$color-brand-main:       #1e62cf !default;
+
+
+//事業カラー
+$color-products-fonts:                #262626;
+$color-products-ebook:                #1e6de7;
+$color-products-typesetting:          #707375;
+$color-products-multilingual-service: #ea5948;
+$color-products-pod:                  #fee82b;
+
+
+//グレースケール
+$color-white:                #fff    !default;
+$color-almost-white:         #f6f6f6 !default;
+// ↓
+$color-gray-lightest:        #f0f0f0 !default;
+$color-gray-lighter:         #ccc    !default;
+$color-gray-light:           #999    !default;
+$color-gray-slightly-light:  #7f7f7f !default;
+// ↑
+$color-gray:                 #666    !default; //ベース色
+// ↓
+$color-gray-slightly-dark:   #444444 !default;
+$color-gray-dark:            #333    !default;
+$color-gray-darker:          #252525 !default;
+$color-gray-darkest:         #0c0c0c !default;
+// ↑
+$color-black:                #000    !default;
+
+
+//リンクカラー
+$color-link-main:            #0086ce !default;
+$color-link-main-dark:       #3271b9 !default;
+$color-link-visited:         #634AB9 !default;
+
+//警告色
+$color-attention:            #df0100 !default;
+$color-attention-bg:         #fff3f3 !default;
+
+//アソートカラー
+$color-assort:               #df7802 !default;
+
+//罫線
+$color-border-lighter:       #f0f0f0 !default;
+$color-border-light:         #e5e5e5 !default;
+
+
+//ボタンカラー
+$color-btn-base:             #4c4c4c !default;
+$color-btn-blue:             $color-link-main-dark !default;
+
+
+
+// ベジエ曲線
+// Original：http://easings.net/
+// ---------------------------------------------------
+
+$ease:           ease;        // = cubic-bezier(0.25, 0.1, 0.25, 1.0)
+$linear:         linear;      // = cubic-bezier(0.0,  0.0, 1.0,  1.0)
+$easeIn:         ease-in;     // = cubic-bezier(0.42, 0,   1.0,  1.0)
+$easeOut:        ease-out;    // = cubic-bezier(0,    0,   0.58, 1.0)
+$easeInOut:      ease-in-out; // = cubic-bezier(0.42, 0,   0.58, 1.0)
+
+$easeInSine:     cubic-bezier(0.47,  0,     0.745, 0.715);
+$easeOutSine:    cubic-bezier(0.39,  0.575, 0.565, 1    );
+$easeInOutSine:  cubic-bezier(0.445, 0.05,  0.55,  0.95 );
+$easeInQuad:     cubic-bezier(0.55,  0.085, 0.68,  0.53 );
+$easeOutQuad:    cubic-bezier(0.25,  0.46,  0.45,  0.94 );
+$easeInOutQuad:  cubic-bezier(0.455, 0.03,  0.515, 0.955);
+
+$easeInCubic:    cubic-bezier(0.55,  0.055, 0.675, 0.19 );
+$easeOutCubic:   cubic-bezier(0.215, 0.61,  0.355, 1    );
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1    );
+$easeInQuart:    cubic-bezier(0.895, 0.03,  0.685, 0.22 );
+$easeOutQuart:   cubic-bezier(0.165, 0.84,  0.44,  1    );
+$easeInOutQuart: cubic-bezier(0.77,  0,     0.175, 1    );
+
+$easeInQuint:    cubic-bezier(0.755, 0.05,  0.855, 0.06 );
+$easeOutQuint:   cubic-bezier(0.23,  1,     0.32,  1    );
+$easeInOutQuint: cubic-bezier(0.86,  0,     0.07,  1    );
+$easeInExpo:     cubic-bezier(0.95,  0.05,  0.795, 0.035);
+$easeOutExpo:    cubic-bezier(0.19,  1,     0.22,  1    );
+$easeInOutExpo:  cubic-bezier(1,     0,     0,     1    );
+
+$easeInCirc:     cubic-bezier(0.6,   0.04,  0.98,  0.335);
+$easeOutCirc:    cubic-bezier(0.075, 0.82,  0.165, 1    );
+$easeInOutCirc:  cubic-bezier(0.785, 0.135, 0.15,  0.86 );
+$easeInBack:     cubic-bezier(0.6,  -0.28,  0.735, 0.045);
+$easeOutBack:    cubic-bezier(0.175, 0.885, 0.32,  1.275);
+$easeInOutBack:  cubic-bezier(0.68, -0.55,  0.265, 1.55 );
+
+
+
+// 書式
+// ---------------------------------------------------
+
+$body-bg:               #fff !default;
+$font-color-basic:      $color-black !default;
+$link-color:            $color-link-main !default;
+
+
+$font-family-sans-serif:  'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3'Meiryo, メイリオ, sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base:        $font-family-sans-serif !default;
+
+$font-size-base:          14px !default;
+$font-size-large:         16px !default;
+$font-size-small:         12px !default;
+$font-size-xsmall:        10px !default;
+
+$font-size-h1:            36px !default;
+$font-size-h1-sm:         28px !default;
+$font-size-h2:            24px !default;
+$font-size-h2-sm:         22px !default;
+$font-size-h3:            18px !default;
+$font-size-h3-sm:         16px !default;
+$font-size-h4:            14px !default;
+$font-size-h5:            14px !default;
+$font-size-h6:            14px !default;
+
+
+//行送り
+$line-height-wide:        2.4 !default;
+$line-height-base:        2.0 !default;
+$line-height-narrow:      1.7 !default;
+$line-height-narrower:    1.4 !default;
+
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
+
+//字送り
+$letter-spacing-wide:     0.12em !default;
+$letter-spacing-base:     0.05em !default;
+$letter-spacing-base-sm:  0.10em !default;
+
+$headings-font-family:    inherit !default;
+$headings-font-weight:    500 !default;
+$headings-line-height:    1.1 !default;
+$headings-color:          inherit !default;
+
+
+// レイアウト
+// ---------------------------------------------------
+
+//バーティカルリズム
+$margin-v-chapter:       40px;
+$margin-v-subchapter:    20px;
+$margin-v-paragraph:     10px;
+
+//バーティカルリズムsm
+$margin-v-chapter-sm:    30px;
+$margin-v-subchapter-sm: 20px;
+$margin-v-paragraph-sm:  10px;
+
+
+// デコレーション
+// ---------------------------------------------------
+
+//角丸
+$border-radius-base:    4px;
+$border-radius-small:   2px;
+
+
+

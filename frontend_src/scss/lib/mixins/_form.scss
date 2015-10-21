@@ -1,0 +1,69 @@
+// Form Mixins
+// ---------------------------------------------------
+
+%form-label {
+  cursor: pointer;
+}
+
+%form-input {
+  @include appearance(none);
+  display: inline-block;
+  font-family: $font-family-base !important;
+  line-height: $line-height-narrower;
+  background-color: #f9f9f9;
+  border: $color-gray-lighter 1px solid;
+  @include box-shadow(inset 0 -500px 0 0 #f9f9f9);
+  border-radius: 4px;
+  font-size: $font-size-large;
+  padding: .25em .25em .25em .5em;
+  min-width: 4em;
+  margin: 5px 6px 5px 0;
+  @include transition(all .1s $easeOutCubic);
+
+  &:hover {
+    border-color: #a6a6a6;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: #fff;
+    border-color: $color-link-main;
+    @include box-shadow(inset 0 -500px 0 0 #fff);
+  }
+
+  &::-webkit-input-placeholder { color: $color-gray-lighter; }
+  &:-ms-input-placeholder { color: $color-gray-lighter; }
+  &::-moz-placeholder { color: $color-gray-lighter; }
+}
+
+
+
+%select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  cursor: pointer;
+  @include box-shadow(inset 0 0 0 2px rgba(0,0,0,0.2));
+  display: inline-block;
+  padding: .3em 30px .3em .6em ;
+  background: #fff url(/img/common/icon_arrow_select.png) right center no-repeat;
+  background-size: 24px auto;
+  font-size: 16px;
+  vertical-align: middle;
+
+  /*
+  @include scale(0.9);
+  @include transform-origin(left center);
+  */
+
+  text-indent: 0.01px; //for Firefox
+  text-overflow: ''; //for Firefox
+
+  background-image: none\9; //IE8
+  padding: 0 0 0 3px\9; //IE8
+
+  &::-ms-expand {
+    display: none;
+  }
+}

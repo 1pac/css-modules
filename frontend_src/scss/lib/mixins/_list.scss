@@ -1,0 +1,32 @@
+// Lists Mixins
+// ---------------------------------------------------
+
+@mixin list-style-none() {
+  list-style: none;
+  li {
+    padding-left: 0;
+    &::before {
+      display: none;
+    }
+  }
+}
+
+@mixin list-style-square() {
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-left: 1.3em;
+
+    &::before {
+      width: 5px;
+      height: 5px;
+      background-color: $color-gray-lighter;
+      content: "";
+      display: block;
+      position: absolute;
+      left: 2px;
+      top: .5em;
+    }
+  }
+}
