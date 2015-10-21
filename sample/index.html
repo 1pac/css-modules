@@ -390,14 +390,13 @@ background-color: blue;
 
 
 <h3 id="img-liquid">リキッド幅</h3>
-<p>コンテンツエリア内の画像はデフォルトで、親の横幅を超えないように <code>max-width:100%;</code>が指定されています。</p>
+<p><code>.img-liquid</code>クラスを付与することで、親の横幅を超えないように <code>max-width:100%;</code>を指定することができます。</p>
 <div class="_sample">
-<img src="//placehold.it/800x300" alt=""> <!-- 親の幅を超えない -->
+<img class="img-liquid" src="//placehold.it/800x300" alt=""> <!-- 親の幅を超えない -->
 </div>
-<p class="notes">※ <code>.img-liquid</code>を付与することで明示的にこの挙動にスタイルすることもできますが原則省略可</p>
 
 <h3 id="img-solid">ソリッド幅</h3>
-<p>この原則に逆らい、親の幅に関わらず画像の元サイズや指定幅通りに表示する場合は、<code>.img-solid</code>をimg要素に指定します。この場合コンテンツエリアをはみ出して横スクロールが発生する可能性があることに留意ください。</p>
+<p>逆に明示的に、親の幅に関わらず画像の元サイズや指定幅通りに表示する場合は、<code>.img-solid</code>をimg要素に指定します。この場合コンテンツエリアをはみ出して横スクロールが発生する可能性があることに留意ください。</p>
 <div class="_sample _only-code">
 <img class="img-solid" src="//placehold.it/800x300" alt=""> <!-- 親の幅に関わらず固定サイズで表示 -->
 </div>
