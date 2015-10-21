@@ -90,14 +90,6 @@
     @include box-shadow(none !important);
   }
 
-  .gnav-home a {
-    margin-left: -10px - $col-gutter-half !important;
-  }
-
-  .category-navigation {
-    padding: 0 $col-gutter-half !important;
-  }
-
   .container {
     padding: 0 !important;
   }
@@ -110,37 +102,12 @@
     padding-top: 10px !important;
   }
 
-  .cnav-menu,
-  .content-header,
-  .content-footer,
-  .gnav-menu-toggle,
-  .gnav-menu,
-  .gnav-subcategory,
-  .footer-sitemap,
-  .pagetop-btn,
-  .fu-nav,
-  .fu-region {
-    display: none !important;
-  }
-
   .img-replace {
   visibility: visible !important;
   }
 
-  .products-hero {
-    width: 100% !important;
-    .image {
-      width: 100% !important;
-      img {
-        width: 100% !important;
-        height: auto !important;
-      }
-    }
-  }
-
   .table-default,
-  .bc-wysiwyg table,
-  .csv-table table {
+  .bc-wysiwyg table {
     th, td {
       border-bottom-width: 1px !important;
       vertical-align: top !important;

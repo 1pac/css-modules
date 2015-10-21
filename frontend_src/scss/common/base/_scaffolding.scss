@@ -16,19 +16,19 @@ body {
 
 }
 
-#content {
-  padding-top: $content-padding-top;
-
-  .global-header.compact + &,
-  html.touch & {
-    padding-top: $header-height-compact;
-  }
-
-  @media (max-width: $breakpoint-header-compact) {
-    padding-top: $content-padding-top-sm;
-  }
-
-}
+//#content {
+//  padding-top: $content-padding-top;
+//
+//  .global-header.compact + &,
+//  html.touch & {
+//    padding-top: $header-height-compact;
+//  }
+//
+//  @media (max-width: $breakpoint-header-compact) {
+//    padding-top: $content-padding-top-sm;
+//  }
+//
+//}
 
 #content-main {
   padding: $margin-v-chapter 0 ($margin-v-chapter+40);
@@ -40,6 +40,7 @@ body {
 
   &.no-padding {
     padding-top: 0;
+    padding-bottom: 0;
   }
 
   &.no-padding-top {
@@ -48,13 +49,6 @@ body {
 
   &.no-padding-bottom {
     padding-bottom: 0;
-  }
-
-  > *:last-child,
-  > *:last-child > *:last-child,
-  > *:last-child > *:last-child > *:last-child,
-  > *:last-child > *:last-child > *:last-child > *:last-child {
-    margin-bottom: 0;
   }
 }
 
