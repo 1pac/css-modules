@@ -1,0 +1,351 @@
+// Variables Override
+// ---------------------------------------------------
+
+$header-height-global: 105px;
+$header-height-compact-global: 60px;
+
+
+//
+// scaffolding override
+// ---------------------------------------------------
+
+body {
+  letter-spacing: normal;
+  @include mediaquery-sm() {
+    letter-spacing: normal;
+  }
+}
+
+#content {
+  padding-top: 0;
+
+  .global-header.compact + &,
+  html.touch & {
+    padding-top: 0;
+  }
+
+  @media (max-width: $breakpoint-header-compact) {
+    padding-top: 0;
+  }
+}
+
+//
+// global-header
+// ---------------------------------------------------
+
+/* STRUCTURE
+
+ #global-header
+   .skip-navigation
+   .global-navigation
+     .gnav-container
+       .gnav-main
+         .gnav-home
+         .gnav-menu-toggle
+       .gnav-menu
+         .gnav-category
+   .gnav-modal
+
+*/
+
+// Base
+// ---------------------------------------------------
+
+.skip-navigation {
+  @include sr-only();
+  @include sr-only-focusable();
+  outline: none;
+  background-color: $color-gray-lightest;
+  display: block;
+  //@include transition(all .1s $easeOutCubic);
+
+  span {
+    display: inline-block;
+    text-decoration: underline;
+    border: 1px dotted #000;
+    font-size: 10px;
+    padding: 7px 5px;
+    margin: 0 10px;
+  }
+
+  &:active,
+  &:focus {
+    padding: 10px 0;
+  }
+}
+
+#global-header {
+  line-height: 1;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: $zindex-fixed-header;
+  //@include transition(all .2s $easeOutCubic);
+}
+
+.gnav-menu-toggle,
+.gnav-tab {
+  display: none;
+}
+
+.global-navigation {
+  background-color: #fff;
+  height: $header-height-global;
+  @include box-shadow(0 1px 0 0 rgba(0,0,0,0.15));
+  //@include transition(all .2s $easeOutCubic);
+}
+
+.gnav-container {
+  margin: 0 auto;
+  position: relative;
+  width: auto;
+  height: 100%;
+  max-width: $container-width + ($container-padding-side * 2); // 1080 + (8*2) = 1024
+  padding: 0 ($col-gutter-half + $container-padding-side);
+}
+
+.gnav-main {
+  height: auto;
+}
+
+
+// Corporate Logo
+// ---------------------------------------------------
+
+.gnav-home {
+  position: relative;
+  display: inline-block;
+  top: 10px;
+  margin: 0;
+  padding: 0;
+  @include transition(top .2s $easeOutCubic);
+
+  a {
+    display: block;
+    @include tap-highlight-color(rgba(255,255,255,0.4));
+    @include text-hide();
+  }
+
+  img {
+    display: block;
+  }
+}
+
+// Category List
+// ---------------------------------------------------
+
+.gnav-category {
+  position: absolute;
+  right: 9px;
+  top: 50%;
+  list-style: none;
+  padding: 0;
+  margin-top: -.7em;
+
+  @include clearfix;
+  @include transition(height .2s $easeOutCubic);
+}
+
+.gnav-category-item {
+  margin: 0 10px;
+  float: left;
+
+  a {
+    display: block;
+    font-size: 14px;
+    height: 100%;
+    color: $color-black;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 5px;
+    position: relative;
+    @include transition(padding-top .1s $easeOutCubic);
+    &:hover {
+      color: $color-gray-slightly-light;
+    }
+  }
+}
+
+
+// Modal
+// ---------------------------------------------------
+
+.gnav-modal {
+  display: none;
+  background-color: transparent;
+  width: 100%;
+  height: 150%;
+  position: fixed;
+  z-index: -1;
+}
+
+
+
+// Compact Mode
+// ---------------------------------------------------
+
+@mixin global-header-compact() {
+
+  .global-navigation {
+    height: $header-height-compact-global;
+  }
+
+  .gnav-container {
+    max-width: 100%;
+    width: 100%;
+    height: $header-height-compact-global;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .gnav-main {
+    background-color: $color-white;
+    width: 100%;
+    height: $header-height-compact-global;
+    z-index: $zindex-fixed-header;
+    position: relative;
+  }
+
+  .gnav-home {
+    top: 8px;
+    left: $container-guide-sm - 10;
+
+    a img {
+      width: $header-height-compact-global - 16;
+      height: $header-height-compact-global - 16;
+    }
+  }
+  
+
+  .gnav-menu-toggle {
+    position: relative;
+    float: right;
+    width: $header-height-compact;
+    height: $header-height-compact-global;
+    display: block;
+    text-align: center;
+    margin: 0;
+    @include text-hide();
+
+    padding: (($header-height-compact-global - 20)/2) (($header-height-compact - 20)/2);
+
+    .icon-menu {
+      display: block;
+      background: url(/img/common/gnav_icon_menu.png) 0 -30px no-repeat;
+      background-size: 20px 50px;
+      @include transition(all .1s $easeOutCubic);
+      width: 20px;
+      height: 20px;
+    }
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: "";
+      width: 100%; //80%
+      height: 0;
+      background-color: transparent;
+      margin: 0 auto;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      @include transition(all .1s $linear);
+    }
+  }
+
+  .gnav-menu {
+    display: none;
+    position: relative;
+    z-index: $zindex-fixed-header - 1;
+  }
+
+  .gnav-category {
+    text-align: left;
+    position: relative;
+    left: 0;
+    top: 0;
+    height: auto;
+    background-color: $color-white;
+    //@include box-shadow(0 1px 0 0 rgba(0,0,0,0.1));
+
+    padding: 20px 16px 60px;
+  }
+
+  .gnav-category-item {
+    float: none;
+    margin: 0;
+
+    a {
+      border-bottom: 1px solid $color-gray-lightest;
+      padding: 20px 20px 20px 5px;
+      background: url(/img/common/icon_arrow_right_gray.png) right center no-repeat;
+      background-size: 9px 16px;
+
+      &::after {
+        display: none;
+        @include transition(none);
+      }
+
+    }
+
+  }
+
+  .gnav-modal {
+    display: none;
+  }
+
+
+  // Compact Mode: Open
+  // ---------------------------------------------------
+  &.open {
+    .gnav-main {
+      background-color: #f7f7f7;
+      box-shadow: 0 1px 0 0 rgba(0,0,0,0.1);
+    }
+
+    // Hamburger Button
+    .gnav-menu-toggle {
+
+      .icon-menu {
+        background-position: 0 0;
+      }
+
+      &::after {
+        width: 100%;
+        background-color: #141414;
+        height: 2px;
+      }
+
+    }
+
+    //Dropdown
+    .gnav-menu {
+      display: block;
+    }
+
+    //Modal
+    .gnav-modal {
+      display: block;
+      background-color: #fff;
+    }
+
+
+  }
+}
+
+
+#global-header {
+
+  // Execute Compact Mode
+  // ---------------------------------------------------
+  @media (max-width: $breakpoint-header-compact) {
+    @include global-header-compact();
+  }
+
+  html.touch &,
+  &.compact {
+    @include global-header-compact();
+  }
+
+}

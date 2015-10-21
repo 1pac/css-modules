@@ -1,0 +1,165 @@
+//
+// Image
+// --------------------------------------------------
+
+//Super Class
+.img-liquid {
+  @include img-liquid();
+}
+.img-solid {
+  @include img-solid();
+}
+.img-fluid {
+  @include img-fluid();
+}
+.img-liquid-inline-block {
+  @include img-liquid(inline-block);
+}
+.img-liquid-block {
+  @include img-liquid(block);
+}
+.img-replace {
+  visibility: hidden; //TODO: 印刷時に表示されるか確認
+}
+
+.img-bordered {
+  border: 1px solid $color-border-light;
+}
+
+.img-full {
+  width: 100%;
+  height: auto;
+}
+.img-full-v {
+  height: 100%;
+  width: auto;
+}
+
+
+
+//General
+.article img,
+.block-content img { //TODO: 継承強くなってしまうが生指定だと強すぎる。代案浮かばない
+  @extend .img-liquid;
+}
+
+.image,
+.video {
+  margin-bottom: $margin-v-subchapter - 5;
+  .text + & {
+    margin-top: $margin-v-subchapter;
+  }
+}
+
+
+.img-title,
+.video-title,
+.img-caption {
+  font-size: $font-size-small;
+  margin: ($margin-v-paragraph+3) 0 $margin-v-subchapter;
+  padding: 0 0 0 12px;
+  line-height: $line-height-narrow;
+  border-left: 3px solid $color-border-light;
+  text-align: left;
+}
+
+.img-title,
+.video-title {
+  color: $color-black;
+  display: block;
+}
+
+.img-caption, {
+  color: $color-gray;
+  display: block;
+  strong {
+    margin: 0;
+  }
+  .img-title + & {
+    margin-top: -$margin-v-subchapter;
+  }
+}
+
+.scroll-container,
+.scroll-container-full {
+  overflow: auto;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  img {
+    @include img-solid();
+  }
+}
+
+.scroll-container {
+  width: 100%;
+  max-width: 100%;
+}
+
+.scroll-container-full {
+  @include mediaquery-md() {
+    margin-left:  -$container-guide;
+    margin-right: -$container-guide;
+    > * {
+      display: block;
+      margin: 0 $container-guide;
+      border-right: solid transparent $container-guide;
+    }
+  }
+  @include mediaquery-sm() {
+    margin-left:  -$container-guide-sm;
+    margin-right: -$container-guide-sm;
+    > * {
+      display: block;
+      margin: 0 $container-guide-sm;
+      border-right: solid transparent $container-guide-sm;
+    }
+  }
+}
+
+.img-scaled {
+  display: table;
+  width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+
+  img {
+    @extend .img-solid;
+    max-width: ($col-width * $col-num) - $col-gutter;
+
+    @include mediaquery-md() {
+      max-width: 90vw; // calc(); あるいは calc内vwが非対応のフォールバック対応
+      max-width: calc(100vw - #{2*$container-guide});
+      //TODO: 100vwの中にスクロールバーが含まれているためPCではスクロールバー分はみ出るがいい案がないので一旦放置
+    }
+
+    @include mediaquery-sm(){
+      max-width: calc(100vw - #{2*$container-guide-sm});
+    }
+  }
+}
+
+
+//
+// Video
+// --------------------------------------------------
+
+.video-container {
+  @include box-sizing(content-box);
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding: 0 0 56.25% 0; //TODO:16:9をデフォルトで考える?
+
+  &.aspect-4by3   { padding-bottom: 75%;    }
+  &.aspect-16by9  { padding-bottom: 56.25%; }
+  &.aspect-16by10 { padding-bottom: 62.5%;  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}

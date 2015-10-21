@@ -1,0 +1,367 @@
+// コンフィデンシャルモード
+// ---------------------------------------------------
+//a[href="/"] {
+//  visibility: hidden !important;
+//}
+
+
+@mixin dev-show-attr($attr: class, $color: rgba(0,0,0,0.7), $top: 2px, $left: 0, $right: auto, $position: absolute) {
+  &::after {
+    color: $color;
+    position: $position;
+    font-size: 11px;
+    left: $left;
+    right: $right;
+    top: $top;
+    content: attr($attr);
+    z-index: 1;
+    letter-spacing: normal;
+    font-family: $font-family-base !important;
+  }
+}
+
+
+
+// サンプル用表現
+// ---------------------------------------------------
+._red {
+  color: red !important;
+}
+h2._red {
+  font-size: $font-size-large;
+  background-color: rgba(255,0,0,0.1);
+  padding: 0 0.3em;
+  margin-bottom: 0;
+  code {
+    color: rgba(#f00, 0.8) !important;
+    margin-left: 1em;
+    top: -2px;
+    position: relative;
+    background-color: rgba(255,255,255,0.5);
+  }
+}
+h3._red{
+  font-size: $font-size-base;
+  margin-bottom: 0;
+}
+
+._heading-anchor {
+  display: inline-block;
+  margin-left: -1.28em;
+  margin-right: 0;
+  color: $color-gray-lighter;
+  opacity: 0;
+
+  h2:hover &,
+  h3:hover & {
+    opacity: 1;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+    opacity: 1;
+    text-decoration: none;
+    color: $color-link-main;
+  }
+
+  &::before {
+    content: "¶";
+    display: block;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    width: 1.25em;
+  }
+}
+
+._prepend-dummy {
+  &::before {
+    content: "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。";
+  }
+}
+._prepend-lorem {
+  &::before {
+    content: "Lorem ipsum dolor sit amet, probo senserit molestiae ut quo, odio vide ipsum per id. Quo eius ignota id, an usu dolorem ancillae, ius autem ponderum ut. In doctus fuisset persecuti eam, assueverit sadipscing pro ut. In malis moderatius duo.";
+  }
+}
+
+
+._bc-sample {
+  position: relative;
+  @include dev-show-attr(id, red, -20px, 0);
+}
+
+._sample-index {
+  .child {
+    margin: 0 0 0 20px;
+    font-size: smaller;
+  }
+}
+
+._out-of-container {
+  pre {
+    position: relative;
+    left: -129px;
+    max-width: 732px;
+    margin: 0 auto;
+    @include mediaquery-not-lg() {
+      margin: 20px $container-guide-sm;
+      left: 0;
+      max-width: 70%;
+    }
+    @include mediaquery-sm(){
+      max-width: 100%;
+    }
+  }
+}
+
+
+
+
+
+
+// グリッド可視化
+// ---------------------------------------------------
+html:target,
+._sample:not(._no-guide) {
+
+  @mixin dev-show-row($padding) {
+    box-shadow:
+    inset    $padding 0 0 0 rgba(255,255,255, 0.8),
+    inset -1*$padding 0 0 0 rgba(255,255,255, 0.8);
+  }
+
+  @mixin dev-show-col($padding) {
+    box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset    $padding 0 0 0 rgba(255,255,255, 0.8),
+    inset -1*$padding 0 0 0 rgba(255,255,255, 0.8);
+  }
+
+  .container,
+  .container-full {
+    outline: red 1px dotted;
+    @include dev-show-attr(class, red, -16px, 0);
+    //margin-top: 20px;
+    //padding-top: 10px;
+
+    .row-no-gutter,
+    .row-md-no-gutter,
+    .row-sm-no-gutter {
+      @include box-shadow(none);
+    }
+  }
+
+  .row {
+    @include dev-show-attr(class, blue, 0, auto, 3px);
+    .row + &,
+    .col + & {
+      border-top: dotted 1px blue;
+    }
+  }
+
+  .col {
+    background: rgba(#458e99, 0.18);
+    @include dev-show-col($col-gutter-half);
+    @include dev-show-attr(class, rgba(0,0,0,0.7), 5px, $col-gutter-half+10);
+  }
+
+  .row-wide-gutter .col {
+    @include dev-show-col($col-gutter);
+    @include mediaquery-sm() {
+      @include dev-show-col($col-gutter-sm);
+    }
+  }
+
+  .row-no-gutter {
+    .col {
+      @include box-shadow(inset 0 0 0 1px rgba(0, 0, 0, 0.1));
+    }
+  }
+
+  @include mediaquery-md() {
+    .col {
+      background-color: rgba(#3aa655, 0.18);
+      .row-md-gutter & {
+        @include dev-show-col($col-gutter-half);
+      }
+      .row-md-no-gutter & {
+        @include box-shadow(inset 0 0 0 1px rgba(0, 0, 0, 0.1));
+      }
+    }
+  }
+
+  @include mediaquery-sm() {
+    .col {
+      background-color: rgba(#ca2530, 0.13);
+      @include dev-show-col($col-gutter-half-sm);
+      @include dev-show-attr(class, rgba(0,0,0,0.7), 10px, $col-gutter-half-sm+10);
+
+      .row-sm-no-gutter & {
+        @include box-shadow(inset 0 0 0 1px rgba(0, 0, 0, 0.1));
+      }
+      .row-sm-gutter & {
+        @include dev-show-col($col-gutter-half-sm);
+      }
+    }
+  }
+}
+
+._module._grid {
+  ._sample {
+    .col {
+      min-height: 60px;
+    }
+  }
+
+}
+
+
+// レビュー用
+// ---------------------------------------------------
+$_review-img-padding-side: 11.56%;
+
+._review {
+  margin: 0;
+  padding: 0 !important;
+  overflow: hidden;
+  position: relative;
+
+  ._review-img {
+    width: 100%;
+    @include mediaquery-md(){
+      width: 123.12%;
+      margin-left: calc(-14.1% + #{$col-gutter-half + $container-padding-side}) ;
+    }
+    @include mediaquery-lg() {
+      width: 1280px;
+      top: 0;
+      left: 50%;
+      margin-left: -640px;
+      position: relative;
+    }
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+
+// 不正可視化
+// ---------------------------------------------------
+
+@mixin dev-alert($attr:null, $content:"問題があります") {
+
+  outline: rgba(red,0.5) 4px solid;
+
+  @if $attr != null {
+    &::before {
+      content: attr($attr);
+      top: -15px;
+      left: 0;
+      color: red;
+      font-size: 10px;
+      display: block;
+      z-index: $zindex-guide;
+      font-family: $font-family-base !important;
+    }
+  }
+
+  &::after {
+    content: $content;
+    font-family: $font-family-base !important;
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: red;
+    color: white;
+    font-size: 10px;
+    padding: .2em .5em;
+    z-index: $zindex-guide;
+  }
+
+}
+
+
+html:target body:not(._module) { //"._module"配下の場合は対象外
+
+  //「_sample」クラスの混入可視化
+  *[class^="_"] {
+    @include dev-alert(class, "【注意】「_」から始まるclassが残っています");
+  }
+
+  // ダミーリンク可視化
+  a[href=""],
+  a[href="DUMMY"],
+  a[href="dummy"],
+  a[href="dummy"] {
+    @include dev-alert(href, "【注意】ダミーのhrefが残っています");
+  }
+}
+
+// ダミーリンクデフォルト可視化
+//a[href=""],
+//a[href="DUMMY"],
+//a[href="dummy"],
+//a[href="dummy"] {
+//  @include dev-alert(null, "【注意】ダミーのhrefが残っています");
+//}
+
+/*
+.module {
+  .cnav-group-content {
+    li {
+      a::after {
+        content: attr(href);
+        display: block;
+        color: red;
+        font-size: 10px;
+      }
+    }
+  }
+}
+*/
+
+
+// ブロックモジュール可視化
+// ---------------------------------------------------
+
+$bc-highlight-color : #458e99;
+
+#content:target {
+  .bc-normal,
+  .bc-attention,
+  .bc-emphasize,
+  .bc-footnotes,
+  .bc-files-row,
+  .bc-related-link,
+  .bc-wysiwyg,
+  .bc-images-row,
+  .bc-pair-specimen,
+  .bc-related-terms,
+  .bc-report-url,
+  .bc-voices-header,
+  .bc-voices-footer {
+    position: relative;
+    @include dev-show-attr(class, white, -17px, -2px);
+    &::after {
+      background-color: rgba(red, 0.8);
+      padding: 0 .5em
+    }
+    outline: red 2px solid;
+    background-color: rgba($bc-highlight-color, .1);
+
+    .subchapter {
+      position: relative;
+      @include dev-show-attr(class, white, -1px, -1px);
+      outline: blue 1px dotted;
+      background-color: rgba($bc-highlight-color, .1);
+      &::after {
+        background-color: rgba(blue, 0.8);
+        padding: 0 .5em
+      }
+    }
+  }
+}

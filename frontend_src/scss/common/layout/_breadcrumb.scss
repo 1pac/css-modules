@@ -1,0 +1,56 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+.breadcrumb-wrapper {
+  display: none;
+}
+@include mediaquery-not-sm() {
+
+  .breadcrumb-wrapper {
+    display: block;
+    background-color: #f7f7f7;
+  }
+
+  .breadcrumb {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    list-style: none;
+    font-size: $font-size-small;
+    letter-spacing: .1em;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+
+
+    > li {
+      max-width: 50%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      color: $color-gray-slightly-light;
+
+      + li:before {
+        content: "/\00a0";
+        padding: 0 3px;
+        color: $color-gray-lighter;
+      }
+    }
+
+    a {
+      display: inline-block;
+      color: #000;
+      text-decoration: none;
+      @include transition(color .2s $easeOutCubic);
+      border-radius: 4px;
+
+      &:hover {
+        text-decoration: underline;
+        color: $color-gray;
+      }
+
+    }
+
+  }
+
+}

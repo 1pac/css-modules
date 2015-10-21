@@ -1,0 +1,212 @@
+//
+// Grid system
+// --------------------------------------------------
+
+
+// ---------------------------------------------------
+// container
+//
+.container {
+  @include container();
+}
+
+.container-full {
+  @include container-full();
+}
+
+.container-middle {
+  .col {
+    vertical-align: middle;
+  }
+}
+
+.container-bottom {
+  .col {
+    vertical-align: bottom;
+  }
+}
+
+.container-top {
+  .col {
+    vertical-align: top;
+  }
+}
+
+
+// ---------------------------------------------------
+// row - 基本定義
+//
+.row {
+  @include row();
+}
+
+// ---------------------------------------------------
+// col - 基本定義
+//
+.col {
+  @include col();
+}
+
+@for $i from 1 through $col-num {
+  .col-#{$i} {
+    width: percentage(($i / $col-num));
+  }
+  .col-offset-#{$i} {
+    margin-left: percentage(($i / $col-num));
+  }
+}
+
+.col-with-gutter {
+  @include box-sizing(content-box);
+}
+
+
+// ---------------------------------------------------
+// タブレットサイズ定義
+//
+@include mediaquery-md() {
+
+  .container-md {
+    @include container();
+  }
+  .container-md-full {
+    @include container-full();
+  }
+
+  @for $i from 1 through $col-num {
+    .col-md-#{$i} {
+      width: percentage(($i / $col-num));
+    }
+  }
+  @for $i from 1 through $col-num {
+    .col-md-offset-#{$i} {
+      margin-left: percentage(($i / $col-num));
+    }
+  }
+  .col-md-offset-0 {
+    margin-left: 0;
+  }
+
+  .row-md-no-gutter {
+    @include row-no-gutter();
+  }
+
+  .row-md-gutter {
+    .col {
+      padding: 0 $col-gutter-half;
+    }
+  }
+
+}
+
+// ---------------------------------------------------
+// スマホサイズ定義
+//
+@include mediaquery-sm() {
+
+  .container-sm {
+    @include container();
+  }
+  .container-sm-full {
+    @include container-full();
+  }
+
+  .col {
+    width: 100%;
+    padding: 0 $col-gutter-half-sm;
+  }
+
+  @for $i from 1 through $col-num {
+    .col-sm-#{$i} {
+      display: inline-block;
+      width: percentage(($i / $col-num));
+    }
+  }
+  @for $i from 1 through $col-num {
+    .col-offset-#{$i} {
+      margin-left: 0;
+    }
+  }
+  @for $i from 1 through $col-num {
+    .col-sm-offset-#{$i} {
+      margin-left: percentage(($i / $col-num));
+    }
+  }
+  .col-sm-offset-0 {
+    margin-left: 0;
+  }
+
+  .row-sm-no-gutter {
+    @include row-no-gutter();
+  }
+
+  .row-sm-gutter {
+    .col {
+      padding: 0 $col-gutter-half-sm;
+    }
+  }
+
+}
+
+
+
+// ---------------------------------------------------
+// カラムユーティリティ
+
+.row-no-gutter {
+  @include row-no-gutter();
+  @include mediaquery-sm() {
+    padding: 0 $col-gutter-half-sm;
+  }
+}
+
+
+//Wide Gutter
+.row-wide-gutter {
+  margin-left: (-$col-gutter-half);
+  margin-right: (-$col-gutter-half);
+
+  .col {
+    padding: 0 $col-gutter;
+    .container {
+      margin-left: (-$container-guide-wide);
+      margin-right: (-$container-guide-wide);
+    }
+  }
+
+  @include mediaquery-sm() {
+    margin-left: (-$col-gutter-half-sm);
+    margin-right: (-$col-gutter-half-sm);
+    .col {
+      padding: 0 $col-gutter-sm;
+      .container {
+        margin-left: (-$container-guide-sm-wide);
+        margin-right: (-$container-guide-sm-wide);
+      }
+    }
+  }
+}
+
+//Container Nested
+
+.col .container {
+  margin-left:  (-$col-gutter-half);
+  margin-right: (-$col-gutter-half);
+  padding-left: 0;
+  padding-right: 0;
+
+  @include mediaquery-sm() {
+    margin-left:  (-$col-gutter-half-sm);
+    margin-right: (-$col-gutter-half-sm);
+  }
+}
+
+.row-wide-gutter .col .container {
+  margin-left:  (-$col-gutter);
+  margin-right: (-$col-gutter);
+
+  @include mediaquery-sm() {
+    margin-left:  (-$col-gutter-sm);
+    margin-right: (-$col-gutter-sm);
+  }
+}

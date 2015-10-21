@@ -1,0 +1,76 @@
+body {
+  color: $font-color-basic;
+  font-size: $font-size-base;
+  font-family: $font-family-base;
+  word-wrap: break-word;
+  //word-break: break-all;
+
+  line-break: strict;
+  letter-spacing: $letter-spacing-base;
+  -webkit-font-smoothing: subpixel-antialiased;
+  vertical-align: top;
+
+  @include mediaquery-sm() {
+    letter-spacing: $letter-spacing-base-sm;
+  }
+
+}
+
+#content {
+  padding-top: $content-padding-top;
+
+  .global-header.compact + &,
+  html.touch & {
+    padding-top: $header-height-compact;
+  }
+
+  @media (max-width: $breakpoint-header-compact) {
+    padding-top: $content-padding-top-sm;
+  }
+
+}
+
+#content-main {
+  padding: $margin-v-chapter 0 ($margin-v-chapter+40);
+  min-height: 40vh;
+
+  @include mediaquery-sm(){
+    padding: $margin-v-chapter-sm 0 ($margin-v-chapter+20);
+  }
+
+  &.no-padding {
+    padding-top: 0;
+  }
+
+  &.no-padding-top {
+    padding-top: 0;
+  }
+
+  &.no-padding-bottom {
+    padding-bottom: 0;
+  }
+
+  > *:last-child,
+  > *:last-child > *:last-child,
+  > *:last-child > *:last-child > *:last-child,
+  > *:last-child > *:last-child > *:last-child > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+a {
+  color: $color-link-main;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+// スクリーンリーダー対応
+.sr-only {
+  @include sr-only();
+}
+.sr-only-focusable {
+  @include sr-only-focusable();
+}

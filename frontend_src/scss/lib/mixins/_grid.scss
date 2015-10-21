@@ -1,0 +1,71 @@
+
+// ---------------------------------------------------
+// グリッドシステム
+//
+@mixin container() {
+  //@include box-sizing(border-box);
+  max-height: 100%;
+  //font-size: 0.0001px;   // TODO: Android 4.0.4 対策：ちょっと危ない
+  //letter-spacing: -10px; // TODO: Android 4.0.4 対策：ちょっと危ない
+  font-size: 0.000001px;
+  letter-spacing: -.4em;
+  margin: 0 auto;
+  width: auto;
+  max-width: $container-width + ($container-padding-side * 2); // 1008 + (8*2) = 1024
+  padding: 0 $container-padding-side;
+  position: relative;
+  -webkit-text-size-adjust: none;
+
+  @include mediaquery-sm() {
+    padding: 0 $container-padding-side-sm;
+  }
+}
+
+@mixin container-full() {
+  //@include box-sizing(border-box);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+  font-size: 0;
+  position: relative;
+  letter-spacing: 0;
+
+  .row-no-gutter,
+  .row-md-no-gutter,
+  .row-sm-no-gutter {
+    padding: 0;
+  }
+}
+
+@mixin row() {
+  //@include box-sizing(border-box);
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+}
+
+@mixin row-no-gutter() {
+  padding: 0 $col-gutter-half;
+  @include mediaquery-sm() {
+    padding: 0 $col-gutter-half-sm;
+  }
+  .col {
+    padding: 0;
+  }
+}
+
+@mixin col() {
+  padding: 0 $col-gutter-half;
+  font-size: $font-size-base;
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  letter-spacing: $letter-spacing-base;
+
+  @include mediaquery-sm() {
+    padding: 0 $col-gutter-half-sm;
+    letter-spacing: $letter-spacing-base-sm;
+  }
+}

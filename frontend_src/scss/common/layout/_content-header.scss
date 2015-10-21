@@ -1,0 +1,116 @@
+//
+// content-navigation
+// ---------------------------------------------------
+
+
+.content-header,
+.content-footer {
+  font-size: 13px;
+  line-height: 13px;
+  width: 100%;
+  height: 41px;
+  overflow: hidden;
+  letter-spacing: .04em;
+  //margin-top: 1px; //category-headerの下1pxスミを表示するため -> 現状不要判断
+
+  @include mediaquery-sm(){
+    height: 35px;
+  }
+
+  &:empty {
+    height: 0;
+  }
+}
+
+.content-navigation {
+  background-color: #fafafa;
+  width: 100%;
+  height: 60px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-align: center;
+  -webkit-overflow-scrolling: touch;
+  @include box-shadow(inset 0 -20px 0 0 rgba(0,0,0,0.1));
+  @include mediaquery-sm(){
+    height: 54px;
+  }
+
+  .navi,
+  .content-navigation-list {
+
+    height: 40px;
+    text-align: center;
+    width: auto;
+    display: inline-table;
+    margin: 0 auto;
+
+    @include mediaquery-sm(){
+      height: 34px;
+      padding-left: ($container-guide-sm - 13px);
+      padding-right: ($container-guide-sm - 13px);
+    }
+
+    li {
+      display: table-cell;
+      //min-width: 90px;
+
+      a {
+        display: block;
+        padding: 13px 18px;
+        color: #000;
+        text-align: center;
+        white-space: nowrap;
+
+        @include transition(all .1s $easeOutCubic);
+        &:hover {
+          color: $color-gray;
+          text-decoration: none;
+        }
+
+        @include mediaquery-sm() {
+          padding: 10px 13px;
+        }
+      }
+    }
+    /*
+    &.few {
+      @include mediaquery-sm() {
+        display: block;
+      }
+      li {
+        @include mediaquery-sm() {
+          display: inline-block;
+        }
+      }
+    }
+    */
+  }
+}
+
+
+.content-header {
+  .navi,
+  .content-navigation-list {
+    li.current {
+      a {
+        border-bottom: 2px solid #000;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.content-footer {
+  .content-navigation {
+    @include box-shadow(inset 0 1px 0 0 rgba(0,0,0,0.1), inset 0 -20px 0 0 rgba(0,0,0,0.1));
+  }
+  .navi,
+  .content-navigation-list {
+    li.current {
+      a {
+        border-top: 2px solid #000;
+        pointer-events: none;
+      }
+    }
+  }
+}

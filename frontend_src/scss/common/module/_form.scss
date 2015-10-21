@@ -1,0 +1,72 @@
+//
+// Form parts
+// --------------------------------------------------
+
+
+
+.label {
+  @extend %form-label;
+}
+
+.input,
+input[type="search"].input {
+  @extend %form-input;
+}
+
+input[type="submit"] {
+  letter-spacing: $letter-spacing-base;
+}
+
+input[type="number"] {
+  width: 4.5em;
+}
+
+.input-lg,
+input[type="search"].input-lg {
+  font-size: 18px;
+  padding: .4em .3em .35em .6em;
+  @include mediaquery-sm() {
+    padding: .3em .3em .25em .6em;
+  }
+}
+
+.input-sm,
+input[type="search"].input-sm {
+  font-size: $font-size-small;
+  padding: .3em .4em .2em .4em;
+  @include mediaquery-sm() {
+    padding: .15em .15em .12em .4em;
+  }
+}
+
+.input-full {
+  width: 100%;
+}
+
+.input-block,
+.select-block {
+  display: block;
+  width: 100%;
+}
+
+
+.select {
+  @extend %select;
+}
+
+.select-lg {
+  padding: .6em 30px .6em 1em ;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  border: 1px solid $color-gray-light;
+  display: inline-block;
+  vertical-align: middle;
+  &:checked {
+    border-color: $color-gray;
+  }
+  //@include mediaquery-retina() {
+  //  border-width: 0.5px;
+  //}
+}

@@ -1,0 +1,87 @@
+// Table Mixins
+// ---------------------------------------------------
+
+// table-default
+@mixin table-default() {
+  width: 99.8%; //Chromeの小数計算で overflowするときがあるので
+  table-layout: auto;
+  font-size: $font-size-base - 1;
+  margin: $margin-v-subchapter 0;
+  @include mediaquery-sm() {
+    margin: $margin-v-subchapter-sm 0;
+  }
+
+  caption {
+    text-align: left;
+    margin-bottom: $margin-v-paragraph;
+  }
+
+  th,td {
+    padding: 12px 20px;
+    border-style: solid;
+    border-width: 0 0 1px 1px;
+  }
+
+  td {
+    border-color: $color-border-light;
+  }
+
+  th, td {
+    &:last-child {
+      border-right-width: 1px;
+    }
+  }
+
+  tr {
+    &:first-child {
+      > td,
+      > th {
+        border-top-width: 1px;
+      }
+    }
+    &:last-child {
+      > td,
+      > th {
+        border-bottom-width: 1px;
+      }
+    }
+    &:nth-child(odd) {
+      td {
+        background-color: $color-almost-white;
+      }
+    }
+  }
+
+  thead td,
+  th {
+    border-color: #595959;
+    background-color: $color-gray !important;
+    color: #fff;
+    border-bottom-width: 1px;
+
+    &.dark {
+      border-color: #505050;
+      background-color: #575757 !important;
+      border-right-width: 1px;
+    }
+  }
+
+  .cell-empty {
+    border: none !important;
+    background-color: $color-white !important;
+  }
+}
+
+@mixin table-compact() {
+  font-size: $font-size-small;
+  th, td {
+    padding: 8px 14px;
+  }
+}
+
+@mixin table-no-stripe() {
+  td {
+    border-bottom-width: 1px !important;
+    background-color: $color-white !important;
+  }
+}

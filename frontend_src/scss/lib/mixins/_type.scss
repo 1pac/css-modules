@@ -1,0 +1,43 @@
+// Types Mixins
+// ---------------------------------------------------
+
+
+// text-ellipsis
+@mixin text-ellipsis() {
+  overflow: hidden;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+}
+
+// text-hide
+@mixin text-hide() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+@mixin text-vertical() {
+  -webkit-writing-mode: vertical-rl;
+     -moz-writing-mode: vertical-rl;
+       -o-writing-mode: vertical-rl;
+          writing-mode: tb-rl;         //IE
+          writing-mode: vertical-rl;
+}
+
+@mixin text-square() {
+  position: relative;
+  padding-left: 1em;
+
+  &::before {
+    width: 0.4em;
+    height: 0.4em;
+    background-color: $color-gray-lighter;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: .6em;
+  }
+}

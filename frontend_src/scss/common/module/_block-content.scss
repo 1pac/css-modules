@@ -1,0 +1,66 @@
+//
+// Block Content
+// --------------------------------------------------
+
+.block-content {
+  .text,
+  .bc-wysiwyg {
+    ul {
+      margin: $margin-v-subchapter 0;
+      @include list-style-square();
+    }
+  }
+}
+
+.bc-related-link {
+  h2 {
+    display: none;
+  }
+}
+
+@include mediaquery-not-sm(){
+  .bc-about-news,
+  .bc-information {
+    h1 {
+      font-size: 28px;
+      margin-top: -8px;
+    }
+  }
+}
+
+// 関連用語
+.bc-related-terms {
+  h2 {
+    display: none;
+  }
+  .list-links {
+    &::before {
+      content: "関連用語";
+      display: block;
+      margin: $margin-v-paragraph 0;
+      font-size: $font-size-large;
+    }
+  }
+}
+
+// 複数ファイルダウンロード
+.bc-files-row {
+  margin-top: $margin-v-subchapter;
+  margin-bottom: $margin-v-subchapter;
+  li {
+    margin: .7em 0;
+  }
+  a {
+    display: inline-block;
+  }
+}
+
+.bc-wysiwyg {
+  overflow: auto;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  /*
+  width: 100%;
+  max-width: 100%;
+  */
+}

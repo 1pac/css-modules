@@ -1,0 +1,208 @@
+//
+// Links
+// --------------------------------------------------
+
+
+a[href^="tel:"],
+a[href^="mailto:"] {
+  color: $color-black;
+  &:hover {
+    color: $color-link-main;
+  }
+}
+
+a[target="_blank"],
+a[target="new"] {
+}
+
+.link-external {
+  @extend %link-external;
+}
+
+
+// tap-highlight
+// -------------------------
+.tap-highlight {
+  @extend %tap-highlight;
+}
+
+
+// dot
+// -------------------------
+
+/* 汎用化しない
+
+$link-dot-size-small: 50px;
+
+.link-dot {
+  position: relative;
+  background-color: #fff;
+  overflow:hidden;
+
+  img {
+    @include transition(all .1s $easeOutCubic);
+  }
+  
+  &::after {
+    @include scale(0);
+    @include opacity(0);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: $link-dot-size-small;
+    height: $link-dot-size-small;
+    margin: -0.5*$link-dot-size-small 0 0 -0.5*$link-dot-size-small;
+    content: "";
+    display: block;
+    border-radius: 50%;
+    border: 0.5*$link-dot-size-small solid $color-white;
+    @include transition(all .1s $easeOutCubic);
+  }
+
+  &:hover {
+
+    img {
+      @include opacity(0.8);
+    }
+
+    &::after {
+      border-width: 20px;
+      @include scale(1);
+      @include opacity(0.7);
+    }
+  }
+
+}
+*/
+
+.link-to-all {
+  display: inline-block;
+  background: url("/img/common/icon_grid_blue.png") left center no-repeat;
+  background-size: 13px 13px;
+  padding-left: 18px;
+  color: $color-black;
+  &:hover {
+    @include opacity(0.8);
+    text-decoration: none;
+  }
+  &:active {
+    @include opacity(1);
+    color: $color-link-main;
+  }
+}
+
+
+// card
+// -------------------------
+
+.link-card {
+  display: block;
+  margin: $margin-v-subchapter 0;
+  color: $color-black;
+  @extend %tap-highlight;
+  @include transition(all .2s $easeOutCubic);
+  @include mediaquery-sm() {
+    margin: $margin-v-subchapter-sm 0;
+  }
+  .image {
+    background-color: #000;
+    img {
+      backface-visibility: hidden;
+      //@include translate3d(0,0,0);
+      @include img-liquid(); //Experimental
+      @include opacity(0.9);
+      @include transition(all .2s $easeOutCubic);
+    }
+  }
+  .title {
+    font-size: $font-size-large;
+    margin: $margin-v-paragraph 0;
+    line-height: 1.5;
+  }
+
+  @include hover-and-touched() {
+    text-decoration: none;
+    .title {
+      color: $color-link-main;
+    }
+    .image {
+      img {
+        @include opacity(1);
+      }
+    }
+  }
+
+  &.light {
+    .image {
+      background-color: #fff;
+      img {
+        @include opacity(1);
+      }
+    }
+
+    @include hover-and-touched() {
+      .image {
+        img {
+          @include opacity(0.8);
+        }
+      }
+    }
+  }
+}
+
+
+// flip
+// -------------------------
+
+.link-flip {
+  display: block;
+  background-color: #484848;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #fff;
+  width: 100%;
+  @extend %tap-highlight;
+  @include transition(all .2s $easeOutCubic);
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    @include triangle-upright(15px, $color-btn-blue);
+    @include transition(all .3s $easeOutCubic);
+  }
+
+  //カラーバリエーション
+  &.fonts::after                { border-right-color: $color-products-fonts; }
+  &.typesetting::after          { border-right-color: $color-products-typesetting; }
+  &.ebook::after                { border-right-color: $color-products-ebook; }
+  &.multilingual-service::after { border-right-color: $color-products-multilingual-service; }
+  &.pod::after                  { border-right-color: $color-products-pod; }
+
+  @include hover-and-touched() {
+    color: #fff;
+    text-decoration: none;
+    &::after {
+      border-width: 0 500px 500px 0;
+      @include transition(all .3s $easeInCubic);
+    }
+    &.pod {
+      color: #000;
+      @include transition-delay(.2s);
+    }
+  }
+
+  &.square {
+    height: 0;
+    padding-bottom: 100%;
+  }
+
+  .content {
+    padding: $col-gutter;
+  }
+
+}

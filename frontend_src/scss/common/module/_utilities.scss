@@ -1,0 +1,229 @@
+//
+// Utility classes
+// --------------------------------------------------
+
+
+// Text
+// -------------------------
+
+// vertical
+.text-vertical {
+  @include text-vertical();
+}
+
+.text-ellipsis {
+  @include text-ellipsis();
+}
+
+// Alignment
+.text-left             { text-align: left; }
+.text-right            { text-align: right; }
+.text-center           { text-align: center; }
+.text-justify          { text-align: justify; }
+.text-nowrap           { white-space: nowrap; }
+
+.vertical-top          { vertical-align: top; }
+.vertical-middle       { vertical-align: middle; }
+.vertical-bottom       { vertical-align: bottom; }
+.vertical-baseline     { vertical-align: baseline; }
+.vertical-text-top     { vertical-align: text-top; }
+.vertical-text-bottom  { vertical-align: text-bottom; }
+
+@include mediaquery-lg() {
+  .text-lg-left        { text-align: left;   }
+  .text-lg-right       { text-align: right;  }
+  .text-lg-center      { text-align: center; }
+  .vertical-lg-top     { vertical-align: top; }
+  .vertical-lg-middle  { vertical-align: middle; }
+  .vertical-lg-bottom  { vertical-align: bottom; }
+}
+
+@include mediaquery-not-lg() {
+  .text-md-left        { text-align: left;   }
+  .text-md-right       { text-align: right;  }
+  .text-md-center      { text-align: center; }
+  .vertical-md-top     { vertical-align: top; }
+  .vertical-md-middle  { vertical-align: middle; }
+  .vertical-md-bottom  { vertical-align: bottom; }
+}
+
+@include mediaquery-sm() {
+  .text-sm-left        { text-align: left;   }
+  .text-sm-right       { text-align: right;  }
+  .text-sm-center      { text-align: center; }
+  .vertical-sm-top     { vertical-align: top; }
+  .vertical-sm-middle  { vertical-align: middle; }
+  .vertical-sm-bottom  { vertical-align: bottom; }
+}
+
+// Transformation
+.text-lowercase      { text-transform: lowercase; }
+.text-uppercase      { text-transform: uppercase; }
+.text-capitalize     { text-transform: capitalize; }
+
+// Contextual colors
+.text-muted {
+  color: $color-gray-light;
+}
+
+.text-indent {
+  text-indent: 0.5em;
+  //display: inline-block;
+}
+
+.text-outdent {
+  text-indent: -0.5em;
+  display: inline-block;
+}
+
+.text-square {
+  @include text-square();
+}
+
+.text-wide {
+  letter-spacing: $letter-spacing-wide;
+}
+
+.line-narrow {
+  line-height: $line-height-narrow;
+}
+
+.line-narrower {
+  line-height: $line-height-narrower;
+}
+
+
+
+
+// Floats
+// -------------------------
+
+.clearfix {
+  @include clearfix;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pull-right {
+  float: right !important;
+  table & {
+    padding-left: 20px;
+  }
+  > *:first-child {
+    margin-top: 0;
+  }
+}
+
+.pull-left {
+  float: left !important;
+  table & {
+    padding-right: 20px;
+  }
+  > *:first-child {
+    margin-top: 0;
+  }
+}
+
+
+// Floats
+// -------------------------
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+
+
+// hidden
+// ---------------------------------------------------
+
+.hide,
+.hidden {
+  display: none !important;
+}
+
+.show,
+.shown {
+  display: block !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+// ウィンドウサイズを条件にしたhidden
+@include mediaquery-not-lg() { .hidden-not-lg {display: none !important;} }
+@include mediaquery-not-sm() { .hidden-not-sm {display: none !important;} }
+@include mediaquery-lg()     { .hidden-lg     {display: none !important;} }
+@include mediaquery-md()     { .hidden-md     {display: none !important;} }
+@include mediaquery-sm()     { .hidden-sm     {display: none !important;} }
+
+// デバイスタイプを条件にしたhidden
+html.touch   .hidden-touch   { display: none !important; }
+html.pointer .hidden-pointer { display: none !important; }
+
+
+.invisible {
+  visibility: hidden;
+}
+
+.text-hide {
+  @include text-hide;
+}
+
+
+// For Affix plugin
+// -------------------------
+
+.affix {
+  position: fixed;
+}
+
+.no-padding {
+  padding: 0;
+}
+.no-padding-top {
+  padding-top: 0;
+}
+.no-padding-bottom {
+  padding-bottom: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+.no-margin-top {
+  margin-top: 0;
+}
+
+// width percentage
+// ---------------------------------------------------
+@for $i from 1 through 20 {
+  .percent-#{5*$i} {
+    width: (5% * $i);
+  }
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+
+// border
+// ---------------------------------------------------
+.border-top    { border-top:    1px solid $color-border-light; }
+.border-right  { border-right:  1px solid $color-border-light; }
+.border-bottom { border-bottom: 1px solid $color-border-light; }
+.border-left   { border-left:   1px solid $color-border-light; }
+

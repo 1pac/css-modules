@@ -1,0 +1,47 @@
+//
+// Table
+// --------------------------------------------------
+
+.table-default {
+  @include table-default();
+
+  &.compact {
+    @include table-compact();
+  }
+
+  &.no-stripe {
+    @include table-no-stripe();
+  }
+}
+
+
+.bc-wysiwyg,
+.csv-table {
+  table {
+    @extend .table-default;
+
+    td {
+      > p:first-child { margin-top:    0; }
+      > p:last-child  { margin-bottom: 0; }
+    }
+  }
+
+  &.compact {
+    table {
+      @include table-compact();
+    }
+  }
+}
+
+// table
+.scroll-container {
+  .table-default {
+    @include mediaquery-sm() {
+      th,
+      td {
+        max-width: 280px;
+        min-width: 120px;
+      }
+    }
+  }
+}

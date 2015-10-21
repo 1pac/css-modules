@@ -1,0 +1,39 @@
+// Box Mixins
+
+@mixin box-full($bgcolor: $color-almost-white, $ratio:1) {
+  padding-top: $margin-v-subchapter;
+  padding-bottom: $margin-v-subchapter;
+  background-color: $bgcolor;
+
+
+
+  @include box-shadow(
+  //     -1440px*$ratio 0 0 0 $bgcolor, -1440px*$ratio 0 0 0 $bgcolor,
+          -720px*$ratio 0 0 0 $bgcolor,   720px*$ratio 0 0 0 $bgcolor
+  );
+
+  @include mediaquery-max-width(1280px) {
+    @include box-shadow(-640px*$ratio 0 0 0 $bgcolor, 640px*$ratio 0 0 0 $bgcolor);
+  }
+
+  @include mediaquery-max-width(960px) {
+    @include box-shadow(-480px*$ratio 0 0 0 $bgcolor, 480px*$ratio 0 0 0 $bgcolor);
+  }
+
+  @include mediaquery-max-width(640px) {
+    @include box-shadow(-320px 0 0 0 $bgcolor, 320px 0 0 0 $bgcolor);
+  }
+
+  @include mediaquery-max-width(480px) {
+    @include box-shadow(-240px 0 0 0 $bgcolor, 240px 0 0 0 $bgcolor);
+  }
+
+  @include mediaquery-max-width(320px) {
+    @include box-shadow(-160px 0 0 0 $bgcolor, 160px 0 0 0 $bgcolor);
+  }
+
+
+  //@include box-shadow(-50vw 0 0 0 $bgcolor, 50vw 0 0 0 $bgcolor);
+
+  border-radius: 0.1px;
+}

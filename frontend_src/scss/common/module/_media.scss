@@ -1,0 +1,88 @@
+// Media
+// ---------------------------------------------------
+
+.media-right,
+.media-left {
+  //margin: $margin-v-subchapter 0;
+  @include clearfix();
+
+  //画像部分
+  .image {
+    display: table;
+    width: 60px;
+    //max-width: 50%;  //experimental
+    margin-bottom: 0;
+    .img-caption {
+      margin-bottom: 0;
+    }
+    img {
+      //width: 100%; //experimental
+      margin-top: .35em;
+      max-width: 480px;
+
+      // todo: col-9 とかに入っているときの max-width を工夫する
+
+      @include img-solid();
+      @include mediaquery-sm(){
+        max-width: 100px; // vw非対応フォールバック
+        max-width: 34vw;
+      }
+    }
+  }
+
+  //テキスト部分
+  .text {
+    overflow: hidden;
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    &.fluid { //ミス対応
+      overflow: visible;
+    }
+  }
+
+  //回り込みパターン
+  &.fluid {
+    .image {
+      margin-bottom: $margin-v-subchapter;
+    }
+    .text {
+      overflow: visible;
+    }
+  }
+}
+
+
+.media-left .image {
+  float: left;
+  padding-right: 28px;
+  @include mediaquery-sm(){
+    padding-right: 20px;
+  }
+}
+.media-right .image {
+  float: right;
+  padding-left: 28px;
+  @include mediaquery-sm(){
+    padding-left: 20px;
+  }
+}
+
+@include mediaquery-sm(){
+  .media-not-sm {
+    .image {
+      padding: 0;
+      display: block;
+      width: 100%;
+      float: none;
+      margin-bottom: $margin-v-paragraph;
+      img {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
+}

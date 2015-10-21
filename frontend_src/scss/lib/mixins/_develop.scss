@@ -1,0 +1,8 @@
+// only in development
+// ---------------------------------------------------
+
+@mixin outline($color: red) {
+  html:target & {
+    outline: 1px solid $color;
+  }
+}
