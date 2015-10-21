@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja" id="guide" class="pointer">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="">
+<link rel="apple-touch-icon" href="">
+<title>css-modules</title>
+<meta name="description" content="">
+
+<link rel="stylesheet" href="../public/css/common/common.css">
+<link rel="stylesheet" href="../public/css/common/module.css">
+
+<!-- only for gh-pages -->
+<link rel="stylesheet" href="css/sample.css">
+<link rel="stylesheet" href="js/libs/highlight.js/8.4/styles/solarized_light.min.css">
+<script src="js/libs/jquery-1.11.3.min.js"></script>
+<script src="js/libs/highlight.js/8.4/highlight.min.js"></script>
+<script src="js/sample.js"></script>
+<!-- /only for gh-pages -->
+
+</head>
+
+<body>
+
+<header id="global-header">
+<div class="container">
+<div class="col">
+<h1>css-modules</h1>
+</div>
+</div>
+</header>
+
+<section id="content">
+
+<div class="content-header">
+<div class="content-navigation">
+<ul class="content-navigation-list">
+<li><a href="index.html">基本モジュール</a></li>
+<li><a href="bc.html">ブロックモジュール</a></li>
+<li class="current"><a href="grid.html">グリッドシステム</a></li>
+</ul>
+</div>
+</div>
+
+<main id="content-main" class="">
+
+<div class="container">
+
+<div class="col">
+<h1>グリッドシステム</h1>
+<h2 id="structure">基本構造</h2>
+<h3 id="structure-container">.container</h3>
+<p><code>.container</code>はカラムグリッドを形成する親要素、<code>.col</code>は各々のカラムとなります。<code>.container</code>の直下には<code>.col</code>のみを置くようにしてください。(ただし後述の<code>.row</code>は例外)</p>
+<div class="_sample subchapter">
+<div class="container">
+<div class="col">
+<!-- この中にコーディングする -->
+</div>
+</div>
+</div>
+<p class="notes">※ 以下のコードサンプルでは<code>&lt;div class="container"&gt;</code>を省略しています。</p>
+</div>
+
+<div class="col">
+<h3 id="structure-col">.col</h3>
+<p><code>.col</code>はinline-block要素、左右にpadding(Gutter)を持っています。これらの設定をオーバーライドしてしまうとレイアウトが正しく表示されないため、各パーツは<code>.col</code>の中にマークアップします。
+クラスに加え、コンテナ全体をを12分割した何カラム分かを<code>.col-*</code>で指定することでカラム幅を表現します。<code>.col-12</code>は省略可能です。</p>
+</div>
+
+<div class="_sample subchapter">
+<div class="col"></div>
+
+<div class="col col-6"></div>
+<div class="col col-6"></div>
+
+<div class="col col-4"></div>
+<div class="col col-4"></div>
+<div class="col col-4"></div>
+
+<div class="col col-3"></div>
+<div class="col col-3"></div>
+<div class="col col-3"></div>
+<div class="col col-3"></div>
+
+<div class="col col-2"></div>
+<div class="col col-2"></div>
+<div class="col col-2"></div>
+<div class="col col-2"></div>
+<div class="col col-2"></div>
+<div class="col col-2"></div>
+</div>
+
+
+<div class="col">
+<h3 id="structure-row">.row</h3>
+<p><code>.col</code>はinline-blockのため、横に並ぶカラム同士が12を超えると改行されます。明示的にカラムをグループ化して上下に分断する必要がある場合は、colを<code>.row</code>で囲むことで改行がされます。</p>
+</div>
+
+<div class="_sample subchapter">
+<div class="row">
+<div class="col col-6"></div>
+<div class="col col-6"></div>
+<div class="col col-6"></div>
+</div>
+<div class="row">
+<div class="col col-6"></div>
+<div class="col col-6"></div>
+</div>
+</div>
+
+
+<div class="col">
+<h2 id="responsive">レスポンシブ</h2>
+<h3 id="responsive-basic">基本仕様</h3>
+<p>lg(PC)、md(Table)サイズは<code>.col-*</code>の数字に従いますが、sm(スマホ)では強制的に１カラムになります。</p>
+</div>
+
+<div class="_sample subchapter">
+<!-- lg,md表示では 3段組(4カラムずつ)だが、sm表示では1段組 -->
+<div class="col col-4"></div>
+<div class="col col-4"></div>
+<div class="col col-4"></div>
+</div>
+
+<div class="col">
+<h3 id="responsive-customize">カスタマイズ</h3>
+<p><code>.col-md-*</code>でmd表示の時の幅、<code>.col-sm-*</code>でsm表示の時の幅を個別に指定することができます。</p>
+</div>
+
+<div class="_sample subchapter">
+<!-- lg表示では 4段組(3カラムずつ)だが、md表示では3段組(4カラムずつ) -->
+<div class="col col-3 col-md-4"></div>
+<div class="col col-3 col-md-4"></div>
+<div class="col col-3 col-md-4"></div>
+<div class="col col-3 col-md-4"></div>
+</div>
+
+<div class="_sample chapter">
+<!-- sm表示でも同じ段組にしたい場合 -->
+<div class="col col-3 col-sm-3"></div>
+<div class="col col-3 col-sm-3"></div>
+<div class="col col-3 col-sm-3"></div>
+<div class="col col-3 col-sm-3"></div>
+</div>
+
+<div class="_sample">
+<!-- lgは4段組、mdは3段組、smは2段組 -->
+<div class="col col-3 col-md-4 col-sm-6"></div>
+<div class="col col-3 col-md-4 col-sm-6"></div>
+<div class="col col-3 col-md-4 col-sm-6"></div>
+<div class="col col-3 col-md-4 col-sm-6"></div>
+</div>
+
+<div class="col">
+<h2 id="layout">レイアウト</h2>
+</div>
+
+<div class="col">
+<h3 id="layout-offset">オフセット</h3>
+<p>左側のアキ(オフセット)を作るためには、<code>.col</code>に対し何カラム分のアキを作るのかを指定する<code>.col-offset-*</code>クラスを使用します。</p>
+</div>
+<div class="_sample subchapter">
+<div class="col col-4 col-offset-2"></div> <!-- 2カラム分左アキ -->
+<div class="col col-6"></div>
+</div>
+<div class="col">
+<p>オフセットも<code>.col-*</code>の設定と同様に、lgとmdは共通ですが、smではオフセットなしにリセットされる仕様になっています。これをオーバーライドするためには、<code>.col-md-offset-*</code><code>.col-sm-offset-*</code>を使用します。</p>
+</div>
+<div class="_sample subchapter">
+<!-- mdではアキなし -->
+<div class="col col-4 col-offset-2 col-md-offset-0"></div>
+<div class="col col-6 col-md-8"></div>
+</div>
+<div class="_sample">
+<!-- spでもアキを残す -->
+<div class="col col-4 col-sm-10 col-offset-2 col-sm-offset-2"></div>
+</div>
+<div class="col">
+<p class="notes">※ sm表示でもオフセットを使う場合、sm表示での<code>.col</code>が横100%(12カラム)にリセットされることに留意してください。上記例では、幅が12以内におさまるよう<code>.col-sm-10</code>を指定しています。</p>
+</div>
+
+
+
+<div class="col">
+<h3 id="layout-align">アラインメント</h3>
+<p><code>.container</code>または<code>.row</code>の階層で<code>.text-left</code><code>.text-center</code><code>.text-right</code>を使用することで、カラムの整列が可能です。デフォルトで左寄せのため、オーバーライド目的以外では<code>.text-left</code>は必要ありません。</p>
+</div>
+<div class="_sample subchapter">
+<div class="row">
+<div class="col col-3 col-sm-3"></div>
+</div>
+<div class="row text-center">
+<div class="col col-3 col-sm-3"></div>
+</div>
+<div class="row text-right">
+<div class="col col-3 col-sm-3"></div>
+</div>
+</div>
+
+
+<div class="col">
+<div class="subchapter">
+<h3 id="layout-vertical">バーティカルリズム</h3>
+<p><code>.container</code><code>.row</code><code>.col</code>はいずれもデフォルトでは上下方向のmarginやpaddingを持っていません。<br>
+上下方向のアキを表現するためには、<code>.col</code>に内包させる要素に対し、文書構造を表現するためのclass<code>.chapter</code><code>.subchapter</code>を使用します。(.chapter、.subchaperの使い方については <a href="/_dev/module/#type">文書構造</a> のページを参照ください。)</p>
+<p><code>.col</code>そのものに対して<code>.chapter</code>を付与することも可能ですが、いずれの場合も<code>.col</code>がdisplay-blockのため、上下に並ぶcol同士や、colの直下の子とのmarginの相殺が起こらず、期待するアキの２倍になってしまうことに注意ください。</p>
+</div>
+</div>
+
+<h4 class="col">内包する子要素に<code>.subchapter</code>クラスを持たせる場合</h4>
+<div class="_sample">
+<!-- 子のdiv.subchapterのmarginは親階層に相殺されない -->
+<div class="col col-6">
+<div class="subchapter"><img class="img-liquid" src="//placehold.it/600x100"></div>
+<div class="subchapter"><img class="img-liquid" src="//placehold.it/600x100"></div>
+</div>
+<div class="col col-6">
+<div class="subchapter"><img class="img-liquid" src="//placehold.it/600x100"></div>
+</div>
+<div class="col col-6">
+<div class="subchapter"><img class="img-liquid" src="//placehold.it/600x100"></div>
+</div>
+</div>
+<h4 class="col">.colそのものに<code>.subchapter</code>クラスを持たせる場合</h4>
+<div class="_sample">
+<!-- col同士の上下marginは相殺されず2倍になる -->
+<div class="col col-6 subchapter">
+<img class="img-liquid" src="//placehold.it/600x100">
+</div>
+<div class="col col-6 subchapter">
+<img class="img-liquid" src="//placehold.it/600x100">
+</div>
+<div class="col col-6 subchapter">
+<img class="img-liquid" src="//placehold.it/600x100">
+</div>
+</div>
+
+
+<div class="col">
+<h2 id="nest">グリッドシステムのネスト</h2>
+<p><code>.col</code>の直下に<code>.col</code>をネストすると、カラム各々が持つ左右のpadding(gutter)が重複し、期待するレイアウトになりません。</p>
+<div class="container subchapter">
+<div class="_sample">
+<div class="col col-3">
+</div>
+<div class="col col-9">
+<!-- col-9をさらに50%ずつに分割したいがpaddingが重複して折り返してしまう -->
+<div class="col col-6"></div>
+<div class="col col-6"></div>
+</div>
+</div>
+</div>
+
+<div class="chapter">
+<p>余白を一定に保ったままグリッドをネストするには、<code>.col</code>の中に<code>.container</code>をネストします(<code>.container</code>と<code>.col</code>の兼務はできません)。<br>これによりさらに複雑なレイアウトを表現することができますが、コードも煩雑になるため必要最低限の使用としてください。</p>
+</div>
+
+<div class="_sample subchapter">
+<div class="container">
+<div class="col col-3">
+<p class="subchapter">Lorem ipsum dolor sit amet, probo molestiae ut quo, odio vide ipsum per id. Quo eius ignota id, an usu dolorem ancillae, ius autem ponderum ut. In doctus fuisset persecuti eam, assueverit sadipscing pro ut. In malis moderatius duo.</p>
+</div>
+<div class="col col-9">
+<p class="subchapter">Probo senserit molestiae ut quo, odio vide ipsum per id. Quo eius ignota id, an usu dolorem ancillae, ius autem ponderum ut. In doctus fuisset persecuti eam, assueverit sadipscing pro ut. In malis moderatius duo.</p>
+
+<!-- 親のcol-9をさらに12分割したグリッドシステムを形成 -->
+<div class="container">
+<div class="col col-6">
+<p class="subchapter">Lorem molestiae ut quo, odio vide ipsum per id. Quo eius ignota id, an usu dolorem ancillae, ius autem ponderum ut. In doctus fuisset persecuti eam, assueverit sadipscing pro ut. In malis moderatius duo.</p>
+</div>
+<div class="col col-6">
+<p class="subchapter">Odio vide ipsum per id. Quo eius ignota id, an usu dolorem ancillae, quo eius ignota id, an usu ius autem ponderum ut. In doctus fuisset persecuti eam, assueverit sadipscing pro ut. In malis moderatius duo.</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+<div class="col">
+<h2 id="utility">ユーティリティ</h2>
+
+<h3 id="row-no-gutter">row-no-gutter</h3>
+<p>内包するcol内の余白(gutter)を無しにする場合にこのユーティリティクラスをrow階層に付与します。</p>
+<div class="container">
+<div class="_sample subchapter">
+<div class="row row-no-gutter">
+<div class="col col-4"></div>
+<div class="col col-4"></div>
+<div class="col col-4"></div>
+</div>
+</div>
+</div>
+
+<h3 id="row-wide-gutter">row-wide-gutter</h3>
+<p>内包するcol内の余白(gutter)を2倍にする場合にこのユーティリティクラスをrow階層に付与します。</p>
+<div class="container">
+<div class="_sample subchapter">
+<div class="row row-wide-gutter">
+<div class="col col-3 col-md-4"></div>
+<div class="col col-3 col-md-4 col-sm-6"></div>
+<div class="col col-3 col-md-4 col-sm-6"></div>
+<div class="col col-3 col-md-4 col-sm-6"></div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+</div><!-- /.container -->
+</main>
+
+</section>
+
+
+<footer id="global-footer">
+<div class="container">
+<div class="col" role="contentinfo">
+<small>&copy; 1PAC. INC.</small>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
