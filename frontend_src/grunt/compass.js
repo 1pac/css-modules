@@ -11,7 +11,7 @@ module.exports = {
   css_sample: {
     options: {
       sassDir: './scss/_sample',
-      cssDir: '../public/_dev/sample/css',
+      cssDir: '../sample/css',
       outputStyle: 'expanded',
       noLineComments: true
     }
