@@ -1648,7 +1648,7 @@ pre code {
 */
 #global-footer {
   border-top: 1px solid #e5e5e5;
-  padding-bottom: 20px;
+  padding: 20px 0 40px;
   color: #666;
 }
 
@@ -1778,7 +1778,7 @@ pre code {
 }
 .content-navigation .navi li a:hover,
 .content-navigation .content-navigation-list li a:hover {
-  color: #666;
+  color: #27A984;
   text-decoration: none;
 }
 @media screen and (max-width: 639px) {
