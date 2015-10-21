@@ -63,7 +63,7 @@
 
         @include transition(all .1s $easeOutCubic);
         &:hover {
-          color: $color-gray;
+          color: $color-link-main;
           text-decoration: none;
         }
 

@@ -43,7 +43,8 @@
 
 .global-navigation {
   h1 {
-    font-size: $font-size-base;
+    font-size: $font-size-large;
+    color: $color-brand-main;
     margin: 1em 0;
   }
 }

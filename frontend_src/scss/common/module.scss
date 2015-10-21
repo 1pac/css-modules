@@ -22,16 +22,16 @@
 @import "module/table";
 
 //コンポーネント
-@import "module/accordion";
-@import "module/modal";
-@import "module/carousel";
-@import "module/tab";
+//@import "module/accordion";
+//@import "module/modal";
+//@import "module/carousel";
+//@import "module/tab";
 
 //フォーム
 @import "module/form";
 
 //ローディング
-@import "module/loading";
+//@import "module/loading";
 
 // Utilities
 // ---------------------------------------------------
@@ -41,4 +41,4 @@
 //
 // Block Contents
 // --------------------------------------------------
-//@import "module/block-content";
+@import "module/block-content";

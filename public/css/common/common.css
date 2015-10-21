@@ -173,7 +173,7 @@ body {
 }
 
 a {
-  color: #0086ce;
+  color: #27A984;
 }
 a:hover {
   text-decoration: underline;
@@ -420,7 +420,7 @@ h2:hover ._heading-anchor, h3:hover ._heading-anchor {
   outline: none;
   opacity: 1;
   text-decoration: none;
-  color: #0086ce;
+  color: #27A984;
 }
 ._heading-anchor::before {
   content: "¶";
@@ -1634,7 +1634,8 @@ pre code {
 }
 
 .global-navigation h1 {
-  font-size: 14px;
+  font-size: 16px;
+  color: #27A984;
   margin: 1em 0;
 }
 
@@ -1647,6 +1648,8 @@ pre code {
 */
 #global-footer {
   border-top: 1px solid #e5e5e5;
+  padding: 20px 0 40px;
+  color: #666;
 }
 
 .breadcrumb-wrapper {
@@ -1775,7 +1778,7 @@ pre code {
 }
 .content-navigation .navi li a:hover,
 .content-navigation .content-navigation-list li a:hover {
-  color: #666;
+  color: #27A984;
   text-decoration: none;
 }
 @media screen and (max-width: 639px) {
