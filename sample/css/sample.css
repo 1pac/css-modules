@@ -119,7 +119,7 @@ h2:hover ._heading-anchor, h3:hover ._heading-anchor {
   outline: none;
   opacity: 1;
   text-decoration: none;
-  color: #0086ce;
+  color: #27A984;
 }
 ._heading-anchor::before {
   content: "¶";

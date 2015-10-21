@@ -205,12 +205,6 @@ $hero-ratio-thin:  $hero-height-thin / ($container-width-inner + ($container-pad
     }
   }
 
-  &.fonts                .indicator li a.current { border-color: $color-products-fonts; }
-  &.typesetting          .indicator li a.current { border-color: $color-products-typesetting; }
-  &.ebook                .indicator li a.current { border-color: $color-products-ebook; }
-  &.multilingual-service .indicator li a.current { border-color: $color-products-multilingual-service; }
-  &.pod                  .indicator li a.current { border-color: $color-products-pod; }
-
 }
 
 
