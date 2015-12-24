@@ -834,7 +834,7 @@ html:target body:not(._module) a[href="dummy"]::after {
   padding: 0 0.5em;
 }
 #content:target .bc-wysiwyg {
-  overflow-y: visible;
+  overflow-y: initial;
 }
 
 code,

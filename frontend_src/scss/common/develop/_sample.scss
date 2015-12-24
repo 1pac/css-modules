@@ -366,6 +366,7 @@ $bc-highlight-color : #458e99;
   }
 
   .bc-wysiwyg {
-    overflow-y: visible;
+    overflow-y: initial; //table横スクロールで overflow: scroll; してるので リセット
   }
+
 }
