@@ -7,21 +7,21 @@
 
 // ---------------------------------------------------
 // BASE
-@import "../shared/base/sanitize";
-@import "../shared/base/scaffolding";
-@import "../shared/base/print";
+@import "base/sanitize";
+@import "base/scaffolding";
+@import "base/print";
 
 // ---------------------------------------------------
 // DEVELOP - 開発時のみ
-@import "../shared/develop/guide";
-@import "../shared/develop/sample";
-@import "../shared/develop/code";
+@import "develop/guide";
+@import "develop/sample";
+@import "develop/code";
 
 // ---------------------------------------------------
 // LAYOUT
-@import "../shared/layout/grid";
-@import "../shared/layout/global-header";
-@import "../shared/layout/global-footer";
-@import "../shared/layout/breadcrumb";
-@import "../shared/layout/content-header";
+@import "layout/grid";
+@import "layout/global-header";
+@import "layout/global-footer";
+@import "layout/breadcrumb";
+@import "layout/content-header";
 
