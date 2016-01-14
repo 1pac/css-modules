@@ -38,7 +38,7 @@ scss assets are structured based on SMACSS.
 
 ├ frontend_src/               // asset root
 │   └ scss/
-│       ├ common/             // styles shared in entire project
+│       ├ lib/                // styles shared in entire project
 │       │  ├ base/            // BASE layer (sanitize, scaffoling, print)
 │       │  ├ layout/          // LAYOUT layer (grid, header/footer)
 │       │  ├ module/          // MODULE layer (text, btn, link, etc)
@@ -46,7 +46,7 @@ scss assets are structured based on SMACSS.
 │       │  ├ common.scss      // loader of BASE/LAYOUT/develop layers.
 │       │  └ module.scss      // loader of
 │       │
-│       └ lib/                // LIBRARY which can be used every scss.
+│       └ shared/             // LIBRARY which can be used every scss.
 │          ├ _variables.scss  // minimal elements vars
 │          ├ _mixins.scss     // loader of mixins
 │          └ mixins/          // mixin partials and extends core
