@@ -833,6 +833,9 @@ html:target body:not(._module) a[href="dummy"]::after {
   background-color: rgba(0, 0, 255, 0.8);
   padding: 0 0.5em;
 }
+#content:target .bc-wysiwyg {
+  overflow-y: initial;
+}
 
 code,
 kbd,
