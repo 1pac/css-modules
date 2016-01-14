@@ -9,17 +9,17 @@
 // --------------------------------------------------
 
 //エレメント
-@import "../shared/module/type";
-@import "../shared/module/list";
-@import "../shared/module/btn";
-@import "../shared/module/image";
-@import "../shared/module/badge";
+@import "module/type";
+@import "module/list";
+@import "module/btn";
+@import "module/image";
+@import "module/badge";
 
 //入れ物系
-@import "../shared/module/media";
-@import "../shared/module/box";
-@import "../shared/module/link";
-@import "../shared/module/table";
+@import "module/media";
+@import "module/box";
+@import "module/link";
+@import "module/table";
 
 //コンポーネント
 //@import "module/accordion";
@@ -28,17 +28,17 @@
 //@import "module/tab";
 
 //フォーム
-@import "../shared/module/form";
+@import "module/form";
 
 //ローディング
 //@import "module/loading";
 
 // Utilities
 // ---------------------------------------------------
-@import "../shared/module/utilities";
-@import "../shared/module/keyframes";
+@import "module/utilities";
+@import "module/keyframes";
 
 //
 // Block Contents
 // --------------------------------------------------
-@import "../shared/module/block-content";
+@import "module/block-content";
