@@ -27,10 +27,6 @@ module.exports = function (grunt) {
     'compass:css_common'
   ]);
 
-  grunt.registerTask('css_lib', [
-    'compass'
-  ]);
-
   grunt.registerTask('css_sample', [
     'compass:css_sample'
   ]);
