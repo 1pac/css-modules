@@ -295,6 +295,10 @@ sub {
   margin: .5em 0;
 }
 
+.font-bold {
+  font-weight: bold;
+}
+
 em {
   font-style: normal;
   color: #df7802;
