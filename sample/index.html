@@ -11,16 +11,16 @@
 <title>css-modules</title>
 <meta name="description" content="">
 
-<link rel="stylesheet" href="../public/css/lib/common.css">
-<link rel="stylesheet" href="../public/css/lib/module.css">
+<link rel="stylesheet" href="../public/css/shared/base.css">
+<link rel="stylesheet" href="../public/css/shared/module.css">
 
-<!-- only for gh-pages -->
+<!-- only for sample -->
 <link rel="stylesheet" href="css/sample.css">
 <link rel="stylesheet" href="js/lib/highlight.js/8.4/styles/solarized_light.min.css">
 <script src="js/lib/jquery-1.11.3.min.js"></script>
 <script src="js/lib/highlight.js/8.4/highlight.min.js"></script>
 <script src="js/sample.js"></script>
-<!-- /only for gh-pages -->
+<!-- /only for sample -->
 
 </head>
 
@@ -30,7 +30,7 @@
 <a class="skip-navigation" href="#content"><span>サイトメニューを読み飛ばして本文へ移動</span></a>
 <div class="global-navigation container">
 <div class="col">
-<h1>css-modules</h1>
+<h1><a href="//github.com/1pac/" target="_blank">1pac</a>/<a href="//github.com/1pac/css-modules/" target="_blank" class="font-bold">css-modules</a></h1>
 </div>
 </div>
 </header>
@@ -312,77 +312,76 @@
 </div>
 <p>また、このクラスが付与された要素の<code>touchstart</code>で<code>touched</code>というclassが付与されます。(<code>touchend</code>または<code>touchend</code>でremoveClass)</p>
 <p>タップハイライトカラーを無効化した場合は、ユーザのタッチ操作に対するフィードバックをCSSで定義することが推奨されます。</p>
-<pre><code class="_code html">
+<code class="_code html">
 &lt;!-- 例 --&gt;
 &lt;a class="hoge" href="#"&gt;リンク&lt;/a&gt;
-</code></pre>
-<pre><code class="_code">
+</code>
+<code class="_code">
 .hoge {
-
-&.touched {
-//タッチ時のスタイル
+  &.touched {
+    //タッチ時のスタイル
+  }
 }
-}
-</code></pre>
+</code>
 <p>しかしiOS側の仕様で<code>touchstart</code>時に、その要素に当てられている<code>:hover</code>擬似クラスのスタイルが表示されてしまい、かつ<code>touchend</code>でこのスタイルが解除されず、意図通りのインタラクションが表現されない。</p>
 <p>この問題を解消するため、ポインターデバイス(PC)でのマウスオーバーと、タッチデバイスのタッチ中の見た目を互いの干渉なくなく両立させるために、下記のように記述してください。</p>
-<pre><code class="_code">
+<code class="_code">
 .hoge {
 
-&:hover {
-//これだとiOSのタッチ中にも適応されてしまい、touchendで解除されない
-}
+  &:hover {
+    //これだとiOSのタッチ中にも適応されてしまい、touchendで解除されない
+  }
 
-html.pointer &:hover {
-//継承を入れることでタッチデバイスには発火しない
-}
+  html.pointer &:hover {
+    //継承を入れることでタッチデバイスには発火しない
+  }
 
-html.touch &.touched {
-//タッチデバイスでのみ発火するタッチ中のスタイル
+  html.touch &.touched {
+    //タッチデバイスでのみ発火するタッチ中のスタイル
+  }
 }
-}
-</code></pre>
+</code>
 <p>ポインターデバイス(<code>html.pointer</code>)内の<code>:hover</code>と、タッチデバイス(<code>html.pointer</code>)内の<code>.touched</code>に共通のスタイルを定義する場合は、下記のように<code>hover-and-touched</code>のmixinを使用可能です。</p>
-<pre><code class="_code css">
+<code class="_code css">
 /* SCSS */
 .hoge {
-@include hover-and-touched() {
-background-color: blue;
-}
+  @include hover-and-touched() {
+    background-color: blue;
+  }
 }
 
 /* コンパイルされたCSS  */
 html.pointer .hoge:hover,
 html.touch   .hoge.touched {
-background-color: blue;
+  background-color: blue;
 }
-</code></pre>
-<pre><code class="_code css">
+</code>
+<code class="_code css">
 /* SCSS */
 .hoge {
-@include hover() {
-background-color: blue;
-}
+  @include hover() {
+    background-color: blue;
+  }
 }
 
 /* コンパイルされたCSS  */
 html.pointer .hoge:hover {
-background-color: blue;
+  background-color: blue;
 }
-</code></pre>
-<pre><code class="_code css">
+</code>
+<code class="_code css">
 /* SCSS */
 .hoge {
-@include touched() {
-background-color: blue;
-}
+  @include touched() {
+    background-color: blue;
+  }
 }
 
 /* コンパイルされたCSS  */
 html.touch .hoge.touched {
-background-color: blue;
+  background-color: blue;
 }
-</code></pre>
+</code>
 
 
 
@@ -471,9 +470,9 @@ imgタグを<code>.scroll-container</code>または<code>.scroll-container</code
 <div class="subchapter">
 <img class="img-replace" src="#" data-src="/img/dummy/dummy_imgreplace_lg.png" alt="">
 </div>
-<pre><code class="_code html">
+<code class="_code html">
 &lt;img class="img-replace" src="#" data-src="/img/dummy/dummy_imgreplace_lg.png" alt=""&gt;
-</code></pre>
+</code>
 <ul class="list-notes">
 <li>※ 必ず画像ファイル名末尾に、「_lg」「_sm」をつけ同じディレクトリに同じ拡張子で置いてください。</li>
 <li>※ <code>src</code>属性は空にせず、「#」を指定してください。</li>

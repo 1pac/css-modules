@@ -21,7 +21,6 @@
 }
 
 
-
 // サンプル用表現
 // ---------------------------------------------------
 ._red {
@@ -74,16 +73,17 @@ h3._red{
   }
 }
 
-._prepend-dummy {
-  &::before {
-    content: "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。";
-  }
-}
-._prepend-lorem {
-  &::before {
-    content: "Lorem ipsum dolor sit amet, probo senserit molestiae ut quo, odio vide ipsum per id. Quo eius ignota id, an usu dolorem ancillae, ius autem ponderum ut. In doctus fuisset persecuti eam, assueverit sadipscing pro ut. In malis moderatius duo.";
-  }
-}
+
+//._prepend-dummy {
+//  &::before {
+//    content: "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。";
+//  }
+//}
+//._prepend-lorem {
+//  &::before {
+//    content: "Lorem ipsum dolor sit amet, probo senserit molestiae ut quo, odio vide ipsum per id. Quo eius ignota id, an usu dolorem ancillae, ius autem ponderum ut. In doctus fuisset persecuti eam, assueverit sadipscing pro ut. In malis moderatius duo.";
+//  }
+//}
 
 
 ._bc-sample {

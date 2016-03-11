@@ -19,9 +19,9 @@ $(function(){
     $target.each(function(i, sample){
       var $sample   = $(sample),
         $resource = $sample.html(),
-        $template = $('<pre><code class="_code html"></code></pre>');
+        $template = $('<code class="_code html"></code>');
       if($sample.data("lang")) {
-        $template = $('<pre><code class="_code ' + $sample.data("lang") + '"></code></pre>');
+        $template = $('<code class="_code ' + $sample.data("lang") + '"></code>');
       }
       $sample.append($template).find('._code').text($resource);
 
@@ -53,14 +53,8 @@ $(function(){
     }
   });
 
-  $('._sample').find('a[href], .btn[href]').on('click', function(){
-    return false;
-  });
-
-  //support-footer
-  $('#_class-changer a').on('click', function(){
-    $('body').removeClass().addClass($(this).html());
-    return false;
-  });
+  //$('._sample').find('a[href], .btn[href]').on('click', function(){
+  //  return false;
+  //});
 
 });

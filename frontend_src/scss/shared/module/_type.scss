@@ -223,6 +223,10 @@ sub {
   font-weight: bold;
 }
 
+.font-alphanumeric {
+  font-family: $font-family-alphanumeric;
+}
+
 //強調色
 em {
   font-style: normal;
