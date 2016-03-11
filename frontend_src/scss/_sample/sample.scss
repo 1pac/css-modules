@@ -1,11 +1,10 @@
 @charset "UTF-8";
 
-
 // library
-@import "../shared/variables";
-@import "../shared/mixins";
+@import "../lib/variables";
+@import "../lib/mixins";
 
 // DEVELOP - 開発時のみ
-@import "../lib/develop/guide";
-@import "../lib/develop/sample";
-@import "../lib/develop/code";
+@import "../shared/develop/guide";
+@import "../shared/develop/sample";
+@import "../shared/develop/code";

@@ -170,7 +170,7 @@ ol,
       right: 0;
       margin-top: -1.7em;
       padding: 1em 2em 1em 1em;
-      background: url(/img/common/icon_arrow_down_blue.png) right center no-repeat;
+      background: url(/img/shared/icon_arrow_down_blue.png) right center no-repeat;
       background-size: 18px auto;
       @include tap-highlight-color(rgba(255,255,255,0.4));
       &:active {
@@ -180,7 +180,7 @@ ol,
         display: none;
       }
       &.active {
-        background-image: url(/img/common/icon_arrow_up_blue.png);
+        background-image: url(/img/shared/icon_arrow_up_blue.png);
         .hidden-not-active { display: inline; }
         .hidden-active     { display: none;   }
       }

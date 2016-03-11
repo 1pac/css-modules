@@ -11,73 +11,25 @@ a[href^="mailto:"] {
   }
 }
 
+// External links
 a[target="_blank"],
 a[target="new"] {
+
 }
 
 .link-external {
   @extend %link-external;
 }
 
-
 // tap-highlight
-// -------------------------
 .tap-highlight {
   @extend %tap-highlight;
 }
 
-
-// dot
-// -------------------------
-
-/* 汎用化しない
-
-$link-dot-size-small: 50px;
-
-.link-dot {
-  position: relative;
-  background-color: #fff;
-  overflow:hidden;
-
-  img {
-    @include transition(all .1s $easeOutCubic);
-  }
-  
-  &::after {
-    @include scale(0);
-    @include opacity(0);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: $link-dot-size-small;
-    height: $link-dot-size-small;
-    margin: -0.5*$link-dot-size-small 0 0 -0.5*$link-dot-size-small;
-    content: "";
-    display: block;
-    border-radius: 50%;
-    border: 0.5*$link-dot-size-small solid $color-white;
-    @include transition(all .1s $easeOutCubic);
-  }
-
-  &:hover {
-
-    img {
-      @include opacity(0.8);
-    }
-
-    &::after {
-      border-width: 20px;
-      @include scale(1);
-      @include opacity(0.7);
-    }
-  }
-
-}
-*/
-
+// link-to-all
 .link-to-all {
   display: inline-block;
-  background: url("/img/common/icon_grid_blue.png") left center no-repeat;
+  background: url("/img/shared/icon_grid_blue.png") left center no-repeat;
   background-size: 13px 13px;
   padding-left: 18px;
   color: $color-black;

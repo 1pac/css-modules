@@ -1,9 +1,8 @@
 @charset "UTF-8";
 
-
 // library
-@import "../shared/variables";
-@import "../shared/mixins";
+@import "../lib/variables";
+@import "../lib/mixins";
 
 // ---------------------------------------------------
 // BASE
@@ -24,4 +23,8 @@
 @import "layout/global-footer";
 @import "layout/breadcrumb";
 @import "layout/content-header";
+
+
+
+
 
