@@ -140,16 +140,8 @@ body {
   color: #000;
   font-size: 14px;
   font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3" Meiryo, メイリオ, sans-serif;
-  word-wrap: break-word;
-  line-break: strict;
   letter-spacing: 0.05em;
-  -webkit-font-smoothing: subpixel-antialiased;
   vertical-align: top;
-}
-@media screen and (max-width: 639px) {
-  body {
-    letter-spacing: 0.1em;
-  }
 }
 
 #content-main {
@@ -173,7 +165,7 @@ body {
 }
 
 a {
-  color: #0066cc;
+  color: #4078c0;
 }
 a:hover {
   text-decoration: underline;
@@ -420,7 +412,7 @@ h2:hover ._heading-anchor, h3:hover ._heading-anchor {
   outline: none;
   opacity: 1;
   text-decoration: none;
-  color: #0066cc;
+  color: #4078c0;
 }
 ._heading-anchor::before {
   content: "¶";
@@ -428,14 +420,6 @@ h2:hover ._heading-anchor, h3:hover ._heading-anchor {
   padding-left: 0.2em;
   padding-right: 0.2em;
   width: 1.25em;
-}
-
-._prepend-dummy::before {
-  content: "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。";
-}
-
-._prepend-lorem::before {
-  content: "Lorem ipsum dolor sit amet, probo senserit molestiae ut quo, odio vide ipsum per id. Quo eius ignota id, an usu dolorem ancillae, ius autem ponderum ut. In doctus fuisset persecuti eam, assueverit sadipscing pro ut. In malis moderatius duo.";
 }
 
 ._bc-sample {
@@ -847,7 +831,7 @@ pre {
 
 code {
   padding: 2px 4px;
-  font-size: 12px;
+  font-size: 11px !important;
   color: #657b83;
   background-color: #f5f5f5;
   border-radius: 4px;
@@ -871,15 +855,14 @@ kbd kbd {
   box-shadow: none;
 }
 
-pre {
+._code {
+  font-size: 11.5px !important;
   display: block;
-  padding: 10px;
+  padding: 10px 14px !important;
   margin: 20px 0;
-  font-size: 13px;
-  word-break: break-all;
-  word-wrap: break-word;
+  white-space: pre;
   color: #333;
-  background-color: #f5f5f5;
+  background-color: #f5f5f5 !important;
   border: 1px solid #ccc;
   border-radius: 4px;
   text-align: left;
@@ -899,24 +882,24 @@ pre {
   }
   */
 }
-.row + pre, .col + pre {
+.row + ._code, .col + ._code {
   max-width: 984px;
   margin-left: auto;
   margin-right: auto;
 }
 @media screen and (min-width: 640px) and (max-width: 1031px) {
-  .row + pre, .col + pre {
+  .row + ._code, .col + ._code {
     margin-left: 12px;
     margin-right: 12px;
   }
 }
 @media screen and (max-width: 639px) {
-  .row + pre, .col + pre {
+  .row + ._code, .col + ._code {
     margin-left: 5px;
     margin-right: 5px;
   }
 }
-pre code {
+._code code {
   padding: 0;
   font-size: 12px;
   color: #657b83;
@@ -1637,9 +1620,16 @@ pre code {
 }
 
 .global-navigation h1 {
-  font-size: 16px;
-  color: #27A984;
+  font-size: 18px;
+  font-family: Helvetica, arial, sans-serif;
   margin: 1em 0;
+}
+.global-navigation h1 a {
+  display: inline-block;
+  margin: 0 3px;
+}
+.global-navigation h1 a:first-of-type {
+  margin-left: 0;
 }
 
 /* STRUCTURE
@@ -1653,6 +1643,9 @@ pre code {
   border-top: 1px solid #e5e5e5;
   padding: 20px 0 40px;
   color: #666;
+}
+#global-footer [role=contentinfo] small {
+  font-family: Helvetica, arial, sans-serif;
 }
 
 .breadcrumb-wrapper {
@@ -1706,7 +1699,7 @@ pre code {
   font-size: 13px;
   line-height: 13px;
   width: 100%;
-  height: 41px;
+  height: 40px;
   overflow: hidden;
   letter-spacing: .04em;
 }
@@ -1728,8 +1721,8 @@ pre code {
   overflow-y: hidden;
   text-align: center;
   -webkit-overflow-scrolling: touch;
-  -webkit-box-shadow: inset 0 -20px 0 0 rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 -20px 0 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 -21px 0 0 rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 -21px 0 0 rgba(0, 0, 0, 0.1);
 }
 @media screen and (max-width: 639px) {
   .content-navigation {
@@ -1781,7 +1774,7 @@ pre code {
 }
 .content-navigation .navi li a:hover,
 .content-navigation .content-navigation-list li a:hover {
-  color: #0066cc;
+  color: #4078c0;
   text-decoration: none;
 }
 @media screen and (max-width: 639px) {
