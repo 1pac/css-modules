@@ -2,6 +2,7 @@
 
 ## Sample
 http://1pac.github.io/css-modules/sample/
+> note: sample page has problems in Chrome, so please visit with Firefox, Safari, or IE.
 
 ## Preparation
 
