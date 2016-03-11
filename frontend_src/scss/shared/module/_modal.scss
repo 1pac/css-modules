@@ -42,7 +42,7 @@
   width: 40px;
   border-radius: 20px;
   padding: 20px;
-  background: transparent url(/img/common/icon_close_black.png) center center no-repeat;
+  background: transparent url(/img/shared/icon_close_black.png) center center no-repeat;
   background-size: 16px 16px;
   @include opacity(0.4);
   z-index: $zindex-popup + 1;
@@ -80,7 +80,6 @@
   @include transition(all .1s $easeOutCubic);
 }
 
-
 // modal.open 時に body にaddClass('movie')をする前提
 body.movie {
   #modal-bg {
@@ -103,7 +102,7 @@ body.movie {
   #modal-close {
     top: -40px;
     right: -10px;
-    background-image: url(/img/common/icon_close_white.png);
+    background-image: url(/img/shared/icon_close_white.png);
     @include opacity(0.3);
     width: auto;
     @include transition(all .1s $easeOutCubic);

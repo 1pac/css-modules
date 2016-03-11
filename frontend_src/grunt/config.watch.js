@@ -2,14 +2,14 @@ module.exports = {
   // watch ---------------------------------------------------
   // CSS
   watch : {
-    css_common: {
+    css_shared: {
       files: [
-        './scss/shared/*.scss',
-        './scss/shared/*/*.scss',
         './scss/lib/*.scss',
-        './scss/lib/*/*.scss'
+        './scss/lib/*/*.scss',
+        './scss/shared/*.scss',
+        './scss/shared/*/*.scss'
       ],
-      tasks: ['css_common']
+      tasks: ['css_shared']
     },
     css_sample: {
       files: [

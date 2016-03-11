@@ -37,7 +37,6 @@
 }
 
 
-
 %select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -47,7 +46,7 @@
   @include box-shadow(inset 0 0 0 2px rgba(0,0,0,0.2));
   display: inline-block;
   padding: .3em 30px .3em .6em ;
-  background: #fff url(/img/common/icon_arrow_select.png) right center no-repeat;
+  background: #fff url(/img/shared/icon_arrow_select.png) right center no-repeat;
   background-size: 24px auto;
   font-size: 16px;
   vertical-align: middle;

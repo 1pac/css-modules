@@ -6,7 +6,6 @@
   background-color: $bgcolor;
 
 
-
   @include box-shadow(
   //     -1440px*$ratio 0 0 0 $bgcolor, -1440px*$ratio 0 0 0 $bgcolor,
           -720px*$ratio 0 0 0 $bgcolor,   720px*$ratio 0 0 0 $bgcolor

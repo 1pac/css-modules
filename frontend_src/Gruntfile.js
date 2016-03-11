@@ -2,6 +2,7 @@ module.exports = function (grunt) {
   var configObject = require('./grunt/config');
   var PACKAGE_JSON = grunt.file.readJSON("package.json");
   grunt.config.init(configObject);
+
   // Load Grunt Plugins
   Object.keys(PACKAGE_JSON.devDependencies).map(function(name){
     if(name.match('grunt-')){
@@ -9,26 +10,24 @@ module.exports = function (grunt) {
     }
   });
 
+
   /*
    * Grunt Tasks
    */
-  // ALL
-  grunt.registerTask('default', [
-    'css',
-    //'js'
-  ]);
+
+  // Default
+  // ---------------------------------------------------
+  grunt.registerTask('default',    [ 'css'/*, 'js'*/ ]);
 
   // CSS
-  grunt.registerTask('css', [
-    'compass'
-  ]);
+  // ---------------------------------------------------
+  grunt.registerTask('css',        [ 'sass' ]);
+  grunt.registerTask('css_shared', [ 'sass:css_shared' ]);
+  grunt.registerTask('css_sample', [ 'sass:css_sample' ]);
 
-  grunt.registerTask('css_common', [
-    'compass:css_common'
-  ]);
-
-  grunt.registerTask('css_sample', [
-    'compass:css_sample'
-  ]);
+  // JS
+  // ---------------------------------------------------
+  //grunt.registerTask('js',         [ 'requirejs', 'concat', 'uglify', 'copy', 'clean' ]);
+  //grunt.registerTask('js_debug',   [ 'concat', 'uglify', 'copy', 'clean' ]);
 
 };
