@@ -25,10 +25,11 @@ html:target {
       @include mediaquery-sm() { background: hotpink; }
     }
 
+
     &::after {
       outline: cyan 1px solid;
 
-      width: $container-width - $col-gutter;
+      width: $container-width-inner;
       margin-left: ($container-width - $col-gutter) / -2;
 
       @include mediaquery-md() {

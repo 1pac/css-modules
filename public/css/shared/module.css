@@ -1,13 +1,13 @@
 @charset "UTF-8";
 .link-external {
   display: inline-block;
-  background: transparent url("/img/common/icon_external_blue.png") right center no-repeat;
+  background: transparent url("/img/shared/icon_external_blue.png") right center no-repeat;
   background-size: 1.14em auto;
   padding-right: 1.5em;
   /*
   &::after {
     content: "";
-    background: transparent url("/img/common/icon_external_blue.png") center center no-repeat;
+    background: transparent url("/img/shared/icon_external_blue.png") center center no-repeat;
     background-size: 1.14em auto;
     width: 1.14em;
     height: 1em;
@@ -60,7 +60,7 @@ input[type="search"].input:hover {
 input[type="search"].input:focus {
   outline: none;
   background-color: #fff;
-  border-color: #27A984;
+  border-color: #0066cc;
   -webkit-box-shadow: inset 0 -500px 0 0 #fff;
   box-shadow: inset 0 -500px 0 0 #fff;
 }
@@ -86,7 +86,7 @@ input[type="search"].input::-moz-placeholder {
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.2);
   display: inline-block;
   padding: 0.3em 30px 0.3em 0.6em;
-  background: #fff url(/img/common/icon_arrow_select.png) right center no-repeat;
+  background: #fff url(/img/shared/icon_arrow_select.png) right center no-repeat;
   background-size: 24px auto;
   font-size: 16px;
   vertical-align: middle;
@@ -166,7 +166,7 @@ h6 {
 }
 
 .underline-blue {
-  border-bottom: #1e8367 1px solid;
+  border-bottom: #0052a3 1px solid;
   padding-bottom: 0.5em;
   /*
   @include mediaquery-md() {
@@ -293,6 +293,10 @@ sub {
 .notes li,
 .list-notes li {
   margin: .5em 0;
+}
+
+.font-bold {
+  font-weight: bold;
 }
 
 em {
@@ -723,7 +727,7 @@ ol li,
   right: 0;
   margin-top: -1.7em;
   padding: 1em 2em 1em 1em;
-  background: url(/img/common/icon_arrow_down_blue.png) right center no-repeat;
+  background: url(/img/shared/icon_arrow_down_blue.png) right center no-repeat;
   background-size: 18px auto;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.4);
   tap-highlight-color: rgba(255, 255, 255, 0.4);
@@ -735,7 +739,7 @@ ol li,
   display: none;
 }
 .list-accordion .head .toggle.active {
-  background-image: url(/img/common/icon_arrow_up_blue.png);
+  background-image: url(/img/shared/icon_arrow_up_blue.png);
 }
 .list-accordion .head .toggle.active .hidden-not-active {
   display: inline;
@@ -843,7 +847,7 @@ ol li,
   transition: none;
 }
 .btn:active, .btn.active {
-  background-color: #1e8367;
+  background-color: #0052a3;
   border-color: rgba(0, 0, 0, 0.1);
 }
 .btn:active:hover, .btn.active:hover {
@@ -861,13 +865,13 @@ ol li,
 }
 
 .btn-blue {
-  background-color: #1e8367;
+  background-color: #0052a3;
 }
 .btn-blue:hover {
-  background-color: #249c7b;
+  background-color: #0061c2;
 }
 .btn-blue:active, .btn-blue.active {
-  background-color: #1e8367;
+  background-color: #0052a3;
 }
 
 .btn-light {
@@ -902,7 +906,7 @@ ol li,
 }
 .btn-ghost-light:active, .btn-ghost-dark:active, .active.btn-ghost-light, .active.btn-ghost-dark {
   color: #fff;
-  background-color: #1e8367;
+  background-color: #0052a3;
   border-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -1324,18 +1328,6 @@ ol li,
 .box-contact .list-numbers li:last-child {
   margin-right: 0;
 }
-.box-contact .list-numbers .freedial {
-  background-image: url(/img/common/icon_freedial.png);
-}
-.box-contact .list-numbers .fax {
-  background-image: url(/img/common/icon_fax.png);
-}
-.box-contact .list-numbers .tel {
-  background-image: url(/img/common/icon_tel.png);
-}
-.box-contact .list-numbers .direct {
-  background-image: url(/img/common/icon_direct.png);
-}
 .box-contact .pull-left {
   margin: 5px 15px 5px 0;
 }
@@ -1413,7 +1405,7 @@ body.support.contact .support-footer .contact {
   text-decoration: none;
 }
 .box-topics-list .item:hover .title {
-  color: #27A984;
+  color: #0066cc;
 }
 .box-topics-list .item:first-child {
   border-top: none;
@@ -1516,7 +1508,7 @@ body.support.contact .support-footer .contact {
   color: #000;
 }
 .box-information-list .title a:hover {
-  color: #27A984;
+  color: #0066cc;
   text-decoration: none;
 }
 @media screen and (max-width: 639px) {
@@ -1531,56 +1523,12 @@ a[href^="mailto:"] {
 }
 a[href^="tel:"]:hover,
 a[href^="mailto:"]:hover {
-  color: #27A984;
+  color: #0066cc;
 }
 
-/* 汎用化しない
-
-$link-dot-size-small: 50px;
-
-.link-dot {
-  position: relative;
-  background-color: #fff;
-  overflow:hidden;
-
-  img {
-    @include transition(all .1s $easeOutCubic);
-  }
-  
-  &::after {
-    @include scale(0);
-    @include opacity(0);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: $link-dot-size-small;
-    height: $link-dot-size-small;
-    margin: -0.5*$link-dot-size-small 0 0 -0.5*$link-dot-size-small;
-    content: "";
-    display: block;
-    border-radius: 50%;
-    border: 0.5*$link-dot-size-small solid $color-white;
-    @include transition(all .1s $easeOutCubic);
-  }
-
-  &:hover {
-
-    img {
-      @include opacity(0.8);
-    }
-
-    &::after {
-      border-width: 20px;
-      @include scale(1);
-      @include opacity(0.7);
-    }
-  }
-
-}
-*/
 .link-to-all {
   display: inline-block;
-  background: url("/img/common/icon_grid_blue.png") left center no-repeat;
+  background: url("/img/shared/icon_grid_blue.png") left center no-repeat;
   background-size: 13px 13px;
   padding-left: 18px;
   color: #000;
@@ -1593,7 +1541,7 @@ $link-dot-size-small: 50px;
 .link-to-all:active {
   opacity: 1;
   filter: alpha(opacity=100);
-  color: #27A984;
+  color: #0066cc;
 }
 
 .link-card {
@@ -1631,7 +1579,7 @@ html.pointer .link-card:hover, html.touch .link-card.touched {
   text-decoration: none;
 }
 html.pointer .link-card:hover .title, html.touch .link-card.touched .title {
-  color: #27A984;
+  color: #0066cc;
 }
 html.pointer .link-card:hover .image img, html.touch .link-card.touched .image img {
   opacity: 1;

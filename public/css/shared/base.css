@@ -173,7 +173,7 @@ body {
 }
 
 a {
-  color: #27A984;
+  color: #0066cc;
 }
 a:hover {
   text-decoration: underline;
@@ -420,7 +420,7 @@ h2:hover ._heading-anchor, h3:hover ._heading-anchor {
   outline: none;
   opacity: 1;
   text-decoration: none;
-  color: #27A984;
+  color: #0066cc;
 }
 ._heading-anchor::before {
   content: "¶";
@@ -834,7 +834,7 @@ html:target body:not(._module) a[href="dummy"]::after {
   padding: 0 0.5em;
 }
 #content:target .bc-wysiwyg {
-  overflow-y: initial;
+  overflow: initial;
 }
 
 code,
@@ -1781,7 +1781,7 @@ pre code {
 }
 .content-navigation .navi li a:hover,
 .content-navigation .content-navigation-list li a:hover {
-  color: #27A984;
+  color: #0066cc;
   text-decoration: none;
 }
 @media screen and (max-width: 639px) {

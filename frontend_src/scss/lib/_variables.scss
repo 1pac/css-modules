@@ -3,9 +3,9 @@
 // --------------------------------------------------
 
 // スクリーン幅
-// 〜767         : sm
-//   768〜1023   : md
-//        1024〜 : lg
+// 〜639         : sm
+//   640〜1031   : md
+//        1032〜 : lg
 
 $screen-md:   640px !default; //この数値以上で md 表示
 $screen-lg:  1032px !default; //この数値以上で lg 表示
@@ -95,8 +95,8 @@ $color-black:                #000    !default;
 
 
 //リンクカラー
-$color-link-main:            #27A984 !default;
-$color-link-main-dark:       #1e8367 !default;
+$color-link-main:            #0066cc !default;
+$color-link-main-dark:       #0052a3 !default;
 $color-link-visited:         #634AB9 !default;
 
 //警告色

@@ -16,13 +16,13 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1;
     color: $color-gray-light;
   }
-  
+
   .shoulder {
     display: block;
     margin-bottom: .5em;
     font-size: $font-size-large;
   }
-  
+
   &.no-margin {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
@@ -216,6 +216,11 @@ sub {
   li {
     margin: .5em 0;
   }
+}
+
+//太字
+.font-bold {
+  font-weight: bold;
 }
 
 //強調色
