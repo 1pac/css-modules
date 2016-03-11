@@ -119,7 +119,7 @@ h2:hover ._heading-anchor, h3:hover ._heading-anchor {
   outline: none;
   opacity: 1;
   text-decoration: none;
-  color: #27A984;
+  color: #4078c0;
 }
 ._heading-anchor::before {
   content: "¶";
@@ -127,14 +127,6 @@ h2:hover ._heading-anchor, h3:hover ._heading-anchor {
   padding-left: 0.2em;
   padding-right: 0.2em;
   width: 1.25em;
-}
-
-._prepend-dummy::before {
-  content: "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。";
-}
-
-._prepend-lorem::before {
-  content: "Lorem ipsum dolor sit amet, probo senserit molestiae ut quo, odio vide ipsum per id. Quo eius ignota id, an usu dolorem ancillae, ius autem ponderum ut. In doctus fuisset persecuti eam, assueverit sadipscing pro ut. In malis moderatius duo.";
 }
 
 ._bc-sample {
@@ -546,7 +538,7 @@ pre {
 
 code {
   padding: 2px 4px;
-  font-size: 12px;
+  font-size: 11px !important;
   color: #657b83;
   background-color: #f5f5f5;
   border-radius: 4px;
@@ -570,15 +562,14 @@ kbd kbd {
   box-shadow: none;
 }
 
-pre {
+._code {
+  font-size: 11.5px !important;
   display: block;
-  padding: 10px;
+  padding: 10px 14px !important;
   margin: 20px 0;
-  font-size: 13px;
-  word-break: break-all;
-  word-wrap: break-word;
+  white-space: pre;
   color: #333;
-  background-color: #f5f5f5;
+  background-color: #f5f5f5 !important;
   border: 1px solid #ccc;
   border-radius: 4px;
   text-align: left;
@@ -598,24 +589,24 @@ pre {
   }
   */
 }
-.row + pre, .col + pre {
+.row + ._code, .col + ._code {
   max-width: 984px;
   margin-left: auto;
   margin-right: auto;
 }
 @media screen and (min-width: 640px) and (max-width: 1031px) {
-  .row + pre, .col + pre {
+  .row + ._code, .col + ._code {
     margin-left: 12px;
     margin-right: 12px;
   }
 }
 @media screen and (max-width: 639px) {
-  .row + pre, .col + pre {
+  .row + ._code, .col + ._code {
     margin-left: 5px;
     margin-right: 5px;
   }
 }
-pre code {
+._code code {
   padding: 0;
   font-size: 12px;
   color: #657b83;

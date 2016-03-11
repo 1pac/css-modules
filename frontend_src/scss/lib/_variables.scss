@@ -11,6 +11,7 @@ $screen-md:   640px !default; //この数値以上で md 表示
 $screen-lg:  1032px !default; //この数値以上で lg 表示
 
 
+
 // グリッドシステム
 // ---------------------------------------------------
 
@@ -70,8 +71,8 @@ $zindex-flow-content:      1010 !default;
 // ---------------------------------------------------
 
 //コーポレートカラー
-$color-brand-corporate:  #27a984 !default;
-$color-brand-main:       #27A984 !default;
+$color-brand-corporate:  #4078c0 !default;
+$color-brand-main:       #4078c0 !default;
 
 
 
@@ -94,9 +95,9 @@ $color-gray-darkest:         #0c0c0c !default;
 $color-black:                #000    !default;
 
 
-//リンクカラー
-$color-link-main:            #0066cc !default;
-$color-link-main-dark:       #0052a3 !default;
+//
+$color-link-main:            #4078c0 !default;
+$color-link-main-dark:       #2e60a5 !default;
 $color-link-visited:         #634AB9 !default;
 
 //警告色
@@ -160,49 +161,50 @@ $easeInOutBack:  cubic-bezier(0.68, -0.55,  0.265, 1.55 );
 // 書式
 // ---------------------------------------------------
 
-$body-bg:               #fff !default;
-$font-color-basic:      $color-black !default;
-$link-color:            $color-link-main !default;
+$body-bg:                  #fff !default;
+$font-color-basic:         $color-black !default;
+$link-color:               $color-link-main !default;
 
 
-$font-family-sans-serif:  'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3'Meiryo, メイリオ, sans-serif !default;
-$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
-$font-family-base:        $font-family-sans-serif !default;
+$font-family-sans-serif:   'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3'Meiryo, メイリオ, sans-serif !default;
+$font-family-serif:        Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:    Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-alphanumeric: Helvetica, arial, sans-serif !default;
+$font-family-base:         $font-family-sans-serif !default;
 
-$font-size-base:          14px !default;
-$font-size-large:         16px !default;
-$font-size-small:         12px !default;
-$font-size-xsmall:        10px !default;
+$font-size-base:           14px !default;
+$font-size-large:          16px !default;
+$font-size-small:          12px !default;
+$font-size-xsmall:         10px !default;
 
-$font-size-h1:            36px !default;
-$font-size-h1-sm:         28px !default;
-$font-size-h2:            24px !default;
-$font-size-h2-sm:         22px !default;
-$font-size-h3:            18px !default;
-$font-size-h3-sm:         16px !default;
-$font-size-h4:            14px !default;
-$font-size-h5:            14px !default;
-$font-size-h6:            14px !default;
+$font-size-h1:             36px !default;
+$font-size-h1-sm:          28px !default;
+$font-size-h2:             24px !default;
+$font-size-h2-sm:          22px !default;
+$font-size-h3:             18px !default;
+$font-size-h3-sm:          16px !default;
+$font-size-h4:             14px !default;
+$font-size-h5:             14px !default;
+$font-size-h6:             14px !default;
 
 
 //行送り
-$line-height-wide:        2.4 !default;
-$line-height-base:        2.0 !default;
-$line-height-narrow:      1.7 !default;
-$line-height-narrower:    1.4 !default;
+$line-height-wide:         2.4 !default;
+$line-height-base:         2.0 !default;
+$line-height-narrow:       1.7 !default;
+$line-height-narrower:     1.4 !default;
 
-$line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
+$line-height-computed:     floor(($font-size-base * $line-height-base)) !default;
 
 //字送り
-$letter-spacing-wide:     0.12em !default;
-$letter-spacing-base:     0.05em !default;
-$letter-spacing-base-sm:  0.10em !default;
+$letter-spacing-wide:      0.12em !default;
+$letter-spacing-base:      0.05em !default;
+$letter-spacing-base-sm:   0.10em !default;
 
-$headings-font-family:    inherit !default;
-$headings-font-weight:    500 !default;
-$headings-line-height:    1.1 !default;
-$headings-color:          inherit !default;
+$headings-font-family:     inherit !default;
+$headings-font-weight:     500 !default;
+$headings-line-height:     1.1 !default;
+$headings-color:           inherit !default;
 
 
 // レイアウト

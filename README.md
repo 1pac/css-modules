@@ -2,7 +2,7 @@
 
 ## Sample
 http://1pac.github.io/css-modules/sample/
-> note: sample page has problems in Chrome, so please visit with Firefox, Safari, or IE.
+> note: sample page is a bit slow in Google Chrome but fast in other browsers.
 
 ## Preparation
 
@@ -21,7 +21,7 @@ $ cd frontend_src
 $ npm install
 ```
 
-note: Do **not** push `node_modules` or `sass_cache` directory to git.
+> note: Do **not** push `node_modules` or `sass_cache` directory to git.
 
 
 ## What's incruded

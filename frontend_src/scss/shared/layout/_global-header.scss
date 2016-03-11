@@ -43,8 +43,15 @@
 
 .global-navigation {
   h1 {
-    font-size: $font-size-large;
-    color: $color-brand-main;
+    font-size: $font-size-h3;
+    font-family: $font-family-alphanumeric;
     margin: 1em 0;
+    a {
+      display: inline-block;
+      margin: 0 3px;
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
   }
 }

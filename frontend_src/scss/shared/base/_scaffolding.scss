@@ -2,17 +2,17 @@ body {
   color: $font-color-basic;
   font-size: $font-size-base;
   font-family: $font-family-base;
-  word-wrap: break-word;
+  //word-wrap: break-word;
   //word-break: break-all;
 
-  line-break: strict;
+  //line-break: strict;
   letter-spacing: $letter-spacing-base;
-  -webkit-font-smoothing: subpixel-antialiased;
+  //-webkit-font-smoothing: subpixel-antialiased;
   vertical-align: top;
 
-  @include mediaquery-sm() {
-    letter-spacing: $letter-spacing-base-sm;
-  }
+  //@include mediaquery-sm() {
+  //  letter-spacing: $letter-spacing-base-sm;
+  //}
 
 }
 
