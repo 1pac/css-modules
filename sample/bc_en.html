@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja" id="guide">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="">
+<link rel="apple-touch-icon" href="">
+<title>modules | SPA</title>
+<meta name="description" content="">
+
+<link rel="stylesheet" href="/common/css/base.css">
+<link rel="stylesheet" href="/common/css/module.css">
+
+<!-- only for gh-pages -->
+<link rel="stylesheet" href="css/sample.css">
+<link rel="stylesheet" href="js/lib/highlight.js/8.4/styles/solarized_light.min.css">
+<script src="js/lib/jquery-1.11.3.min.js"></script>
+<script src="js/lib/highlight.js/8.4/highlight.min.js"></script>
+<!--<script src="js/sample.js"></script>-->
+<!-- /only for gh-pages -->
+
+</head>
+
+<body class="_module">
+
+<header id="global-header">
+<a class="skip-navigation" href="#content"><span>サイトメニューを読み飛ばして本文へ移動</span></a>
+<div class="global-navigation container">
+<div class="col">
+<h1>css-modules</h1>
+</div>
+</div>
+</header>
+
+<section id="content">
+
+<div class="content-header">
+<div class="content-navigation">
+<ul class="content-navigation-list">
+<li><a href="index.html">基本モジュール</a></li>
+<li class="current"><a href="bc.html">ブロックコンテンツ</a></li>
+<li><a href="grid.html">グリッドシステム</a></li>
+</ul>
+</div>
+</div>
+
+<main id="content-main" class="block-content">
+<div class="container">
+<div class="col-9">
+
+<div class="notes">
+<p>設計資料はこちら</p>
+<span class="img-caption"><a target="_blank" href="//docs.google.com/spreadsheets/d/1ETbDiYe_s-ooJ7J88-p6aQhcEF_ZuQjap9fz6DFXO8M">[UNG] Tamago ブロックモジュール一覧 - Google スプレッドシート</a></span>
+</div>
+
+<h2 id="bc-subblock" class="_red">共通サブブロック</h2>
+
+
+<h3 id="bc-subblock-text" class="_red">テキストのみ</h3>
+<div class="_sample">
+<!-- サブセット start -->
+<div class="subchapter">
+
+<h3>%{サブタイトル}</h3> <!-- if サブタイトル設定時のみ出力 -->
+
+<!-- if 本文設定時のみ出力 -->
+<div>
+<div class="text">
+<!-- WYSIWYGの中身 -->
+<p>あのイーハトーヴォの<strong>すきとおった風</strong>、夏でも底に冷たさをもつ<a href="#">青いそら</a>、うつくしい森で飾られたモリーオ市<sup>※1</sup>、郊外のぎらぎらひかる草の CO<sub>2</sub>。<br>すきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+<p>夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+<!-- /WYSIWYGの中身 -->
+</div>
+</div>
+<!-- /end if 本文設定時のみ出力 -->
+
+</div>
+<!-- /サブセット end -->
+</div>
+
+<h3 id="bc-subblock-image-lr" class="_red">画像を使用(テキストの左/右)</h3>
+<div class="_sample">
+<!-- サブセット start -->
+<div class="subchapter">
+
+<h3>%{サブタイトル}</h3> <!-- if サブタイトル設定時のみ出力 -->
+
+<div class="media-left">                 <!-- if 配置:テキストの左 -->
+<!-- <div class="media-left fluid"> -->  <!-- if 配置:テキストの左(テキスト回り込み) -->
+<!-- <div class="media-right"> -->       <!-- if 配置:テキストの右 -->
+<!-- <div class="media-right fluid"> --> <!-- if 配置:テキストの右(テキスト回り込み) -->
+
+<!-- if 画像設定時のみ出力 -->
+<figure class="image">
+<img src="//placehold.it/160x100" alt="%{画像のalt}"> <!-- 画像のパスとAltテキストを出力 -->
+<strong class="img-title">%{画像のタイトル}</strong> <!-- if 画像タイトル設定時のみ出力 -->
+<figcaption class="img-caption">%{画像のキャプション}</figcaption> <!-- if 画像キャプション設定時のみ出力 -->
+</figure>
+<!-- /end if 画像設定時のみ出力 -->
+
+<!-- if 本文設定時のみ出力 -->
+<div class="text">
+<!-- WYSIWYGの中身 -->
+<p>あのイーハトーヴォの<strong>すきとおった風</strong>、夏でも底に冷たさをもつ<a href="#">青いそら</a>、うつくしい森で飾られたモリーオ市<sup>※1</sup>、郊外のぎらぎらひかる草の CO<sub>2</sub>。<br>すきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+<p>夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+<!-- /WYSIWYGの中身 -->
+</div>
+<!-- /end if 本文設定時のみ出力 -->
+
+</div>
+</div>
+<!-- /サブセット end -->
+</div>
+
+<h3 id="bc-subblock-image-tb" class="_red">画像を使用(テキストの上/下)</h3>
+<p class="notes _red">※ 画像レイアウトが「テキストの下」の場合は、<code>div.image</code>と<code>div.text</code>の出力順を逆にしてください。</p>
+<div class="_sample">
+<!-- サブセット start -->
+<div class="subchapter">
+
+<h3>%{サブタイトル}</h3> <!-- if サブタイトル設定時のみ出力 -->
+
+<!-- if 画像/本文のいずれかが設定時のみ出力 -->
+<div>
+<!-- if 画像設定時のみ出力 -->
+<figure class="image">
+<img src="//placehold.it/800x400" alt="%{画像のalt}"> <!-- 画像のパスとAltテキストを出力 -->
+<strong class="img-title">%{画像のタイトル}</strong> <!-- if 画像タイトル設定時のみ出力 -->
+<figcaption class="img-caption">%{画像のキャプション}</figcaption> <!-- if 画像キャプション設定時のみ出力 -->
+</figure>
+<!-- /end if 画像設定時のみ出力 -->
+<!-- if 本文設定時のみ出力 -->
+<div class="text">
+<!-- WYSIWYGの中身 -->
+<p>あのイーハトーヴォの<strong>すきとおった風</strong>、夏でも底に冷たさをもつ<a href="#">青いそら</a>、うつくしい森で飾られたうつくしい森で飾られたぎらぎらひかるモリーオ市<sup>※1</sup>、郊外のうつくしい森で飾られたぎらぎらひかるうつくしい森で飾られた草の CO<sub>2</sub>。<br>すきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+<p>夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+<!-- /WYSIWYGの中身 -->
+</div>
+<!-- /end if 本文設定時のみ出力 -->
+</div>
+<!-- /end if 画像/本文のいずれかが設定時のみ出力 -->
+
+</div>
+<!-- /サブセット end -->
+</div>
+
+<h3 id="bc-subblock-video" class="_red">動画を使用</h3>
+<p class="notes _red">※ 動画レイアウトが「テキストの下」の場合は、<code>div.video</code>と<code>div.text</code>の出力順を逆にしてください。</p>
+<div class="_sample">
+<!-- サブセット start -->
+<div class="subchapter">
+
+<h3>%{サブタイトル}</h3> <!-- if サブタイトル設定時のみ出力 -->
+
+<!-- if 動画/本文のいずれかが設定時のみ出力 -->
+<div>
+<!-- if 動画設定時のみ出力 -->
+<figure class="video">
+<div class="video-container">
+<!--- YouTube埋込コード -->
+<iframe
+  src="//www.youtube.com/embed/xZ7N-oAKRic?rel=0&showinfo=0&modestbranding=1&iv_load_policy=1"
+  frameborder="0"
+  allowfullscreen></iframe>
+<!--- /YouTube埋込コード -->
+</div>
+<figcaption class="video-title">%{動画のタイトル}</figcaption> <!-- if 動画タイトル設定時のみ出力 -->
+</figure>
+<!-- /end if 動画設定時のみ出力 -->
+
+<!-- if 本文設定時のみ出力 -->
+<div class="text">
+<!-- WYSIWYGの中身 -->
+<p>あのイーハトーヴォの<strong>すきとおった風</strong>、夏でも底に冷たさをもつ<a href="#">青いそら</a>、うつくしい森で飾られたうつくしい森で飾られたぎらぎらひかるモリーオ市<sup>※1</sup>、郊外のうつくしい森で飾られたぎらぎらひかるうつくしい森で飾られた草の CO<sub>2</sub>。<br>すきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+<p>夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+<!-- /WYSIWYGの中身 -->
+</div>
+<!-- /end if 本文設定時のみ出力 -->
+</div>
+<!-- /end if 動画/本文のいずれかが設定時のみ出力 -->
+
+
+</div>
+<!-- /サブセット end -->
+</div>
+<div class="notes">
+※YouTubeの埋め込みコードについて、<code>width</code>と<code>height</code>は指定しない。またデフォルトで下記パラメータを付与する。
+<ul class="list-ul">
+<li><code>rel=0</code> … 再生終了後関連動画を非表示</li>
+<li><code>showinfo=0</code> … タイトルバーを非表示</li>
+<li><code>modestbranding=1</code> … コントロールバー内Youtubeロゴ非表示</li>
+<li><code>iv_load_policy=1</code> … アノテーションを非表示</li>
+</ul>
+</div>
+
+
+<h2 id="bc-normal" class="_red">標準テキストブロック</h2>
+<div class="_sample">
+<div class="chapter bc-normal">
+<h2>%{ブロックタイトル}</h2> <!-- if ブロックタイトル設定時のみ出力 -->
+<!-- 共通サブブロック start -->
+<div class="subchapter">
+<h3>%{サブタイトル}</h3>
+<div class="media-left">
+<figure class="image">
+<img src="//placehold.it/160x100" alt="%{画像のalt}">
+<strong class="img-title">%{画像のタイトル}</strong>
+<figcaption class="img-caption">%{画像のキャプション}</figcaption>
+</figure>
+<div class="text">
+<p>あのイーハトーヴォの<strong>すきとおった風</strong>、夏でも底に冷たさをもつ<a href="#">青いそら</a>、うつくしい森で飾られたモリーオ市<sup>※1</sup>、郊外のぎらぎらひかる草の CO<sub>2</sub>。<br>すきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+<p>夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+</div>
+</div>
+</div>
+<!-- /共通サブブロック end -->
+</div>
+</div>
+
+
+<h2 id="bc-emphasize" class="_red">強調ボックス</h2>
+<div class="_sample">
+<div class="chapter box-bordered bc-emphasize">
+<!-- 共通サブブロック -->
+<div class="subchapter">
+<h3>%{サブタイトル}</h3>
+<div class="media-left">
+<figure class="image">
+<img src="//placehold.it/160x100" alt="%{画像のalt}">
+<strong class="img-title">%{画像のタイトル}</strong>
+<figcaption class="img-caption">%{画像のキャプション}</figcaption>
+</figure>
+<div class="text">
+<p>あのイーハトーヴォの<strong>すきとおった風</strong>、夏でも底に冷たさをもつ<a href="#">青いそら</a>、うつくしい森で飾られたモリーオ市<sup>※1</sup>、郊外のぎらぎらひかる草の CO<sub>2</sub>。<br>すきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+<p>夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+</div>
+</div>
+</div>
+<!-- /共通サブブロック -->
+</div>
+
+<!-- 7/22:ブロックタイトル(h2)を想定から外しました -->
+</div>
+
+
+<h2 id="bc-wysiwyg" class="_red">汎用WYSIWYG</h2>
+<p class="notes _red">※ TinyMCEで出力されるHTMLのためdivの入れ子やclass付与は考慮しない</p>
+<div class="_sample">
+<div class="chapter bc-wysiwyg">
+<!-- WYSIWYG -->
+<h2>見出し2を使用した場合</h2>
+<h3>見出し3を使用した場合</h3>
+<p>あのイーハトーヴォの<strong>すきとおった風</strong>、夏でも底に冷たさをもつ<a href="#">青いそら</a>、うつくしい森で飾られたモリーオ市<sup>※1</sup>、郊外のぎらぎらひかる草の CO<sub>2</sub>。<br>すきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+<ul>
+<li>箇条書きをつかった場合はclassなしのulが出力される。</li>
+<li>箇条書きをつかった場合</li>
+</ul>
+<ol>
+<li>番号つき箇条書きをつかった場合はclassなしのolが出力される。</li>
+<li>番号つき箇条書きをつかった場合</li>
+</ol>
+<table>
+<thead>
+<tr>
+<td>フォント種別</td>
+<td>必要なシステム構成</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Type</td>
+<td>
+・インテル Pentium III プロセッサ以降<br>
+・Windows Vista（Home Basic、Home Premium、Business、Ultimate）日本語版<br>
+・Windows 7（Home Premium、Professional、Enterprise、Ultimate）日本語版
+</td>
+</tr>
+<tr>
+<td>True Type</td>
+<td>
+・インテル Pentium III プロセッサ以降<br>
+・Windows Vista（Home Basic、Home Premium、Business、Ultimate）日本語版<br>
+・Windows 7（Home Premium、Professional、Enterprise、Ultimate）日本語版
+</td>
+</tr>
+</tbody>
+</table>
+<!-- /WYSIWYG -->
+</div>
+
+<!-- TODO: TinyMCEの機能をどこまで許可するか -->
+</div>
+
+
+<h2 id="bc-images-row" class="_red">複数画像ブロック</h2>
+
+<div class="_sample">
+<div class="chapter list-images bc-images-row">
+<!-- サブセット start -->
+<figure class="image">
+<img src="//placehold.it/300x200" alt="%{Altテキスト}">
+<strong class="img-title">%{画像のタイトル}</strong>
+<figcaption class="img-caption">%{画像のタイトル}</figcaption>
+</figure>
+<!-- /サブセット end -->
+<!-- サブセット start -->
+<figure class="image">
+<img src="//placehold.it/300x200" alt="%{Altテキスト}">
+<strong class="img-title">%{画像のタイトル}</strong>
+<figcaption class="img-caption">%{画像のタイトル}</figcaption>
+</figure>
+<!-- /サブセット end -->
+</div>
+
+</div>
+
+
+
+<h2 id="bc-footnotes" class="_red">脚注ブロック</h2>
+
+<div class="_sample">
+<ul class="chapter list-notes bc-footnotes">
+<!-- サブセット start -->
+<li>※ 米印もTamago上で入力する想定です。</li>
+<!-- /サブセット end -->
+<!-- サブセット start -->
+<li>※ 現状Tamago上の入力欄がinput[type="text"]なので太字やリンクは貼れない。</li>
+<!-- /サブセット end -->
+</ul>
+
+<!-- TODO: Greenの時のようにニュースサイト連携は気にしないのとので入力欄はTinyMCEでもよいのでは(優先度低) -->
+</div>
+
+
+
+<h2 id="bc-related-link" class="_red">関連リンクブロック</h2>
+
+<div class="_sample">
+<div class="chapter bc-related-link">
+<h2>関連リンク</h2> <!-- 固定文言(デフォルトでは非表示) -->
+<ul class="list-links">
+<!-- サブセット start -->
+<li><a href="//google.com">%{ページタイトル}</a></li>
+<!-- /サブセット end -->
+<!-- サブセット(新規タブtrue) start -->
+<li><a href="//google.com" target="_blank">%{ページタイトル}</a></li>
+<!-- /サブセット(新規タブtrue) end -->
+</ul>
+</div>
+</div>
+
+
+<h2 id="bc-attention" class="_red">注意文ボックス</h2>
+
+<div class="_sample">
+<div class="chapter box-attention bc-attention">
+<h3>%{セクションタイトル}</h3>
+<div class="text font-bold">
+<p>
+<!-- 本文(textarea入力値) start -->
+※ FD版New CIDフォント ATM製品は、2010年12月31日をもってサポートを終了いたしました。<br>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+<!-- /本文(textarea入力値) end -->
+</p>
+</div>
+</div>
+</div>
+
+
+<h2 id="bc-files-row" class="_red">複数ファイルダウンロード</h2>
+
+<div class="_sample subchapter">
+<ul class="bc-files-row">
+<li><a href="/path/to/file1.pdf" target="_blank">ファイルその１をダウンロード</a></li>
+<li><a href="/path/to/file2.pdf" target="_blank">二つ目のファイルをダウンロードするにはこちらをクリックしてください</a></li>
+</ul>
+</div>
+
+
+
+</div><!-- /.col -->
+
+<div class="col-3">
+<ul class="_sample-index list-ul">
+</ul>
+</div>
+
+</div><!-- /.container -->
+
+
+
+
+</main>
+
+</section>
+
+
+<footer id="global-footer">
+<div class="container">
+
+<div class="footer-sitemap row" role="navigation">
+
+<div class="col-3 col-sm-4">
+
+<ul class="fs-subcategory">
+<li><a href="/company/index.html">企業情報</a></li>
+<li><a href="/company/privacy.html">プライバシーポリシー</a></li>
+<li><a href="/company/disclaimer.html">免責事項</a></li>
+<li><a href="/company/staff.html">スタッフ募集</a></li>
+<li><a href="/company/contact.html">お問い合わせ</a></li>
+</ul>
+
+</div>
+<div class="col-3 col-sm-4">
+
+<ul class="fs-subcategory">
+<li><a href=" https://www4.489pro.com/asp/g/c/calendar.asp?kp=ooedo&_ga=1.125119754.1026636083.1449053504 " target="_blank">予約確認・変更・キャンセル</a></li>
+<li><a href="/bestrate.html">ベストレート</a></li>
+<li><a href="/facilities/bus.html">直行往復バス</a></li>
+<li><a href="/facilities/party.html">宴会プラン</a></li>
+</ul>
+
+</div>
+<div class="col-3 col-sm-4">
+
+<ul class="fs-subcategory">
+<li><a href="/iifuro/index.html">いいふろ会員</a></li>
+<li><a href="http://omoidemihon1.com/" target="_target">想い出見本市</a></li>
+<li><a href="http://shop.ooedoonsen.jp/" target="_blank">公式通販ショップ</a></li>
+</ul>
+
+</div>
+<div class="col-3 col-sm-12">
+
+<div class="fs-home"><a href="/index.html" target="_blank"><img src="/img/img_footer-logo.png" alt="大江戸温泉物語"></a></div>
+
+</div>
+</div>
+
+<div class="footer-utility" role="contentinfo">Copyright <img src="/img/ico-copyright.png" width="10" height="10" alt=""> Ooedo-Onsen-Monogatari Co.,Ltd.</div>
+
+</div>
+</footer>
+
+</body>
+</html>

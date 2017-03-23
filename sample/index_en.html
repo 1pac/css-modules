@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ja" id="guide">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="">
+<link rel="apple-touch-icon" href="">
+<title>SPA css-modules</title>
+<meta name="description" content="">
+
+<link rel="stylesheet" href="/common/css/base.css">
+<link rel="stylesheet" href="/common/css/module.css">
+
+<!-- only for gh-pages -->
+<link rel="stylesheet" href="css/sample.css">
+<link rel="stylesheet" href="js/lib/highlight.js/8.4/styles/solarized_light.min.css">
+<script src="js/lib/jquery-1.11.3.min.js"></script>
+<script src="js/lib/highlight.js/8.4/highlight.min.js"></script>
+<script src="js/sample.js"></script>
+<!-- /only for gh-pages -->
+
+</head>
+
+<body class="_module">
+
+<header id="global-header">
+<a class="skip-navigation" href="#content"><span>サイトメニューを読み飛ばして本文へ移動</span></a>
+<div class="global-navigation container">
+<div class="col">
+<h1>SPA css-modules</h1>
+</div>
+</div>
+</header>
+
+<section id="content">
+
+<div class="content-header">
+<div class="content-navigation">
+<ul class="content-navigation-list">
+<li class="current"><a href="index.html">Basic</a></li>
+<li><a href="bc.html">Block Content</a></li>
+<li><a href="grid.html">Grid</a></li>
+</ul>
+</div>
+</div>
+
+
+<main id="content-main">
+<div class="container">
+
+<h1 class="hidden">Basic Modules</h1>
+
+<div class="col-9">
+
+<h2 id="heading" class="hidden">Headings</h2>
+<section class="_sample">
+<h1>見出しレベル1</h1>
+<h2>見出しレベル2</h2>
+<h3>見出しレベル3</h3>
+<h4>見出しレベル4</h4>
+</section>
+<p class="notes">※ You don't need to use h5 and h6</p>
+
+<div class="chapter">
+<h2 id="structure">Content Structure</h2>
+<div class="subchapter">
+<p><strong>Article(page) → Chapter → Subchapter → Paragraph</strong> is the basic concept of text structure in pages.<br>
+"Chapter" is content groups which can be divided by <code>h2</code>, "Subchapter" is content groups which can be divided by <code>h3</code>.</p>
+<p>Using only heading elements (e.g. h2, h3) gives margin top and bottom, but when there is no title and you need to divide sections, please use these classes <code>.chapter</code>, <code>.subchapter</code>
+By using these classes, you can give vertical margin same as h2, h3</p>
+</div>
+<div class="subchapter">
+<div class="_sample _only-code">
+<div class="chapter"> <!-- Group which can be divided by h2 -->
+....
+<div class="subchapter"> <!-- Group which can be divided by h3 -->
+....
+</div>
+<div class="subchapter"> <!-- Group which can be divided by h3 -->
+....
+</div>
+</div>
+</div>
+<p>In the "TamagoCMS", there are concept of "Block" and "Sub-block", these are the same meaning as "chapter" and "subchapter".</p>
+</div>
+</div>
+
+
+<h2 id="text">Text</h2>
+<h3 id="text-style">Inline Styles</h3>
+<div class="_sample">
+<p>In the sentences, you can use a link by <code>a</code> , or make some part bold by <code>strong</code> or class <code>.font-bold</code> like <span class="font-bold">this</span>,
+emphasizing text by <code>em</code> like <em>this</em>, sup text by <code>sup</code> like <sup>※1</sup>, sub text by <code>sub</code> like CO<sub>2</sub>.
+attention text can be used by class <code>.attention</code> like <span class="attention">this</span>.</p>
+</div>
+
+<h3 id="text-hr">Horizon line</h3>
+<div class="_sample">
+<hr>
+</div>
+<p>When you divide visualy chpters.<br>
+But if the content is not actually divided and you just want to add border line just visually, please add <code>.border-top</code> class to <code>.chapter</code> instead of using <code>hr</code>.
+<div class="_sample">
+<div class="chapter border-top">
+<p>このチャプターブロックには上罫線が表示されている。</p>
+</div>
+</div>
+
+<h3 id="text-align">Text Align</h3>
+<div class="_sample">
+<p class="text-left">この文章は左寄せです。この文章は左寄せです。</p> <!-- you don't need this unless you must override  -->
+<p class="text-center">この文章は中央寄せです。この文章は中央寄せです。</p>
+<p class="text-right">この文章は右寄せです。この文章は右寄せです。</p>
+</div>
+
+<div class="subchapter">
+<p>md/sm表示になってもこの設定は受け継がれますが、下記のclassで個別化することが可能です。「.text-md-*」を指定すると、md表示以下でそのアラインになります。sm表示はこれを継承しますが、さらに個別化したい場合は「.text-sm-*」を指定します。</p>
+</div>
+<div class="_sample">
+<p class="text-center text-md-left">lg表示はセンター寄せ、md表示で左寄せ、(sm表示はmdと同じ)</p>
+<p class="text-right text-sm-left">lg表示は右寄せ、(md表示はlgと同じ)、sm表示は左寄せ</p>
+<p class="text-right text-md-center text-sm-left">lg表示は右寄せ、md表示は中央寄せ、sm表示は左寄せ</p>
+</div>
+
+
+
+<h2 id="list">Lists</h2>
+
+
+<h3 id="list-ul">Unordered List</h3>
+<div class="_sample">
+<ul class="list-ul">
+<li>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、<a href="#">うつくしい森</a>で飾られたモリーオ市、郊外のぎらぎらひかる草の波と夏でも底に冷たさをもつ青いそらと夏でも底に冷たさをもつ青いそら。</li>
+<li>すきとおった風は<strong>強調された文字</strong>のすきとおった風、夏でも底に冷たさをもつ青いそら。</li>
+</ul>
+</div>
+
+<h3 id="list-ol">Ordered List</h3>
+<div class="_sample">
+<ol>
+<li>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、<a href="#">うつくしい森</a>で飾られたモリーオ市。</li>
+<li>すきとおった風は<strong>強調された文字</strong>のすきとおった風、夏でも底に冷たさをもつ青いそら。</li>
+</ol>
+</div>
+
+<h3 id="list-inline">Inline List</h3>
+<div class="_sample">
+<ul class="list-inline">
+<li>イーハトーヴォ</li>
+<li>すきとおった風</li>
+<li>夏</li>
+<li>冷たさ</li>
+<li>青いそら</li>
+</ul>
+</div>
+
+<h3 id="list-notes">Note List</h3>
+<div class="_sample">
+<ul class="list-notes">
+<li>※1 あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、<a href="#">うつくしい森</a>で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</li>
+<li>※2 Lorem ipsum dolor sit amet, probo senserit molestiae ut quo, odio vide ipsum per id.</li>
+</ul>
+</div>
+
+<h3 id="list-links">Link List</h3>
+<div class="_sample">
+<ul class="list-links">
+<li><a href="#">詳細についてはこちらから</a></li>
+<li><a href="#">あのイーハトーヴォのすきとおった風</a></li>
+<li><a href="#">Lorem ipsum dolor sit amet, probo senserit molestiae ut quo.</li>
+</ul>
+</div>
+
+<h3 id="list-links-inline">Link List Inline</h3>
+<div class="_sample">
+<ul class="list-links-inline">
+<li><a href="#">テキストテキスト</a></li>
+<li><a href="#">テキスト</a></li>
+<li><a href="#">テキストテキスト</a></li>
+</ul>
+</div>
+<div class="_sample">
+<ul class="list-links-inline wide">
+<li><a href="#">テキストテキスト</a></li>
+<li><a href="#">テキスト</a></li>
+<li><a href="#">テキストテキスト</a></li>
+<li><a href="#">テキストテキスト</a></li>
+<li><a href="#">テキスト</a></li>
+</ul>
+</div>
+
+
+<h2 id="btn">Buttons</h2>
+
+<h3 id="btn-variation">Basic Button</h3>
+
+<div class="_sample subchapter">
+<a class="btn" href="#">デフォルトボタン</a>
+<a class="btn btn-blue" href="#">ブルーボタン</a>
+<a class="btn btn-light" href="#">グレーボタン</a>
+</div>
+
+<div class="_sample subchapter">
+<a class="btn btn-lg" href="#">デフォルトボタン(lg)</a>
+<a class="btn btn-blue btn-lg" href="#">ブルーボタン(lg)</a>
+<a class="btn btn-light btn-lg" href="#">グレーボタン(lg)</a>
+</div>
+
+<div class="_sample subchapter">
+<a class="btn btn-sm" href="#">デフォルトボタン(sm)</a>
+<a class="btn btn-blue btn-sm" href="#">ブルーボタン(sm)</a>
+<a class="btn btn-light btn-sm" href="#">グレーボタン(sm)</a>
+</div>
+
+<div class="_sample subchapter">
+<a class="btn disabled" href="#">Disable</a>
+</div>
+<p>※ When you use ".btn" for <code>input</code> element and want to make it disable, please use <code>disabled</code> attribute, instead of class.</p>
+
+<h3 id="btn-utilities">Utility</h3>
+<div class="_sample subchapter">
+<!-- display:inline-block, but full width -->
+<a class="btn btn-full" href="#">Button of 100% Wide</a>
+</div>
+<div class="_sample subchapter">
+<!-- display:block and full width  -->
+<a class="btn btn-block" href="#">Button of display:block;</a>
+</div>
+
+<p>These are the examples you put buttons in "col".</p>
+<div class="_sample _no-guide subchapter">
+<div class="container">
+<div class="col-4"><a class="btn btn-lg btn-block" href="#">ボタン</a></div>
+<div class="col-4"><a class="btn btn-lg btn-block" href="#">ボタン</a></div>
+<div class="col-4"><a class="btn btn-lg btn-block" href="#">ボタン</a></div>
+</div>
+</div>
+
+
+<h3 id="btn-ghost">Ghost Buttons</h3>
+<p>ゴーストボタン(背景透過になっているボタン)は下記クラスを使用ください。</p>
+<div class="_sample">
+<div class="subchapter text-center" style="background-color:#eee;padding:20px;">
+<a class="btn btn-lg btn-ghost-light">明るい背景の上のゴーストボタン</a>
+</div>
+</div>
+<div class="_sample">
+<div class="subchapter text-center" style="background-color:#000;padding:20px;">
+<a class="btn btn-lg btn-ghost-dark">暗い背景の上のゴーストボタン</a>
+</div>
+</div>
+
+<h2 id="link">Links</h2>
+
+<h3 id="link-external">External Links</h3>
+<p>You can use this class for showing external icon</p>
+<div class="_sample subchapter">
+<a href="#" class="link-external">外部サイトへのリンク</a>
+</div>
+
+<h3 id="link-to-all">See all link</h3>
+<p>メニュー一覧への遷移や、すべて見るという文脈で使用可能です。</p>
+<div class="_sample subchapter">
+<a href="#" class="link-to-all">すべて見る</a>
+</div>
+
+<h3 id="link-card">Card Link</h3>
+
+<div class="_sample _no-guide">
+<div class="container">
+<div class="col-6">
+<a href="#" class="link-card">
+<div class="image"><img src="//placehold.it/600x400" alt=""></div>
+<div class="text">
+<h3 class="title">カード</h3>
+<p class="description">画像がもともと少し暗くなっていて、hover/touch時にもとの明るさに戻るタイプ</p>
+</div>
+</a>
+</div>
+<div class="col-6">
+<a href="#" class="link-card light">
+<div class="image"><img src="//placehold.it/600x400" alt=""></div>
+<div class="text">
+<h3 class="title">カード(light)</h3>
+<p class="description">画像がもとの明るさで、hover/touch時に少し明るくなるタイプ</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+
+<!--
+<h3 id="tap-highlight">tap-highlight-colorの無効化</h3>
+<p>タッチデバイスのタッチ時にデバイスのハイライトカラー(<code>-webkit-tap-highlight-color</code>)が載るのを無効化したい場合に使用します。</p>
+<div class="_sample subchapter">
+<p><a href="#">このリンクはタップハイライトカラーがでます</a></p>
+<p><a href="#" class="tap-highlight">このリンクはタップハイライトカラーがでません</a></p>
+</div>
+<p>また、このクラスが付与された要素の<code>touchstart</code>で<code>touched</code>というclassが付与されます。(<code>touchend</code>または<code>touchend</code>でremoveClass)</p>
+<p>タップハイライトカラーを無効化した場合は、ユーザのタッチ操作に対するフィードバックをCSSで定義することが推奨されます。</p>
+<pre><code class="_code html">
+&lt;!-- 例 --&gt;
+&lt;a class="hoge" href="#"&gt;リンク&lt;/a&gt;
+</code></pre>
+<pre><code class="_code">
+.hoge {
+
+  &.touched {
+    //タッチ時のスタイル
+  }
+}
+</code></pre>
+<p>しかしiOS側の仕様で<code>touchstart</code>時に、その要素に当てられている<code>:hover</code>擬似クラスのスタイルが表示されてしまい、かつ<code>touchend</code>でこのスタイルが解除されず、意図通りのインタラクションが表現されない。</p>
+<p>この問題を解消するため、ポインターデバイス(PC)でのマウスオーバーと、タッチデバイスのタッチ中の見た目を互いの干渉なくなく両立させるために、下記のように記述してください。</p>
+<pre><code class="_code">
+.hoge {
+
+  &:hover {
+    //これだとiOSのタッチ中にも適応されてしまい、touchendで解除されない
+  }
+
+  html.pointer &:hover {
+    //継承を入れることでタッチデバイスには発火しない
+  }
+
+  html.touch &.touched {
+    //タッチデバイスでのみ発火するタッチ中のスタイル
+  }
+}
+</code></pre>
+<p>ポインターデバイス(<code>html.pointer</code>)内の<code>:hover</code>と、タッチデバイス(<code>html.pointer</code>)内の<code>.touched</code>に共通のスタイルを定義する場合は、下記のように<code>hover-and-touched</code>のmixinを使用可能です。</p>
+<pre><code class="_code css">
+/* SCSS */
+
+.hoge {
+  @include hover-and-touched() {
+    background-color: blue;
+  }
+}
+
+/* コンパイルされたCSS  */
+html.pointer .hoge:hover,
+html.touch   .hoge.touched {
+  background-color: blue;
+}
+</code></pre>
+<pre><code class="_code css">
+/* SCSS */
+.hoge {
+  @include hover() {
+    background-color: blue;
+  }
+}
+
+/* コンパイルされたCSS  */
+html.pointer .hoge:hover {
+  background-color: blue;
+}
+</code></pre>
+<pre><code class="_code css">
+/* SCSS */
+.hoge {
+  @include touched() {
+    background-color: blue;
+  }
+}
+
+/* コンパイルされたCSS  */
+html.touch .hoge.touched {
+  background-color: blue;
+}
+</code></pre>
+
+-->
+
+
+<h2 id="img">Images</h2>
+
+
+<h3 id="img-liquid">Image liquid width</h3>
+<p><code>.img-liquid</code>クラスを付与することで、親の横幅を超えないように <code>max-width:100%;</code>を指定することができます。</p>
+<div class="_sample">
+<img class="img-liquid" src="//placehold.it/800x300" alt=""> <!-- 親の幅を超えない -->
+</div>
+
+<h3 id="img-solid">Image solid width</h3>
+<p>逆に明示的に、親の幅に関わらず画像の元サイズや指定幅通りに表示する場合は、<code>.img-solid</code>をimg要素に指定します。この場合コンテンツエリアをはみ出して横スクロールが発生する可能性があることに留意ください。</p>
+<div class="_sample _only-code">
+<img class="img-solid" src="//placehold.it/800x300" alt=""> <!-- 親の幅に関わらず固定サイズで表示 -->
+</div>
+<p class="notes">※ 後述の<code>.scroll-container</code>内のimgはこの設定を継承しています。</p>
+
+
+<h3 id="img-caption">Caption</h3>
+
+<div class="_sample">
+<figure class="subchapter">
+<img class="img-liquid" src="//placehold.it/600x300" alt="">
+<strong class="img-title">画像のタイトル</strong>
+<figcaption class="img-caption">挿絵や図表、写真あるいはコードなどに対するキャプションがある場合はこのようにマークアップします。</figcaption>
+</figure>
+</div>
+
+<p>If it is not semantically figure, please use "div" and add class ".figure".</p>
+
+<div class="_sample _only-code">
+<div class="subchapter">
+<img class="img-liquid" src="//placehold.it/600x300" alt="">
+<p class="img-caption">あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+</div>
+</div>
+
+
+<!-- 扱い方がビミョウなので一旦OFF
+<h3 id="img-scaled">キャプションの幅を画像に合わせる場合<mark>draft</mark></h3>
+
+<p>画像の横幅がユニークで、キャプションの幅を画像と同じにする場合は画像とキャプションを内包する親に<code>.img-scaled</code>クラスを付与します。ただし元サイズや指定サイズがコンテンツエリアの横幅を超えることはありません。</p>
+
+<div class="sample">
+<div class="subchapter text-center">
+<figure class="img-scaled">
+<img src="//placehold.it/600x300" alt="">
+<figcaption class="img-caption">あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</figcaption>
+</figure>
+</div>
+</div>
+
+-->
+
+
+<div class="chapter">
+<h3>Overflow</h3>
+<p>図版や表組を小さいスクリーンサイズで横スクロールさせて見せる場合は、<br>
+imgタグを<code>.scroll-container</code>または<code>.scroll-container</code>で囲んでください。
+
+<div class="_sample">
+<figure class="subchapter">
+<div class="scroll-container">
+<img src="//placehold.it/600x300" alt="">
+</div>
+<figcaption class="img-caption">左右アキは保持したまま横スクロールする場合</figcaption>
+</figure>
+</div>
+
+<div class="_sample">
+<figure class="subchapter">
+<div class="scroll-container-full">
+<img src="//placehold.it/600x300" alt="">
+</div>
+<figcaption class="img-caption">左右を断ち切った表示で横スクロールする場合</figcaption>
+</figure>
+</div>
+</div>
+
+<!--
+<div class="chapter">
+<h3 id="img-replace">srcの置換</h3>
+<p>lg(md)表示と、sm表示とで画像ファイルそのものを出し分ける場合は、下記のように<code>.img-replace</code>クラスを付与してください。</p>
+<div class="subchapter">
+<img class="img-replace" src="#" data-src="/img/dummy/dummy_imgreplace_lg.png" alt="">
+</div>
+<pre><code class="_code html">
+&lt;img class="img-replace" src="#" data-src="/img/dummy/dummy_imgreplace_lg.png" alt=""&gt;
+</code></pre>
+<ul class="list-notes">
+<li>※ 必ず画像ファイル名末尾に、「_lg」「_sm」をつけ同じディレクトリに同じ拡張子で置いてください。</li>
+<li>※ <code>src</code>属性は空にせず、「#」を指定してください。</li>
+<li>※ <code>data-src</code>属性には、lg版の画像パスを指定しておいてください。</li>
+<li>※ md表示では、lg版の画像が表示されます。</li>
+</ul>
+</div>
+-->
+
+<h2 id="video">Video</h2>
+<div class="_sample">
+<figure class="video">
+<div class="video-container">
+<!--- YouTube埋込コード -->
+<iframe src="//www.youtube.com/embed/xZ7N-oAKRic?rel=0&showinfo=0&modestbranding=1&iv_load_policy=1" frameborder="0" allowfullscreen=""></iframe>
+<!--- /YouTube埋込コード -->
+</div>
+<figcaption class="video-title">%{動画のタイトル}</figcaption>
+</figure>
+</div>
+<div class="notes">
+※ <code>.video-container</code>is reset by 16:9, you can override this by using classes below:
+<ul class="list-ul">
+<li><code>&lt;div class="video-container aspect-16by10"&gt;</code> … 16:10</li>
+<li><code>&lt;div class="video-container aspect-4by3"&gt;</code> … 4:3</li>
+</ul>
+</div>
+<div class="notes">
+※ This is the basic rule of embedding YouTube. Don't use <code>width</code> and <code>height</code> in embed tag. src must be start with "//" (without http:). please add basic paramators below.<br>
+<ul class="list-ul">
+<li><code>rel=0</code> … Disabling showing related movies</li>
+<li><code>showinfo=0</code> … Hiding title bar</li>
+<li><code>modestbranding=1</code> … Hiding Youtube logo</li>
+<li><code>iv_load_policy=1</code> … Hiding annotaion</li>
+</ul>
+</div>
+
+
+
+
+<h2 id="media">Media</h2>
+
+<h3 id="media-left">Media left</h3>
+
+<div class="_sample">
+<div class="subchapter media-left">
+<div class="image">
+<img src="//placehold.it/240x160" alt="">
+<strong class="img-title">画像のタイトル</strong>
+<p class="img-caption">画像のキャプションキャプションキャプションキャプション</p>
+</div>
+<div class="text">
+<p>ことばを話すのは人間の本能だといわれています。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。</p>
+<p>文字は後天的に獲得するものです。小学校の国語の時間を思い出せば反論する人はいないと思いますが、識字率が高い日本にいるとつい忘れてしまいます。何もなく"読み書き"を手に入れた気になります。</p>
+<p>ことばを話すのは人間の本能だといわれています。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。</p>
+<p>文字は後天的に獲得するものです。小学校の国語の時間を思い出せば反論する人はいないと思いますが、識字率が高い日本にいるとつい忘れてしまいます。何もなく"読み書き"を手に入れた気になります。</p>
+</div>
+</div>
+</div>
+
+<h3 id="media-left-fluid">Media left (text fluid)</h3>
+
+<div class="_sample">
+<div class="subchapter media-left fluid">
+<div class="image">
+<img src="//placehold.it/240x160" alt="">
+<strong class="img-title">画像のタイトル</strong>
+<p class="img-caption">画像のキャプションキャプション</p>
+</div>
+<div class="text">
+<p>文字は後天的に獲得するものです。小学校の国語の時間を思い出せば反論する人はいないと思いますが、識字率が高い日本にいるとつい忘れてしまいます。何もなく"読み書き"を手に入れた気になります。</p>
+<p>ことばを話すのは人間の本能だといわれています。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。ことばを話すのは人間の本能だといわれています。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。ことばを話すのは人間の本能だといわれています。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。</p>
+</div>
+</div>
+</div>
+
+<h3 id="media-right">Media right</h3>
+
+<div class="_sample">
+<div class="subchapter media-right">
+<div class="image">
+<img src="//placehold.it/240x160" alt="">
+<strong class="img-title">画像のタイトル</strong>
+<p class="img-caption">画像のキャプションキャプションキャプションキャプション</p>
+</div>
+<div class="text">
+<p>ことばを話すのは人間の本能だといわれています。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。</p>
+<p>文字は後天的に獲得するものです。小学校の国語の時間を思い出せば反論する人はいないと思いますが、識字率が高い日本にいるとつい忘れてしまいます。何もなく"読み書き"を手に入れた気になります。</p>
+<p>ことばを話すのは人間の本能だといわれています。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。</p>
+<p>文字は後天的に獲得するものです。小学校の国語の時間を思い出せば反論する人はいないと思いますが、識字率が高い日本にいるとつい忘れてしまいます。何もなく"読み書き"を手に入れた気になります。</p>
+</div>
+</div>
+</div>
+
+
+<h3 id="media-right-fluid">Media right (text fluid)</h3>
+
+<div class="_sample">
+<div class="subchapter media-right fluid">
+<div class="image">
+<img src="//placehold.it/240x160" alt="">
+<strong class="img-title">画像のタイトル</strong>
+<p class="img-caption">画像のキャプションキャプション</p>
+</div>
+<div class="text">
+<p>文字は後天的に獲得するものです。小学校の国語の時間を思い出せば反論する人はいないと思いますが、識字率が高い日本にいるとつい忘れてしまいます。何もなく"読み書き"を手に入れた気になります。</p>
+<p>ことばを話すのは人間の本能だといわれています。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。ことばを話すのは人間の本能だといわれています。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。ことばを話すのは人間の本能だといわれています。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。</p>
+</div>
+</div>
+</div>
+
+
+
+<h3 id="media-not-sm">Cancelling media layout in "sm" view.</h3>
+
+<div class="_sample">
+<div class="subchapter media-left media-not-sm">
+<div class="image">
+<img src="//placehold.it/240x160" alt="">
+<strong class="img-title">画像のタイトル</strong>
+<p class="img-caption">画像のキャプションキャプション</p>
+</div>
+<div class="text">
+<p>文字は後天的に獲得するものです。小学校の国語の時間を思い出せば反論する人はいないと思いますが、識字率が高い日本にいるとつい忘れてしまいます。何もなく"読み書き"を手に入れた気になります。</p>
+<p>ことばを話すのは人間の本能だといわれています。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。ことばを話すのは人間の本能だといわれています。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。ことばを話すのは人間の本能だといわれています。本能ということは、異性に惹かれたり、食べられるものを嗅ぎわけたり、そういうことと同じだということです。だから、誰もがことばを使ってコミュニケーションします。しかし、それを文字に置き換えてやりとりできるかといえば、また話は違ってきます。文字を持たない無文字社会は、いまでもたくさんあります。</p>
+</div>
+</div>
+</div>
+
+
+
+<h2 id="box">Boxes</h2>
+<p>強調表現など本文を区別して見せるために<code>.box-*</code>クラスがあります。これらはデフォルトで<code>.subchapter</code>の上下アキを継承していますが、文脈に応じ<code>.chapter</code>を付与して使用することができます。
+
+<h3 id="box-bordered">ボーダーボックス</h3>
+<div class="_sample">
+<div class="box-bordered subchapter">
+<p>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+</div>
+</div>
+
+
+<h3 id="box-attention">注意文ボックス</h3>
+<div class="_sample">
+<div class="box-attention subchapter font-bold">
+<p>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。</p>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="form">Form</h2>
+
+<h3 id="input">Inputs</h3>
+<p>標準的な入力欄の見た目を得るには input要素に<code>.input</code>クラスを付与します。<code>.input</code>は最小幅を持ったinline-block要素です。</p>
+
+<div class="_sample subchapter">
+<input type="text" class="input" placeholder="テキスト">
+<input type="password" class="input" placeholder="パスワード">
+<input type="tel" class="input" placeholder="電話番号">
+<input type="url" class="input" placeholder="URL">
+<input type="email" class="input" placeholder="Email">
+<input type="number" class="input" placeholder="数字">
+
+<!-- TODO: textarea未対応 -->
+</div>
+
+<h3 id="input-utility">Utility</h3>
+<p><a href="#btn-utilities">.btn</a>のようにユーティリティclassを付与することで見た目をカスタマイズできます。</p>
+<div class="_sample">
+<input type="email" class="input input-lg" placeholder="大きな入力欄">
+</div>
+<div class="_sample">
+<input type="email" class="input input-sm" placeholder="小さな入力欄">
+</div>
+<div class="_sample">
+<input type="email" class="input input-block" placeholder="ブロック要素の入力欄">
+</div>
+
+
+</div>
+
+
+<div class="col-3">
+<ul class="_sample-index list-ul">
+</ul>
+</div>
+
+</div>
+</main>
+
+</section>
+
+
+<footer id="global-footer">
+<div class="container">
+
+<div class="footer-sitemap row" role="navigation">
+
+<div class="col-3 col-sm-4">
+
+<ul class="fs-subcategory">
+<li><a href="/company/index.html">企業情報</a></li>
+<li><a href="/company/privacy.html">プライバシーポリシー</a></li>
+<li><a href="/company/disclaimer.html">免責事項</a></li>
+<li><a href="/company/staff.html">スタッフ募集</a></li>
+<li><a href="/company/contact.html">お問い合わせ</a></li>
+</ul>
+
+</div>
+<div class="col-3 col-sm-4">
+
+<ul class="fs-subcategory">
+<li><a href=" https://www4.489pro.com/asp/g/c/calendar.asp?kp=ooedo&_ga=1.125119754.1026636083.1449053504 " target="_blank">予約確認・変更・キャンセル</a></li>
+<li><a href="/bestrate.html">ベストレート</a></li>
+<li><a href="/facilities/bus.html">直行往復バス</a></li>
+<li><a href="/facilities/party.html">宴会プラン</a></li>
+</ul>
+
+</div>
+<div class="col-3 col-sm-4">
+
+<ul class="fs-subcategory">
+<li><a href="/iifuro/index.html">いいふろ会員</a></li>
+<li><a href="http://omoidemihon1.com/" target="_target">想い出見本市</a></li>
+<li><a href="http://shop.ooedoonsen.jp/" target="_blank">公式通販ショップ</a></li>
+</ul>
+
+</div>
+<div class="col-3 col-sm-12">
+
+<div class="fs-home"><a href="/index.html" target="_blank"><img src="/img/img_footer-logo.png" alt="大江戸温泉物語"></a></div>
+
+</div>
+</div>
+
+<div class="footer-utility" role="contentinfo">Copyright <img src="/img/ico-copyright.png" width="10" height="10" alt=""> Ooedo-Onsen-Monogatari Co.,Ltd.</div>
+
+</div>
+</footer>
+
+</body>
+</html>
