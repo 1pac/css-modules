@@ -36,7 +36,7 @@ $ npm install
 The structure of scss assets is similar to SMACSS.
 but we don't use STATE layer in SMACSS, nor use "l-" "is-" prefix name rule.
 
-```scss
+```
 
 ├ frontend_src/               // asset root
 │   └ scss/
