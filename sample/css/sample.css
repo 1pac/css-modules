@@ -16,6 +16,7 @@ html:target {
   }
   */
 }
+
 html:target body::before, html:target body::after {
   pointer-events: none;
   display: block;
@@ -26,25 +27,30 @@ html:target body::before, html:target body::after {
   content: "";
   z-index: 9010;
 }
+
 html:target body::before {
   width: 1px;
   background: cyan;
 }
+
 @media screen and (min-width: 640px) and (max-width: 1031px) {
   html:target body::before {
     background: lime;
   }
 }
+
 @media screen and (max-width: 639px) {
   html:target body::before {
     background: hotpink;
   }
 }
+
 html:target body::after {
   outline: cyan 1px solid;
   width: 984px;
   margin-left: -492px;
 }
+
 @media screen and (min-width: 640px) and (max-width: 1031px) {
   html:target body::after {
     outline-color: lime;
@@ -52,6 +58,7 @@ html:target body::after {
     margin-left: calc(-50% + 12px + 12px);
   }
 }
+
 @media screen and (max-width: 639px) {
   html:target body::after {
     outline-color: hotpink;
@@ -59,6 +66,7 @@ html:target body::after {
     margin-left: calc(-50% + 20px + 5px);
   }
 }
+
 html:target::before {
   z-index: 9011;
   color: white;
@@ -71,11 +79,13 @@ html:target::before {
   content: attr(class);
   background: #00C0C0;
 }
+
 @media screen and (min-width: 640px) and (max-width: 1031px) {
   html:target::before {
     background: #38B63D;
   }
 }
+
 @media screen and (max-width: 639px) {
   html:target::before {
     background: #CE3D74;
@@ -92,6 +102,7 @@ h2._red {
   padding: 0 0.3em;
   margin-bottom: 0;
 }
+
 h2._red code {
   color: rgba(255, 0, 0, 0.8) !important;
   margin-left: 1em;
@@ -112,15 +123,19 @@ h3._red {
   color: #ccc;
   opacity: 0;
 }
-h2:hover ._heading-anchor, h3:hover ._heading-anchor {
+
+h2:hover ._heading-anchor,
+h3:hover ._heading-anchor {
   opacity: 1;
 }
+
 ._heading-anchor:hover, ._heading-anchor:focus {
   outline: none;
   opacity: 1;
   text-decoration: none;
   color: #4078c0;
 }
+
 ._heading-anchor::before {
   content: "¶";
   display: block;
@@ -132,6 +147,7 @@ h2:hover ._heading-anchor, h3:hover ._heading-anchor {
 ._bc-sample {
   position: relative;
 }
+
 ._bc-sample::after {
   color: red;
   position: absolute;
@@ -156,6 +172,7 @@ h2:hover ._heading-anchor, h3:hover ._heading-anchor {
   max-width: 732px;
   margin: 0 auto;
 }
+
 @media screen and (max-width: 1031px) {
   ._out-of-container pre {
     margin: 20px 25px;
@@ -163,6 +180,7 @@ h2:hover ._heading-anchor, h3:hover ._heading-anchor {
     max-width: 70%;
   }
 }
+
 @media screen and (max-width: 639px) {
   ._out-of-container pre {
     max-width: 100%;
@@ -175,6 +193,7 @@ html:target .container-full,
 ._sample:not(._no-guide) .container-full {
   outline: red 1px dotted;
 }
+
 html:target .container::after,
 html:target .container-full::after,
 ._sample:not(._no-guide) .container::after,
@@ -190,6 +209,7 @@ html:target .container-full::after,
   letter-spacing: normal;
   font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3" Meiryo, メイリオ, sans-serif !important;
 }
+
 html:target .container .row-no-gutter,
 html:target .container .row-md-no-gutter,
 html:target .container .row-sm-no-gutter,
@@ -205,6 +225,7 @@ html:target .container-full .row-sm-no-gutter,
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
 html:target .row::after,
 ._sample:not(._no-guide) .row::after {
   color: blue;
@@ -218,16 +239,21 @@ html:target .row::after,
   letter-spacing: normal;
   font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3" Meiryo, メイリオ, sans-serif !important;
 }
-.row + html:target .row, .col + html:target .row, .row +
-._sample:not(._no-guide) .row, .col +
+
+.row + html:target .row,
+.col + html:target .row, .row +
+._sample:not(._no-guide) .row,
+.col +
 ._sample:not(._no-guide) .row {
   border-top: dotted 1px blue;
 }
+
 html:target .col,
 ._sample:not(._no-guide) .col {
   background: rgba(69, 142, 153, 0.18);
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), inset 12px 0 0 0 rgba(255, 255, 255, 0.8), inset -12px 0 0 0 rgba(255, 255, 255, 0.8);
 }
+
 html:target .col::after,
 ._sample:not(._no-guide) .col::after {
   color: rgba(0, 0, 0, 0.7);
@@ -241,21 +267,25 @@ html:target .col::after,
   letter-spacing: normal;
   font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3" Meiryo, メイリオ, sans-serif !important;
 }
+
 html:target .row-wide-gutter .col,
 ._sample:not(._no-guide) .row-wide-gutter .col {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), inset 24px 0 0 0 rgba(255, 255, 255, 0.8), inset -24px 0 0 0 rgba(255, 255, 255, 0.8);
 }
+
 @media screen and (max-width: 639px) {
   html:target .row-wide-gutter .col,
   ._sample:not(._no-guide) .row-wide-gutter .col {
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), inset 10px 0 0 0 rgba(255, 255, 255, 0.8), inset -10px 0 0 0 rgba(255, 255, 255, 0.8);
   }
 }
+
 html:target .row-no-gutter .col,
 ._sample:not(._no-guide) .row-no-gutter .col {
   -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
+
 @media screen and (min-width: 640px) and (max-width: 1031px) {
   html:target .col,
   ._sample:not(._no-guide) .col {
@@ -271,6 +301,7 @@ html:target .row-no-gutter .col,
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
   }
 }
+
 @media screen and (max-width: 639px) {
   html:target .col,
   ._sample:not(._no-guide) .col {
@@ -311,15 +342,18 @@ html:target .row-no-gutter .col,
   overflow: hidden;
   position: relative;
 }
+
 ._review ._review-img {
   width: 100%;
 }
+
 @media screen and (min-width: 640px) and (max-width: 1031px) {
   ._review ._review-img {
     width: 123.12%;
     margin-left: calc(-14.1% + 24px);
   }
 }
+
 @media screen and (min-width: 1032px) {
   ._review ._review-img {
     width: 1280px;
@@ -329,6 +363,7 @@ html:target .row-no-gutter .col,
     position: relative;
   }
 }
+
 ._review ._review-img img {
   display: block;
   width: 100%;
@@ -337,6 +372,7 @@ html:target .row-no-gutter .col,
 html:target body:not(._module) *[class^="_"] {
   outline: rgba(255, 0, 0, 0.5) 4px solid;
 }
+
 html:target body:not(._module) *[class^="_"]::before {
   content: attr(class);
   top: -15px;
@@ -347,6 +383,7 @@ html:target body:not(._module) *[class^="_"]::before {
   z-index: 9010;
   font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3" Meiryo, メイリオ, sans-serif !important;
 }
+
 html:target body:not(._module) *[class^="_"]::after {
   content: "【注意】「_」から始まるclassが残っています";
   font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3" Meiryo, メイリオ, sans-serif !important;
@@ -360,12 +397,14 @@ html:target body:not(._module) *[class^="_"]::after {
   padding: .2em .5em;
   z-index: 9010;
 }
+
 html:target body:not(._module) a[href=""],
 html:target body:not(._module) a[href="DUMMY"],
 html:target body:not(._module) a[href="dummy"],
 html:target body:not(._module) a[href="dummy"] {
   outline: rgba(255, 0, 0, 0.5) 4px solid;
 }
+
 html:target body:not(._module) a[href=""]::before,
 html:target body:not(._module) a[href="DUMMY"]::before,
 html:target body:not(._module) a[href="dummy"]::before,
@@ -379,6 +418,7 @@ html:target body:not(._module) a[href="dummy"]::before {
   z-index: 9010;
   font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3" Meiryo, メイリオ, sans-serif !important;
 }
+
 html:target body:not(._module) a[href=""]::after,
 html:target body:not(._module) a[href="DUMMY"]::after,
 html:target body:not(._module) a[href="dummy"]::after,
@@ -427,6 +467,7 @@ html:target body:not(._module) a[href="dummy"]::after {
   outline: red 2px solid;
   background-color: rgba(69, 142, 153, 0.1);
 }
+
 #content:target .bc-normal::after,
 #content:target .bc-attention::after,
 #content:target .bc-emphasize::after,
@@ -451,6 +492,7 @@ html:target body:not(._module) a[href="dummy"]::after {
   letter-spacing: normal;
   font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3" Meiryo, メイリオ, sans-serif !important;
 }
+
 #content:target .bc-normal::after,
 #content:target .bc-attention::after,
 #content:target .bc-emphasize::after,
@@ -465,8 +507,9 @@ html:target body:not(._module) a[href="dummy"]::after {
 #content:target .bc-voices-header::after,
 #content:target .bc-voices-footer::after {
   background-color: rgba(255, 0, 0, 0.8);
-  padding: 0 0.5em;
+  padding: 0 .5em;
 }
+
 #content:target .bc-normal .subchapter,
 #content:target .bc-attention .subchapter,
 #content:target .bc-emphasize .subchapter,
@@ -484,6 +527,7 @@ html:target body:not(._module) a[href="dummy"]::after {
   outline: blue 1px dotted;
   background-color: rgba(69, 142, 153, 0.1);
 }
+
 #content:target .bc-normal .subchapter::after,
 #content:target .bc-attention .subchapter::after,
 #content:target .bc-emphasize .subchapter::after,
@@ -508,6 +552,7 @@ html:target body:not(._module) a[href="dummy"]::after {
   letter-spacing: normal;
   font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3" Meiryo, メイリオ, sans-serif !important;
 }
+
 #content:target .bc-normal .subchapter::after,
 #content:target .bc-attention .subchapter::after,
 #content:target .bc-emphasize .subchapter::after,
@@ -522,8 +567,9 @@ html:target body:not(._module) a[href="dummy"]::after {
 #content:target .bc-voices-header .subchapter::after,
 #content:target .bc-voices-footer .subchapter::after {
   background-color: rgba(0, 0, 255, 0.8);
-  padding: 0 0.5em;
+  padding: 0 .5em;
 }
+
 #content:target .bc-wysiwyg {
   overflow: initial;
 }
@@ -543,7 +589,9 @@ code {
   background-color: #f5f5f5;
   border-radius: 4px;
 }
-p code, li code {
+
+p code,
+li code {
   margin: 0 2px;
 }
 
@@ -555,6 +603,7 @@ kbd {
   border-radius: 2px;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
+
 kbd kbd {
   padding: 0;
   font-size: 100%;
@@ -589,23 +638,30 @@ kbd kbd {
   }
   */
 }
-.row + ._code, .col + ._code {
+
+.row + ._code,
+.col + ._code {
   max-width: 984px;
   margin-left: auto;
   margin-right: auto;
 }
+
 @media screen and (min-width: 640px) and (max-width: 1031px) {
-  .row + ._code, .col + ._code {
+  .row + ._code,
+  .col + ._code {
     margin-left: 12px;
     margin-right: 12px;
   }
 }
+
 @media screen and (max-width: 639px) {
-  .row + ._code, .col + ._code {
+  .row + ._code,
+  .col + ._code {
     margin-left: 5px;
     margin-right: 5px;
   }
 }
+
 ._code code {
   padding: 0;
   font-size: 12px;
@@ -657,6 +713,7 @@ kbd kbd {
   background: rgba(0, 0, 0, 0.6);
   z-index: 9010;
 }
+
 ._code-toggle-label:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
@@ -668,15 +725,18 @@ kbd kbd {
   bottom: 8px;
   z-index: 9011;
 }
+
 @media screen and (max-width: 639px) {
   ._code-toggle {
     left: 6px;
     bottom: 4px;
   }
 }
+
 ._code-toggle + #content-main ._sample pre {
   display: none;
 }
+
 ._code-toggle:checked + #content-main ._sample pre {
   display: block;
 }

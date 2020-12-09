@@ -3,12 +3,8 @@
 // グリッドシステム
 //
 @mixin container() {
-  //@include box-sizing(border-box);
   max-height: 100%;
-  //font-size: 0.0001px;   // TODO: Android 4.0.4 対策：ちょっと危ない
-  //letter-spacing: -10px; // TODO: Android 4.0.4 対策：ちょっと危ない
-  font-size: 0.000001px;
-  letter-spacing: -.4em;
+  letter-spacing: -5px;
   margin: 0 auto;
   width: auto;
   max-width: $container-width + ($container-padding-side * 2); // 1008 + (8*2) = 1024
